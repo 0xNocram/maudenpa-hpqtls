@@ -1,0 +1,2346 @@
+Thu Nov 20 05:21:34 PM CET 2025
+
+		     \||||||||||||||||||/
+		   --- Welcome to Maude ---
+		     /||||||||||||||||||\
+	    Maude 3.5.1 built: Jul 16 2025 12:00:00
+	     Copyright 1997-2025 SRI International
+		   Thu Nov 20 17:21:34 2025
+Advisory: "maude-npa.maude", line 14352 (fmod BACK-NARROWING): all the
+    variables in the left-hand side of assignment condition fragment M:Msg :=
+    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
+    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M':Msg))))
+    are bound before the matching takes place.
+Advisory: "maude-npa.maude", line 14376 (fmod BACK-NARROWING): all the
+    variables in the left-hand side of assignment condition fragment M:Msg :=
+    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
+    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M':Msg))))
+    are bound before the matching takes place.
+Advisory: "maude-npa.maude", line 14392 (fmod BACK-NARROWING): all the
+    variables in the left-hand side of assignment condition fragment M:Msg :=
+    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
+    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M:Msg))))
+    are bound before the matching takes place.
+
+	    Maude-NPA Version: 3.1.4 (June 2nd 2020)
+	    with direct composition, irreducibility constraints and time
+	    (To be run with Maude 3.0 or above)
+	    Copyright (c) 2020, University of Illinois
+	    All rights reserved.
+
+ Commands:
+ red unification? .           returns the unification algorithm to be used
+ red new-strands? .           returns the actual protocol strands
+ red displayGrammars .        for generating grammars
+ red run(X,Y).                for Y backwards analysis steps for attack pattern
+    X
+ red debug(X,Y).              more information than run command
+ red digest(X,Y).             less information than run command
+ red summary(X,Y).            for summary of analysis steps
+ red ids(X,Y).                for set of state ids
+ red initials(X,Y).           for showing only initial steps
+==========================================
+reduce in MAUDE-NPA : summary(100, 0) .
+rewrites: 19769597 in 5744ms cpu (5742ms real) (3441782 rewrites/second)
+result Summary: States>> 1 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(100, 1) .
+rewrites: 6926341 in 1440ms cpu (1439ms real) (4809959 rewrites/second)
+result Summary: States>> 3 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(100, 2) .
+rewrites: 20731821 in 3448ms cpu (3445ms real) (6012709 rewrites/second)
+result Summary: States>> 5 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(100, 3) .
+rewrites: 52345522 in 8592ms cpu (8591ms real) (6092355 rewrites/second)
+result Summary: States>> 10 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(100, 4) .
+rewrites: 190380772 in 32024ms cpu (32022ms real) (5944940 rewrites/second)
+result Summary: States>> 24 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(100, 5) .
+rewrites: 784414867 in 137108ms cpu (137109ms real) (5721145 rewrites/second)
+result Summary: States>> 50 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(100, 6) .
+rewrites: 2841095338 in 522096ms cpu (522096ms real) (5441710 rewrites/second)
+result Summary: States>> 95 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(100, 7) .
+rewrites: 7957033936 in 1561064ms cpu (1561067ms real) (5097186
+    rewrites/second)
+result Summary: States>> 163 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(100, 7) .
+rewrites: 7476 in 0ms cpu (2ms real) (~ rewrites/second)
+result ShortIdSystem: < 1 . 2 . 1 . 1 . 2 . 2 . 2 . 1 > (
+:: #1:Fresh, #2:Fresh, #0:Fresh ::
+[ nil | 
+   +(clienthello(n(alice, #0:Fresh))), 
+   -(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+   -(servercertificate(cer(bob))), 
+   -(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+   +(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+   +(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+   -(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), nil]  & 
+:: #3:Fresh, #4:Fresh, #5:Fresh, #6:Fresh ::
+[ nil | 
+   -(clienthello(n(alice, #0:Fresh))), 
+   +(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+   +(servercertificate(cer(bob))), 
+   +(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+   -(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+   -(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+   +(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), nil] )
+| 
+clienthello(n(alice, #0:Fresh)) !inI,
+servercertificate(cer(bob)) !inI,
+clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))))) !inI,
+serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))))))))) !inI,
+serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))) !inI,
+clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))) !inI,
+serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(
+    bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh))) !inI
+| 
++(clienthello(n(alice, #0:Fresh))), 
+-(clienthello(n(alice, #0:Fresh))), 
++(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
++(servercertificate(cer(bob))), 
++(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+-(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+-(servercertificate(cer(bob))), 
+-(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
++(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
++(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+-(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+-(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
++(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), 
+-(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))))))))))
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(100, 8) .
+rewrites: 19824697390 in 4013288ms cpu (4013290ms real) (4939764
+    rewrites/second)
+result Summary: States>> 261 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(100, 8) .
+rewrites: 13564 in 8ms cpu (5ms real) (1695500 rewrites/second)
+result ShortIdSystem: < 1 . 2 . 1 . 1 . 2 . 2 . 2 . 1 > (
+:: #1:Fresh, #2:Fresh, #0:Fresh ::
+[ nil | 
+   +(clienthello(n(alice, #0:Fresh))), 
+   -(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+   -(servercertificate(cer(bob))), 
+   -(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+   +(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+   +(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+   -(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), nil]  & 
+:: #3:Fresh, #4:Fresh, #5:Fresh, #6:Fresh ::
+[ nil | 
+   -(clienthello(n(alice, #0:Fresh))), 
+   +(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+   +(servercertificate(cer(bob))), 
+   +(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+   -(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+   -(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+   +(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), nil] )
+| 
+clienthello(n(alice, #0:Fresh)) !inI,
+servercertificate(cer(bob)) !inI,
+clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))))) !inI,
+serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))))))))) !inI,
+serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))) !inI,
+clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))) !inI,
+serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(
+    bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh))) !inI
+| 
++(clienthello(n(alice, #0:Fresh))), 
+-(clienthello(n(alice, #0:Fresh))), 
++(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
++(servercertificate(cer(bob))), 
++(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+-(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+-(servercertificate(cer(bob))), 
+-(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
++(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
++(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+-(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+-(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
++(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), 
+-(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))))))))))
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(100, 9) .
+rewrites: 51067861759 in 10598728ms cpu (10598730ms real) (4818301
+    rewrites/second)
+result Summary: States>> 409 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(100, 9) .
+rewrites: 23683 in 8ms cpu (9ms real) (2960375 rewrites/second)
+result ShortIdSystem: < 1 . 2 . 1 . 1 . 2 . 2 . 2 . 1 > (
+:: #1:Fresh, #2:Fresh, #0:Fresh ::
+[ nil | 
+   +(clienthello(n(alice, #0:Fresh))), 
+   -(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+   -(servercertificate(cer(bob))), 
+   -(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+   +(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+   +(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+   -(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), nil]  & 
+:: #3:Fresh, #4:Fresh, #5:Fresh, #6:Fresh ::
+[ nil | 
+   -(clienthello(n(alice, #0:Fresh))), 
+   +(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+   +(servercertificate(cer(bob))), 
+   +(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+   -(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+   -(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+   +(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), nil] )
+| 
+clienthello(n(alice, #0:Fresh)) !inI,
+servercertificate(cer(bob)) !inI,
+clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))))) !inI,
+serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))))))))) !inI,
+serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))) !inI,
+clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))) !inI,
+serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(
+    bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh))) !inI
+| 
++(clienthello(n(alice, #0:Fresh))), 
+-(clienthello(n(alice, #0:Fresh))), 
++(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
++(servercertificate(cer(bob))), 
++(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+-(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+-(servercertificate(cer(bob))), 
+-(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
++(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
++(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+-(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+-(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
++(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), 
+-(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))))))))))
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(100, 10) .
+rewrites: 114691524137 in 24796876ms cpu (24796877ms real) (4625240
+    rewrites/second)
+result Summary: States>> 550 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(100, 10) .
+rewrites: 37364 in 16ms cpu (16ms real) (2335250 rewrites/second)
+result ShortIdSystem: < 1 . 2 . 1 . 1 . 2 . 2 . 2 . 1 > (
+:: #1:Fresh, #2:Fresh, #0:Fresh ::
+[ nil | 
+   +(clienthello(n(alice, #0:Fresh))), 
+   -(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+   -(servercertificate(cer(bob))), 
+   -(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+   +(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+   +(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+   -(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), nil]  & 
+:: #3:Fresh, #4:Fresh, #5:Fresh, #6:Fresh ::
+[ nil | 
+   -(clienthello(n(alice, #0:Fresh))), 
+   +(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+   +(servercertificate(cer(bob))), 
+   +(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+   -(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+   -(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+   +(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), nil] )
+| 
+clienthello(n(alice, #0:Fresh)) !inI,
+servercertificate(cer(bob)) !inI,
+clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))))) !inI,
+serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))))))))) !inI,
+serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))) !inI,
+clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))) !inI,
+serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(
+    bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh))) !inI
+| 
++(clienthello(n(alice, #0:Fresh))), 
+-(clienthello(n(alice, #0:Fresh))), 
++(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
++(servercertificate(cer(bob))), 
++(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+-(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+-(servercertificate(cer(bob))), 
+-(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
++(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
++(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+-(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+-(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
++(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), 
+-(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))))))))))
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(100, 11) .
+rewrites: 165228188314 in 33745752ms cpu (33745765ms real) (4896266
+    rewrites/second)
+result Summary: States>> 550 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(100, 11) .
+rewrites: 49954 in 36ms cpu (34ms real) (1387611 rewrites/second)
+result ShortIdSystem: < 1 . 2 . 1 . 1 . 2 . 2 . 2 . 1 > (
+:: #1:Fresh, #2:Fresh, #0:Fresh ::
+[ nil | 
+   +(clienthello(n(alice, #0:Fresh))), 
+   -(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+   -(servercertificate(cer(bob))), 
+   -(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+   +(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+   +(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+   -(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), nil]  & 
+:: #3:Fresh, #4:Fresh, #5:Fresh, #6:Fresh ::
+[ nil | 
+   -(clienthello(n(alice, #0:Fresh))), 
+   +(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+   +(servercertificate(cer(bob))), 
+   +(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+   -(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+   -(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+   +(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), nil] )
+| 
+clienthello(n(alice, #0:Fresh)) !inI,
+servercertificate(cer(bob)) !inI,
+clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))))) !inI,
+serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))))))))) !inI,
+serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))) !inI,
+clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))) !inI,
+serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(
+    bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh))) !inI
+| 
++(clienthello(n(alice, #0:Fresh))), 
+-(clienthello(n(alice, #0:Fresh))), 
++(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
++(servercertificate(cer(bob))), 
++(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+-(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+-(servercertificate(cer(bob))), 
+-(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
++(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
++(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+-(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+-(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
++(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), 
+-(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))))))))))
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(100, 12) .
+rewrites: 132562822326 in 29857624ms cpu (29857622ms real) (4439831
+    rewrites/second)
+result Summary: States>> 388 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(100, 12) .
+rewrites: 57084 in 52ms cpu (53ms real) (1097769 rewrites/second)
+result ShortIdSystem: < 1 . 2 . 1 . 1 . 2 . 2 . 2 . 1 > (
+:: #1:Fresh, #2:Fresh, #0:Fresh ::
+[ nil | 
+   +(clienthello(n(alice, #0:Fresh))), 
+   -(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+   -(servercertificate(cer(bob))), 
+   -(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+   +(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+   +(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+   -(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), nil]  & 
+:: #3:Fresh, #4:Fresh, #5:Fresh, #6:Fresh ::
+[ nil | 
+   -(clienthello(n(alice, #0:Fresh))), 
+   +(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+   +(servercertificate(cer(bob))), 
+   +(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+   -(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+   -(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+   +(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), nil] )
+| 
+clienthello(n(alice, #0:Fresh)) !inI,
+servercertificate(cer(bob)) !inI,
+clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))))) !inI,
+serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))))))))) !inI,
+serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))) !inI,
+clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))) !inI,
+serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(
+    bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh))) !inI
+| 
++(clienthello(n(alice, #0:Fresh))), 
+-(clienthello(n(alice, #0:Fresh))), 
++(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
++(servercertificate(cer(bob))), 
++(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+-(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+-(servercertificate(cer(bob))), 
+-(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
++(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
++(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+-(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+-(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
++(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), 
+-(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))))))))))
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(100, 13) .
+rewrites: 61981860589 in 19965628ms cpu (19965625ms real) (3104428
+    rewrites/second)
+result Summary: States>> 192 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(100, 13) .
+rewrites: 59102 in 124ms cpu (124ms real) (476629 rewrites/second)
+result ShortIdSystem: < 1 . 2 . 1 . 1 . 2 . 2 . 2 . 1 > (
+:: #1:Fresh, #2:Fresh, #0:Fresh ::
+[ nil | 
+   +(clienthello(n(alice, #0:Fresh))), 
+   -(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+   -(servercertificate(cer(bob))), 
+   -(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+   +(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+   +(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+   -(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), nil]  & 
+:: #3:Fresh, #4:Fresh, #5:Fresh, #6:Fresh ::
+[ nil | 
+   -(clienthello(n(alice, #0:Fresh))), 
+   +(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+   +(servercertificate(cer(bob))), 
+   +(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+   -(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+   -(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+   +(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), nil] )
+| 
+clienthello(n(alice, #0:Fresh)) !inI,
+servercertificate(cer(bob)) !inI,
+clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))))) !inI,
+serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))))))))) !inI,
+serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))) !inI,
+clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))) !inI,
+serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(
+    bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh))) !inI
+| 
++(clienthello(n(alice, #0:Fresh))), 
+-(clienthello(n(alice, #0:Fresh))), 
++(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
++(servercertificate(cer(bob))), 
++(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+-(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+-(servercertificate(cer(bob))), 
+-(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
++(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
++(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+-(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+-(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
++(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), 
+-(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))))))))))
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(100, 14) .
+rewrites: 17732135123 in 6229996ms cpu (6229993ms real) (2846251
+    rewrites/second)
+result Summary: States>> 65 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(100, 14) .
+rewrites: 58859 in 68ms cpu (68ms real) (865573 rewrites/second)
+result ShortIdSystem: < 1 . 2 . 1 . 1 . 2 . 2 . 2 . 1 > (
+:: #1:Fresh, #2:Fresh, #0:Fresh ::
+[ nil | 
+   +(clienthello(n(alice, #0:Fresh))), 
+   -(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+   -(servercertificate(cer(bob))), 
+   -(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+   +(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+   +(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+   -(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), nil]  & 
+:: #3:Fresh, #4:Fresh, #5:Fresh, #6:Fresh ::
+[ nil | 
+   -(clienthello(n(alice, #0:Fresh))), 
+   +(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+   +(servercertificate(cer(bob))), 
+   +(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+   -(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+   -(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+   +(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), nil] )
+| 
+clienthello(n(alice, #0:Fresh)) !inI,
+servercertificate(cer(bob)) !inI,
+clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))))) !inI,
+serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))))))))) !inI,
+serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))) !inI,
+clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))) !inI,
+serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(
+    bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh))) !inI
+| 
++(clienthello(n(alice, #0:Fresh))), 
+-(clienthello(n(alice, #0:Fresh))), 
++(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
++(servercertificate(cer(bob))), 
++(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+-(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+-(servercertificate(cer(bob))), 
+-(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
++(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
++(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+-(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+-(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
++(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), 
+-(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))))))))))
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(100, 15) .
+rewrites: 4575119600 in 1400312ms cpu (1400311ms real) (3267214
+    rewrites/second)
+result Summary: States>> 15 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(100, 15) .
+rewrites: 58424 in 72ms cpu (71ms real) (811444 rewrites/second)
+result ShortIdSystem: < 1 . 2 . 1 . 1 . 2 . 2 . 2 . 1 > (
+:: #1:Fresh, #2:Fresh, #0:Fresh ::
+[ nil | 
+   +(clienthello(n(alice, #0:Fresh))), 
+   -(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+   -(servercertificate(cer(bob))), 
+   -(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+   +(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+   +(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+   -(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), nil]  & 
+:: #3:Fresh, #4:Fresh, #5:Fresh, #6:Fresh ::
+[ nil | 
+   -(clienthello(n(alice, #0:Fresh))), 
+   +(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+   +(servercertificate(cer(bob))), 
+   +(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+   -(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+   -(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+   +(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), nil] )
+| 
+clienthello(n(alice, #0:Fresh)) !inI,
+servercertificate(cer(bob)) !inI,
+clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))))) !inI,
+serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))))))))) !inI,
+serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))) !inI,
+clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))) !inI,
+serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(
+    bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh))) !inI
+| 
++(clienthello(n(alice, #0:Fresh))), 
+-(clienthello(n(alice, #0:Fresh))), 
++(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
++(servercertificate(cer(bob))), 
++(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+-(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+-(servercertificate(cer(bob))), 
+-(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
++(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
++(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+-(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+-(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
++(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), 
+-(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))))))))))
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(100, 16) .
+rewrites: 894404628 in 316880ms cpu (316880ms real) (2822534 rewrites/second)
+result Summary: States>> 3 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(100, 16) .
+rewrites: 58272 in 104ms cpu (103ms real) (560307 rewrites/second)
+result ShortIdSystem: < 1 . 2 . 1 . 1 . 2 . 2 . 2 . 1 > (
+:: #1:Fresh, #2:Fresh, #0:Fresh ::
+[ nil | 
+   +(clienthello(n(alice, #0:Fresh))), 
+   -(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+   -(servercertificate(cer(bob))), 
+   -(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+   +(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+   +(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+   -(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), nil]  & 
+:: #3:Fresh, #4:Fresh, #5:Fresh, #6:Fresh ::
+[ nil | 
+   -(clienthello(n(alice, #0:Fresh))), 
+   +(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+   +(servercertificate(cer(bob))), 
+   +(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+   -(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+   -(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+   +(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), nil] )
+| 
+clienthello(n(alice, #0:Fresh)) !inI,
+servercertificate(cer(bob)) !inI,
+clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))))) !inI,
+serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))))))))) !inI,
+serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))) !inI,
+clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))) !inI,
+serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(
+    bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh))) !inI
+| 
++(clienthello(n(alice, #0:Fresh))), 
+-(clienthello(n(alice, #0:Fresh))), 
++(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
++(servercertificate(cer(bob))), 
++(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+-(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+-(servercertificate(cer(bob))), 
+-(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
++(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
++(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+-(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+-(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
++(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), 
+-(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))))))))))
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(100, 17) .
+rewrites: 35643291 in 17448ms cpu (17447ms real) (2042829 rewrites/second)
+result Summary: States>> 1 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(100, 17) .
+rewrites: 58248 in 72ms cpu (70ms real) (809000 rewrites/second)
+result ShortIdSystem: < 1 . 2 . 1 . 1 . 2 . 2 . 2 . 1 > (
+:: #1:Fresh, #2:Fresh, #0:Fresh ::
+[ nil | 
+   +(clienthello(n(alice, #0:Fresh))), 
+   -(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+   -(servercertificate(cer(bob))), 
+   -(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+   +(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+   +(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+   -(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), nil]  & 
+:: #3:Fresh, #4:Fresh, #5:Fresh, #6:Fresh ::
+[ nil | 
+   -(clienthello(n(alice, #0:Fresh))), 
+   +(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+   +(servercertificate(cer(bob))), 
+   +(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+   -(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+   -(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+   +(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), nil] )
+| 
+clienthello(n(alice, #0:Fresh)) !inI,
+servercertificate(cer(bob)) !inI,
+clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))))) !inI,
+serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))))))))) !inI,
+serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))) !inI,
+clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))) !inI,
+serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(
+    bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh))) !inI
+| 
++(clienthello(n(alice, #0:Fresh))), 
+-(clienthello(n(alice, #0:Fresh))), 
++(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
++(servercertificate(cer(bob))), 
++(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
+-(serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh)))), 
+-(servercertificate(cer(bob))), 
+-(serverkeyexchange(exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))),
+    sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh)))), 
++(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
++(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
+-(clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), 
+-(clientfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmcf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))))))), 
++(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))))))))), 
+-(serverfinished(prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), clientkeyexchange(exp(g, n(alice, #1:Fresh)),
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)))), hmsf(
+    clienthello(n(alice, #0:Fresh)), serverhello(n(bob, #3:Fresh), ses(bob, n(
+    bob, #4:Fresh))), servercertificate(cer(bob)), serverkeyexchange(exp(g, n(
+    bob, #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob,
+    #5:Fresh)), pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob,
+    #3:Fresh))), clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(
+    pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clientfinished(prf(ms(prems(
+    exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)))), hmcf(clienthello(n(alice, #0:Fresh)),
+    serverhello(n(bob, #3:Fresh), ses(bob, n(bob, #4:Fresh))),
+    servercertificate(cer(bob)), serverkeyexchange(exp(g, n(bob, #5:Fresh)),
+    pqpk(pqsk(n(bob, #6:Fresh))), sig(bob, exp(g, n(bob, #5:Fresh)), pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh))),
+    clientkeyexchange(exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh))))))))))
+| 
+nil
+
+Sat Nov 22 06:21:53 AM CET 2025

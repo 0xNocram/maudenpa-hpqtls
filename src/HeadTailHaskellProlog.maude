@@ -1,0 +1,893 @@
+--- Hybrid Post-Quantum Transport Layer Security Protocol 1.2 with Head Tail Prolog/Haskell
+
+***(
+
+   IETF: https://datatracker.ietf.org/doc/html/draft-campagna-tls-bike-sike-hybrid
+   
+  ┌───────────────────────────────────────────────────────────────────────────────────┐
+  │                                                                                   │
+  │                Client                                    Server                   │
+  │                                                                                   │
+  │      ┌───────────────────────────┐                                                │
+  │      │        ClientHello        │                                                │
+  │      └───────────────────────────┘  ──────>    ┌───────────────────────────┐      │
+  │                                                │        ServerHello        │      │
+  │                                                │        Certificate        │      │
+  │                                                │     ServerKeyExchange     │      │
+  │                                                │    CertificateRequest*+   │      │
+  │                                                │      ServerHelloDone      │      │
+  │     ┌───────────────────────────┐   <──────    └───────────────────────────┘      │
+  │     │       Certificate*+       │                                                 │             
+  │     │     ClientKeyExchange     │                                                 │
+  │     │    CertificateVerify*+    │                                                 │
+  │     │     [ChangeCipherSpec]    │                                                 │              
+  │     │          Finished         │                                                 │               
+  │     └───────────────────────────┘   ──────>    ┌───────────────────────────┐      │
+  │                                                │     [ChangeCipherSpec]    │      │
+  │                                                │          Finished         │      │
+  │                                     <──────    └───────────────────────────┘      │
+  │                                                                                   │
+  │     ┌───────────────────────────┐              ┌───────────────────────────┐      │
+  │     │      Application Data     │   <─────>    │      Application Data     │      │     
+  │     └───────────────────────────┘              └───────────────────────────┘      │
+  │                                                                                   │
+  └───────────────────────────────────────────────────────────────────────────────────┘
+
+  * message is not sent under some conditions
+  + message is not sent unless client authentication is desired
+  
+)***
+
+fmod PROTOCOL-EXAMPLE-SYMBOLS is
+    protecting DEFINITION-PROTOCOL-RULES .
+
+    ---
+    --- [General Sorts/Operators]
+    ---
+    sort Name .
+    
+    subsort Name    < Elem      .
+    subsort Name    < Public    .
+
+    ops alice bob eve : -> Name .
+
+    sort List Elem .
+    subsort List < Msg .
+    subsort Elem < List .
+
+    op end : -> List .
+    op _;_ : Elem List -> List [frozen] .
+
+
+    ---
+    --- [Session Sorts/Operators]
+    ---
+    sort Session .
+    subsort Session < Elem .
+
+    op ses : Name Nonce -> Session [frozen] .
+
+
+    ---
+    --- [Session Sorts/Operators]
+    ---
+    sort Certificate .
+    subsort Certificate < Elem .
+
+    op cer : Name -> Certificate [frozen] .
+
+
+    ---
+    --- [Signature Sorts/Operators]
+    ---
+    op sig : Name List -> Elem [frozen] .
+
+
+    ---
+    --- [PseudoRandomFunction Sorts/Operators]
+    ---
+    op prf : MasterSecret List -> Elem [frozen] .
+
+
+    ---
+    --- [MasterSecret Sorts/Operators]
+    ---
+    sort MasterSecret PreMasterSecret .
+    subsort MasterSecret PreMasterSecret < Elem .
+
+    op prems    : Exp PQSharedSecret -> PreMasterSecret [frozen] .
+    op ms       : PreMasterSecret Nonce Nonce Exp Ciphertext -> MasterSecret [frozen] .
+
+
+    ---
+    --- [Diffie-Hellman Sorts/Operators]
+    ---
+    sorts Nonce NeNonceSet Gen Exp GenvExp  .
+
+    subsort NeNonceSet GenvExp      < Elem          .
+    subsort Nonce                   < NeNonceSet    .
+    subsort Gen Exp                 < GenvExp       .
+    subsort Gen                     < Public        .
+
+    op _*_  : NeNonceSet NeNonceSet -> NeNonceSet   [frozen assoc comm] .    
+
+    op g    :                       -> Gen                  .
+    op exp  : GenvExp NeNonceSet    -> Exp 		[frozen]    .
+    op n    : Name Fresh            -> Nonce    [frozen]    . 
+
+
+    ---
+    --- [Post-Quantum Key Encapsulation Mechanism Sorts/Operators]
+    ---
+    sorts PQPublicKey PQSecretKey PQSharedSecret Ciphertext .
+    subsort PQPublicKey PQSecretKey PQSharedSecret Ciphertext < Elem .
+
+    op pqpk : PQSecretKey   -> PQPublicKey [frozen] .
+    op pqsk : Nonce         -> PQSecretKey [frozen] .
+    
+    op encapct  : PQPublicKey Nonce         -> Ciphertext       [frozen]    .
+    op encapss  : PQPublicKey Nonce         -> PQSharedSecret   [frozen]    .
+    op decap    : PQSecretKey Ciphertext    -> PQSharedSecret   [frozen]    .
+
+    
+    ---
+    --- [Protocol Phases Sorts/Operators]
+    ---
+    op clienthello          : -> Elem .
+    op serverhello          : -> Elem .
+    op servercertificate    : -> Elem .
+    op serverkeyexchange    : -> Elem .
+    op clientkeyexchange    : -> Elem .
+    op clientfinished       : -> Elem .
+    op serverfinished       : -> Elem .
+endfm
+
+fmod PROTOCOL-EXAMPLE-ALGEBRAIC is
+    protecting PROTOCOL-EXAMPLE-SYMBOLS .
+
+    ---
+    --- [Diffie-Hellman Algebraic Properties]
+    ---
+    eq exp(exp(x:Gen, y:NeNonceSet), z:NeNonceSet) = 
+       exp(x:Gen, y:NeNonceSet * z:NeNonceSet) 
+    [variant] .
+
+
+    ---
+    --- [Post-Quantum Key Encapsulation Mechanism Algebraic Properties]
+    ---
+    eq decap(pqsk(x:Nonce), encapct(pqpk(pqsk(x:Nonce)), y:Nonce)) =
+       encapss(pqpk(pqsk(x:Nonce)), y:Nonce)
+    [variant] .
+endfm
+
+fmod PROTOCOL-SPECIFICATION is
+    protecting PROTOCOL-EXAMPLE-SYMBOLS .
+    protecting DEFINITION-PROTOCOL-RULES .
+    protecting DEFINITION-CONSTRAINTS-INPUT .
+
+    vars ALICE BOB : Name .
+
+    vars r1 r2 r3           : Fresh .
+    vars r1' r2' r3' r4'    : Fresh .
+
+    vars CHRANDOM SHRANDOM CKEPQNONCE : Nonce .
+    vars SHSESSION : Session .
+    vars SCCERTIFICATE : Certificate .
+    vars SKEPQSK : PQSecretKey .
+    vars SKEECSK CKEECSK : NeNonceSet .
+    
+	eq STRANDS-DOLEVYAO =
+		--- 
+		--- [General Intruder Actions]
+		---
+		:: nil ::   [nil | 
+                        
+                        +(end), nil] &
+        :: nil ::   [nil | 
+                        -(x:Elem ; y:List), 
+                        +(x:Elem), nil] &
+		:: nil ::   [nil | 
+                        -(x:Elem ; y:List), 
+                        +(y:List), nil] &
+		:: nil ::   [nil | 
+                        -(x:Elem), -(y:List), 
+                        +(x:Elem ; y:List), nil]  &
+
+
+        ---
+        --- [Session Intruder Actions]
+        ---
+        :: x:Fresh ::   [nil | 
+                         
+                        +(ses(eve, n(eve, x:Fresh))), nil] &
+
+
+        ---
+        --- [Certificate Intruder Actions]
+        ---
+        :: nil ::   [nil | 
+                         
+                        +(cer(eve)), nil] &
+
+
+        --- 
+		--- [Signature Intruder Actions]
+		---
+		:: nil ::   [nil | 
+                        -(x:List), 
+                        +(sig(eve, x:List)), nil] &
+
+
+        --- 
+		--- [PseudoRandomFunction Intruder Actions]
+		---
+		:: nil ::   [nil | 
+                        -(x:MasterSecret), -(y:List),
+                        +(prf(x:MasterSecret, y:List)), nil] &
+
+
+        --- 
+		--- [MasterSecret Intruder Actions]
+		---
+        :: nil ::   [nil | 
+                        -(prems(x:Exp, y:PQSharedSecret)), 
+                        +(x:Exp), nil] &
+        :: nil ::   [nil | 
+                        -(prems(x:Exp, y:PQSharedSecret)), 
+                        +(y:PQSharedSecret), nil] &
+		:: nil ::   [nil | 
+                        -(x:Exp), -(y:PQSharedSecret), 
+                        +(prems(x:Exp, y:PQSharedSecret)), nil] &
+        :: nil ::   [nil | 
+                        -(x:PreMasterSecret), -(y:Nonce), -(z:Nonce), -(w:Exp), -(u:Ciphertext),
+                        +(ms(x:PreMasterSecret, y:Nonce, z:Nonce, w:Exp, u:Ciphertext)), nil] &
+
+
+		---
+		--- [Diffie-Hellman Intruder Actions]
+		---
+        :: nil :: 		[nil | 
+                            -(x:NeNonceSet), 
+                            +(exp(g, x:NeNonceSet)), nil] &
+        :: nil :: 		[nil | 
+                            -(exp(g, x:NeNonceSet)), 
+                            +(x:NeNonceSet), nil] &
+        :: nil :: 		[nil | 
+                            -(x:NeNonceSet), -(y:NeNonceSet), 
+                            +(x:NeNonceSet * y:NeNonceSet), nil] &
+        :: nil :: 		[nil | 
+                             
+                            +(g), nil] &
+		:: x:Fresh :: 	[nil | 
+                        
+                            +(n(eve, x:Fresh)), nil] &
+
+
+        ---
+        --- [Post-Quantum Key Encapsulation Mechanism Intruder Actions]
+        --- 
+        :: nil ::       [nil |
+                            -(x:PQSecretKey),
+                            +(pqpk(x:PQSecretKey)), nil] &
+        :: x:Fresh ::       [nil |
+                            
+                            +(pqsk(n(eve, x:Fresh))), nil] &
+        :: x:Fresh ::   [nil |
+                            -(y:PQPublicKey),
+                            +(encapct(y:PQPublicKey, n(eve, x:Fresh))), nil] &
+        :: x:Fresh ::   [nil |
+                            -(y:PQPublicKey),
+                            +(encapss(y:PQPublicKey, n(eve, x:Fresh))), nil] &
+        :: nil ::       [nil |
+                            -(x:PQSecretKey), -(y:Ciphertext),
+                            +(decap(x:PQSecretKey, y:Ciphertext)), nil]
+	[nonexec] .
+
+
+    eq EXTRA-GRAMMARS = 
+    (
+        grl empty => (x:NeNonceSet * n(alice, y:Fresh)) inL . ;
+        grl empty => n(alice, y:Fresh)                  inL . ;
+        grl empty => (x:NeNonceSet * n(bob, y:Fresh))   inL . ;
+        grl empty => n(bob, y:Fresh)                    inL .
+        ! S2 
+    )
+    [nonexec] .
+
+
+	eq STRANDS-PROTOCOL =
+		:: r1, r2, r3 ::
+		[nil | 
+		+   (clienthello ; n(alice, r1)),
+        -   (serverhello ; SHRANDOM ; SHSESSION),
+        -   (servercertificate ; SCCERTIFICATE),
+        -   (serverkeyexchange ; exp(g, SKEECSK) ; pqpk(SKEPQSK) ; sig(BOB, exp(g, SKEECSK) ; pqpk(SKEPQSK) ; n(alice, r1) ; SHRANDOM)),
+        +   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(SKEPQSK), n(alice, r3))),
+        +   (clientfinished ; 
+                prf(
+                    ms(
+                        prems(exp(exp(g, SKEECSK), n(alice, r2)), encapss(pqpk(SKEPQSK), n(alice, r3))),
+                        n(alice, r1),
+                        SHRANDOM,
+                        exp(g, n(alice, r2)),
+                        encapct(pqpk(SKEPQSK), n(alice, r3))
+                    ),
+                    clienthello ; n(alice, r1) ;  
+                    serverhello ; SHRANDOM ; SHSESSION ;
+                    servercertificate ; SCCERTIFICATE ;
+                    serverkeyexchange ; exp(g, SKEECSK) ; pqpk(SKEPQSK) ; sig(BOB, exp(g, SKEECSK) ; pqpk(SKEPQSK) ; n(alice, r1) ; SHRANDOM) ;
+                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(SKEPQSK), n(alice, r3))
+                )
+            ),
+        -   (serverfinished ; 
+                prf(
+                    ms(
+                        prems(exp(exp(g, SKEECSK), n(alice, r2)), decap(SKEPQSK, encapct(pqpk(SKEPQSK), n(alice, r3)))),
+                        n(alice, r1),
+                        SHRANDOM,
+                        exp(g, n(alice, r2)),
+                        encapct(pqpk(SKEPQSK), n(alice, r3))
+                    ),
+                    clienthello ; n(alice, r1) ;  
+                    serverhello ; SHRANDOM ; SHSESSION ;  
+                    servercertificate ; SCCERTIFICATE ;
+                    serverkeyexchange ; exp(g, SKEECSK) ; pqpk(SKEPQSK) ; sig(BOB, exp(g, SKEECSK) ; pqpk(SKEPQSK) ; n(alice, r1) ; SHRANDOM) ;
+                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(SKEPQSK), n(alice, r3)) ;
+                    clientfinished ; 
+                        prf(
+                            ms(
+                                prems(exp(exp(g, SKEECSK), n(alice, r2)), encapss(pqpk(SKEPQSK), n(alice, r3))),
+                                n(alice, r1),
+                                SHRANDOM,
+                                exp(g, n(alice, r2)),
+                                encapct(pqpk(SKEPQSK), n(alice, r3))
+                            ),
+                            clienthello ; n(alice, r1) ;  
+                            serverhello ; SHRANDOM ; SHSESSION ;  
+                            servercertificate ; SCCERTIFICATE ;
+                            serverkeyexchange ; exp(g, SKEECSK) ; pqpk(SKEPQSK) ; sig(BOB, exp(g, SKEECSK) ; pqpk(SKEPQSK) ; n(alice, r1) ; SHRANDOM) ;
+                            clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(SKEPQSK), n(alice, r3))
+                        ) 
+                )
+            )
+        , nil] &
+
+		:: r1', r2', r3', r4' ::
+		[nil |
+		-   (clienthello ; CHRANDOM),
+        +   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2'))),
+        +   (servercertificate ; cer(bob)),
+        +   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; CHRANDOM ; n(bob, r1'))),
+        -   (clientkeyexchange ; exp(g, CKEECSK) ; encapct(pqpk(pqsk(n(bob, r4'))), CKEPQNONCE)),
+        -   (clientfinished ;
+                prf(
+                    ms(
+                        prems(exp(exp(g, CKEECSK), n(bob, r3')), encapss(pqpk(pqsk(n(bob, r4'))), CKEPQNONCE)),
+                        CHRANDOM,
+                        n(bob, r1'),
+                        exp(g, CKEECSK),
+                        encapct(pqpk(pqsk(n(bob, r4'))), CKEPQNONCE)
+                    ),
+                    clienthello ; CHRANDOM ;
+                    serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;
+                    servercertificate ; cer(bob) ;
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; CHRANDOM ; n(bob, r1')) ;
+                    clientkeyexchange ; exp(g, CKEECSK) ; encapct(pqpk(pqsk(n(bob, r4'))), CKEPQNONCE)
+                )
+            ),
+        +   (serverfinished ;
+                prf(
+                    ms(
+                        prems(exp(exp(g, CKEECSK), n(bob, r3')), decap(pqsk(n(bob, r4')), encapct(pqpk(pqsk(n(bob, r4'))), CKEPQNONCE))),
+                        CHRANDOM,
+                        n(bob, r1'),
+                        exp(g, CKEECSK),
+                        encapct(pqpk(pqsk(n(bob, r4'))), CKEPQNONCE)
+                    ),
+                    clienthello ; CHRANDOM ;
+                    serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;
+                    servercertificate ; cer(bob) ;
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; CHRANDOM ; n(bob, r1')) ;
+                    clientkeyexchange ; exp(g, CKEECSK) ; encapct(pqpk(pqsk(n(bob, r4'))), CKEPQNONCE) ;
+                    clientfinished ;
+                        prf(
+                            ms(
+                                prems(exp(exp(g, CKEECSK), n(bob, r3')), encapss(pqpk(pqsk(n(bob, r4'))), CKEPQNONCE)),
+                                CHRANDOM,
+                                n(bob, r1'),
+                                exp(g, CKEECSK),
+                                encapct(pqpk(pqsk(n(bob, r4'))), CKEPQNONCE)
+                            ),
+                            clienthello ; CHRANDOM ;
+                            serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;
+                            servercertificate ; cer(bob) ;
+                            serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; CHRANDOM ; n(bob, r1')) ;
+                            clientkeyexchange ; exp(g, CKEECSK) ; encapct(pqpk(pqsk(n(bob, r4'))), CKEPQNONCE)
+                        ) 
+                ) 
+            )
+        , nil]
+	[nonexec] .
+
+
+    --- Protocol Behavior
+    eq ATTACK-STATE(100) =
+        :: r1, r2, r3 ::
+        [nil, 
+        +   (clienthello ; n(alice, r1)),
+        -   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2'))),
+        -   (servercertificate ; cer(bob)),
+        -   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1'))),
+        +   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+        +   (clientfinished ;
+                prf(
+                    ms(
+                        prems(exp(exp(g, n(alice, r2)), n(bob, r3')), encapss(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+                        n(alice, r1),
+                        n(bob, r1'),
+                        exp(g, n(alice, r2)),
+                        encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                    ),
+                    clienthello ; n(alice, r1) ;  
+                    serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;
+                    servercertificate ; cer(bob) ;
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                )
+            ),
+        -   (serverfinished ; 
+                prf(
+                    ms(
+                        prems(exp(exp(g, n(alice, r2)), n(bob, r3')), decap(pqsk(n(bob, r4')), encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)))),
+                        n(alice, r1),
+                        n(bob, r1'),
+                        exp(g, n(alice, r2)),
+                        encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                    ),
+                    clienthello ; n(alice, r1) ;  
+                    serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
+                    servercertificate ; cer(bob) ;
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ;
+                    clientfinished ;
+                        prf(
+                            ms(
+                                prems(exp(exp(g, n(alice, r2)), n(bob, r3')), encapss(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+                                n(alice, r1),
+                                n(bob, r1'),
+                                exp(g, n(alice, r2)),
+                                encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                            ),
+                            clienthello ; n(alice, r1) ;  
+                            serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
+                            servercertificate ; cer(bob) ;
+                            serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                            clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                        ) 
+                )
+            )
+        | nil] &
+
+        :: r1', r2', r3', r4' ::
+        [nil, 
+        -   (clienthello ; n(alice, r1)),
+        +   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2'))),
+        +   (servercertificate ; cer(bob)),
+        +   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1'))),
+        -   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+        -   (clientfinished ;
+                prf(
+                    ms(
+                        prems(exp(exp(g, n(alice, r2)), n(bob, r3')), encapss(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+                        n(alice, r1),
+                        n(bob, r1'),
+                        exp(g, n(alice, r2)),
+                        encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                    ),
+                    clienthello ; n(alice, r1) ;  
+                    serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;
+                    servercertificate ; cer(bob) ;
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                )
+            ),
+        +   (serverfinished ; 
+                prf(
+                    ms(
+                        prems(exp(exp(g, n(alice, r2)), n(bob, r3')), decap(pqsk(n(bob, r4')), encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)))),
+                        n(alice, r1),
+                        n(bob, r1'),
+                        exp(g, n(alice, r2)),
+                        encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                    ),
+                    clienthello ; n(alice, r1) ;  
+                    serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
+                    servercertificate ; cer(bob) ;
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ;
+                    clientfinished ;
+                        prf(
+                            ms(
+                                prems(exp(exp(g, n(alice, r2)), n(bob, r3')), encapss(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+                                n(alice, r1),
+                                n(bob, r1'),
+                                exp(g, n(alice, r2)),
+                                encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                            ),
+                            clienthello ; n(alice, r1) ;  
+                            serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
+                            servercertificate ; cer(bob) ;
+                            serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                            clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                        ) 
+                )
+            )
+        | nil]
+        || empty
+        || nil
+        || nil
+        || nil
+    [nonexec] .
+
+
+    --- Authentication
+    eq ATTACK-STATE(0) =
+        :: r1, r2, r3 ::
+        [nil, 
+        +   (clienthello ; n(alice, r1)),
+        -   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2'))),
+        -   (servercertificate ; cer(bob)),
+        -   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1'))),
+        +   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+        +   (clientfinished ;
+                prf(
+                    ms(
+                        prems(exp(exp(g, n(alice, r2)), n(bob, r3')), encapss(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+                        n(alice, r1),
+                        n(bob, r1'),
+                        exp(g, n(alice, r2)),
+                        encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                    ),
+                    clienthello ; n(alice, r1) ;  
+                    serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;
+                    servercertificate ; cer(bob) ;
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                )
+            ),
+        -   (serverfinished ; 
+                prf(
+                    ms(
+                        prems(exp(exp(g, n(alice, r2)), n(bob, r3')), decap(pqsk(n(bob, r4')), encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)))),
+                        n(alice, r1),
+                        n(bob, r1'),
+                        exp(g, n(alice, r2)),
+                        encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                    ),
+                    clienthello ; n(alice, r1) ;  
+                    serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
+                    servercertificate ; cer(bob) ;
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ;
+                    clientfinished ;
+                        prf(
+                            ms(
+                                prems(exp(exp(g, n(alice, r2)), n(bob, r3')), encapss(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+                                n(alice, r1),
+                                n(bob, r1'),
+                                exp(g, n(alice, r2)),
+                                encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                            ),
+                            clienthello ; n(alice, r1) ;  
+                            serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
+                            servercertificate ; cer(bob) ;
+                            serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                            clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                        ) 
+                )
+            )
+        | nil]
+        || empty
+        || nil
+        || nil
+        || never (
+            :: r1', r2', r3', r4' ::
+            [nil |
+            -   (clienthello ; n(alice, r1)),
+            +   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2'))),
+            +   (servercertificate ; cer(bob)),
+            +   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1'))),
+            -   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+            -   (clientfinished ;
+                    prf(
+                        ms(
+                            prems(exp(exp(g, n(alice, r2)), n(bob, r3')), encapss(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+                            n(alice, r1),
+                            n(bob, r1'),
+                            exp(g, n(alice, r2)),
+                            encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                        ),
+                        clienthello ; n(alice, r1) ;  
+                        serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;
+                        servercertificate ; cer(bob) ;
+                        serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                        clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                    )
+                ),
+            +   (serverfinished ; 
+                    prf(
+                        ms(
+                            prems(exp(exp(g, n(alice, r2)), n(bob, r3')), decap(pqsk(n(bob, r4')), encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)))),
+                            n(alice, r1),
+                            n(bob, r1'),
+                            exp(g, n(alice, r2)),
+                            encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                        ),
+                        clienthello ; n(alice, r1) ;  
+                        serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
+                        servercertificate ; cer(bob) ;
+                        serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                        clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ;
+                        clientfinished ;
+                            prf(
+                                ms(
+                                    prems(exp(exp(g, n(alice, r2)), n(bob, r3')), encapss(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+                                    n(alice, r1),
+                                    n(bob, r1'),
+                                    exp(g, n(alice, r2)),
+                                    encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                                ),
+                                clienthello ; n(alice, r1) ;  
+                                serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
+                                servercertificate ; cer(bob) ;
+                                serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                                clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                            ) 
+                    )
+                )
+            , nil] & S:StrandSet || I:IntruderKnowledge
+        ) [nonexec] .
+    
+
+    --- ecss
+    eq ATTACK-STATE(1) =
+        :: r1, r2, r3 ::
+        [nil, 
+        +   (clienthello ; n(alice, r1)),
+        -   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2'))),
+        -   (servercertificate ; cer(bob)),
+        -   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1'))),
+        +   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+        +   (clientfinished ;
+                prf(
+                    ms(
+                        prems(exp(exp(g, n(alice, r2)), n(bob, r3')), encapss(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+                        n(alice, r1),
+                        n(bob, r1'),
+                        exp(g, n(alice, r2)),
+                        encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                    ),
+                    clienthello ; n(alice, r1) ;  
+                    serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;
+                    servercertificate ; cer(bob) ;
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                )
+            ),
+        -   (serverfinished ; 
+                prf(
+                    ms(
+                        prems(exp(exp(g, n(alice, r2)), n(bob, r3')), decap(pqsk(n(bob, r4')), encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)))),
+                        n(alice, r1),
+                        n(bob, r1'),
+                        exp(g, n(alice, r2)),
+                        encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                    ),
+                    clienthello ; n(alice, r1) ;  
+                    serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
+                    servercertificate ; cer(bob) ;
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ;
+                    clientfinished ;
+                        prf(
+                            ms(
+                                prems(exp(exp(g, n(alice, r2)), n(bob, r3')), encapss(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+                                n(alice, r1),
+                                n(bob, r1'),
+                                exp(g, n(alice, r2)),
+                                encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                            ),
+                            clienthello ; n(alice, r1) ;  
+                            serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
+                            servercertificate ; cer(bob) ;
+                            serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                            clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                        ) 
+                )
+            )
+        | nil] &
+
+        :: r1', r2', r3', r4' ::
+        [nil, 
+        -   (clienthello ; n(alice, r1)),
+        +   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2'))),
+        +   (servercertificate ; cer(bob)),
+        +   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1'))),
+        -   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+        -   (clientfinished ;
+                prf(
+                    ms(
+                        prems(exp(exp(g, n(alice, r2)), n(bob, r3')), encapss(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+                        n(alice, r1),
+                        n(bob, r1'),
+                        exp(g, n(alice, r2)),
+                        encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                    ),
+                    clienthello ; n(alice, r1) ;  
+                    serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;
+                    servercertificate ; cer(bob) ;
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                )
+            ),
+        +   (serverfinished ; 
+                prf(
+                    ms(
+                        prems(exp(exp(g, n(alice, r2)), n(bob, r3')), decap(pqsk(n(bob, r4')), encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)))),
+                        n(alice, r1),
+                        n(bob, r1'),
+                        exp(g, n(alice, r2)),
+                        encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                    ),
+                    clienthello ; n(alice, r1) ;  
+                    serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
+                    servercertificate ; cer(bob) ;
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ;
+                    clientfinished ;
+                        prf(
+                            ms(
+                                prems(exp(exp(g, n(alice, r2)), n(bob, r3')), encapss(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+                                n(alice, r1),
+                                n(bob, r1'),
+                                exp(g, n(alice, r2)),
+                                encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                            ),
+                            clienthello ; n(alice, r1) ;  
+                            serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
+                            servercertificate ; cer(bob) ;
+                            serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                            clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                        ) 
+                )
+            )
+        | nil]
+        || exp(exp(g, n(bob, r3')), n(alice, r2)) inI, empty
+        || nil
+        || nil
+        || nil
+    [nonexec] .
+
+
+    --- pqss
+    eq ATTACK-STATE(2) =
+        :: r1, r2, r3 ::
+        [nil, 
+        +   (clienthello ; n(alice, r1)),
+        -   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2'))),
+        -   (servercertificate ; cer(bob)),
+        -   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1'))),
+        +   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+        +   (clientfinished ;
+                prf(
+                    ms(
+                        prems(exp(exp(g, n(alice, r2)), n(bob, r3')), encapss(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+                        n(alice, r1),
+                        n(bob, r1'),
+                        exp(g, n(alice, r2)),
+                        encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                    ),
+                    clienthello ; n(alice, r1) ;  
+                    serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;
+                    servercertificate ; cer(bob) ;
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                )
+            ),
+        -   (serverfinished ; 
+                prf(
+                    ms(
+                        prems(exp(exp(g, n(alice, r2)), n(bob, r3')), decap(pqsk(n(bob, r4')), encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)))),
+                        n(alice, r1),
+                        n(bob, r1'),
+                        exp(g, n(alice, r2)),
+                        encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                    ),
+                    clienthello ; n(alice, r1) ;  
+                    serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
+                    servercertificate ; cer(bob) ;
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ;
+                    clientfinished ;
+                        prf(
+                            ms(
+                                prems(exp(exp(g, n(alice, r2)), n(bob, r3')), encapss(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+                                n(alice, r1),
+                                n(bob, r1'),
+                                exp(g, n(alice, r2)),
+                                encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                            ),
+                            clienthello ; n(alice, r1) ;  
+                            serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
+                            servercertificate ; cer(bob) ;
+                            serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                            clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                        ) 
+                )
+            )
+        | nil] &
+
+        :: r1', r2', r3', r4' ::
+        [nil, 
+        -   (clienthello ; n(alice, r1)),
+        +   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2'))),
+        +   (servercertificate ; cer(bob)),
+        +   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1'))),
+        -   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+        -   (clientfinished ;
+                prf(
+                    ms(
+                        prems(exp(exp(g, n(alice, r2)), n(bob, r3')), encapss(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+                        n(alice, r1),
+                        n(bob, r1'),
+                        exp(g, n(alice, r2)),
+                        encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                    ),
+                    clienthello ; n(alice, r1) ;  
+                    serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;
+                    servercertificate ; cer(bob) ;
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                )
+            ),
+        +   (serverfinished ; 
+                prf(
+                    ms(
+                        prems(exp(exp(g, n(alice, r2)), n(bob, r3')), decap(pqsk(n(bob, r4')), encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)))),
+                        n(alice, r1),
+                        n(bob, r1'),
+                        exp(g, n(alice, r2)),
+                        encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                    ),
+                    clienthello ; n(alice, r1) ;  
+                    serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
+                    servercertificate ; cer(bob) ;
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ;
+                    clientfinished ;
+                        prf(
+                            ms(
+                                prems(exp(exp(g, n(alice, r2)), n(bob, r3')), encapss(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+                                n(alice, r1),
+                                n(bob, r1'),
+                                exp(g, n(alice, r2)),
+                                encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                            ),
+                            clienthello ; n(alice, r1) ;  
+                            serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
+                            servercertificate ; cer(bob) ;
+                            serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                            clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
+                        ) 
+                )
+            )
+        | nil]
+        || encapss(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) inI, empty
+        || nil
+        || nil
+        || nil
+    [nonexec] .
+endfm
+
+select MAUDE-NPA .

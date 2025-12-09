@@ -1,0 +1,230 @@
+Mon Nov 24 12:47:00 PM CET 2025
+
+		     \||||||||||||||||||/
+		   --- Welcome to Maude ---
+		     /||||||||||||||||||\
+	    Maude 3.5.1 built: Jul 16 2025 12:00:00
+	     Copyright 1997-2025 SRI International
+		   Mon Nov 24 12:47:00 2025
+Advisory: "maude-npa.maude", line 14352 (fmod BACK-NARROWING): all the
+    variables in the left-hand side of assignment condition fragment M:Msg :=
+    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
+    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M':Msg))))
+    are bound before the matching takes place.
+Advisory: "maude-npa.maude", line 14376 (fmod BACK-NARROWING): all the
+    variables in the left-hand side of assignment condition fragment M:Msg :=
+    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
+    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M':Msg))))
+    are bound before the matching takes place.
+Advisory: "maude-npa.maude", line 14392 (fmod BACK-NARROWING): all the
+    variables in the left-hand side of assignment condition fragment M:Msg :=
+    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
+    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M:Msg))))
+    are bound before the matching takes place.
+
+	    Maude-NPA Version: 3.1.4 (June 2nd 2020)
+	    with direct composition, irreducibility constraints and time
+	    (To be run with Maude 3.0 or above)
+	    Copyright (c) 2020, University of Illinois
+	    All rights reserved.
+
+ Commands:
+ red unification? .           returns the unification algorithm to be used
+ red new-strands? .           returns the actual protocol strands
+ red displayGrammars .        for generating grammars
+ red run(X,Y).                for Y backwards analysis steps for attack pattern
+    X
+ red debug(X,Y).              more information than run command
+ red digest(X,Y).             less information than run command
+ red summary(X,Y).            for summary of analysis steps
+ red ids(X,Y).                for set of state ids
+ red initials(X,Y).           for showing only initial steps
+==========================================
+reduce in MAUDE-NPA : summary(1, 0) .
+rewrites: 50087787 in 31228ms cpu (31230ms real) (1603938 rewrites/second)
+result Summary: States>> 1 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(1, 1) .
+rewrites: 11011441 in 2388ms cpu (2386ms real) (4611156 rewrites/second)
+result Summary: States>> 5 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(1, 2) .
+rewrites: 69691753 in 12408ms cpu (12404ms real) (5616678 rewrites/second)
+result Summary: States>> 13 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(1, 3) .
+rewrites: 263400483 in 46616ms cpu (46614ms real) (5650430 rewrites/second)
+result Summary: States>> 32 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(1, 4) .
+rewrites: 1829052165 in 357260ms cpu (357258ms real) (5119666 rewrites/second)
+result Summary: States>> 97 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(1, 5) .
+rewrites: 18319512919 in 3938852ms cpu (3938854ms real) (4650977
+    rewrites/second)
+result Summary: States>> 276 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(1, 6) .
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+rewrites: 155904842787 in 33037316ms cpu (33037319ms real) (4719052
+    rewrites/second)
+result Summary: States>> 736 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(1, 7) .
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+Warning: Unification modulo the theory of operator _;_ has encountered an
+    instance for which it may not be complete.
+rewrites: 1320297863866 in 263407384ms cpu (263407429ms real) (5012379
+    rewrites/second)
+result Summary: States>> 2049 Solutions>> 0
+
+Fri Nov 28 03:07:46 AM CET 2025

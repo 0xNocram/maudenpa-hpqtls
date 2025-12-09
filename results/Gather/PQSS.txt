@@ -1,0 +1,77 @@
+Thu Nov 20 05:20:52 PM CET 2025
+
+		     \||||||||||||||||||/
+		   --- Welcome to Maude ---
+		     /||||||||||||||||||\
+	    Maude 3.5.1 built: Jul 16 2025 12:00:00
+	     Copyright 1997-2025 SRI International
+		   Thu Nov 20 17:20:52 2025
+Advisory: "maude-npa.maude", line 14352 (fmod BACK-NARROWING): all the
+    variables in the left-hand side of assignment condition fragment M:Msg :=
+    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
+    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M':Msg))))
+    are bound before the matching takes place.
+Advisory: "maude-npa.maude", line 14376 (fmod BACK-NARROWING): all the
+    variables in the left-hand side of assignment condition fragment M:Msg :=
+    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
+    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M':Msg))))
+    are bound before the matching takes place.
+Advisory: "maude-npa.maude", line 14392 (fmod BACK-NARROWING): all the
+    variables in the left-hand side of assignment condition fragment M:Msg :=
+    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
+    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M:Msg))))
+    are bound before the matching takes place.
+
+	    Maude-NPA Version: 3.1.4 (June 2nd 2020)
+	    with direct composition, irreducibility constraints and time
+	    (To be run with Maude 3.0 or above)
+	    Copyright (c) 2020, University of Illinois
+	    All rights reserved.
+
+ Commands:
+ red unification? .           returns the unification algorithm to be used
+ red new-strands? .           returns the actual protocol strands
+ red displayGrammars .        for generating grammars
+ red run(X,Y).                for Y backwards analysis steps for attack pattern
+    X
+ red debug(X,Y).              more information than run command
+ red digest(X,Y).             less information than run command
+ red summary(X,Y).            for summary of analysis steps
+ red ids(X,Y).                for set of state ids
+ red initials(X,Y).           for showing only initial steps
+==========================================
+reduce in MAUDE-NPA : summary(2, 0) .
+rewrites: 33671777 in 18052ms cpu (18059ms real) (1865265 rewrites/second)
+result Summary: States>> 1 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(2, 1) .
+rewrites: 9772105 in 2500ms cpu (2499ms real) (3908842 rewrites/second)
+result Summary: States>> 3 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(2, 2) .
+rewrites: 26747542 in 5964ms cpu (5963ms real) (4484832 rewrites/second)
+result Summary: States>> 5 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(2, 3) .
+rewrites: 69281855 in 15880ms cpu (15882ms real) (4362837 rewrites/second)
+result Summary: States>> 11 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(2, 4) .
+rewrites: 302609962 in 61320ms cpu (61318ms real) (4934930 rewrites/second)
+result Summary: States>> 31 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(2, 5) .
+rewrites: 2530880362 in 603008ms cpu (603008ms real) (4197092 rewrites/second)
+result Summary: States>> 107 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(2, 6) .
+rewrites: 29158664811 in 7247828ms cpu (7247842ms real) (4023090
+    rewrites/second)
+result Summary: States>> 352 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(2, 7) .
+rewrites: 295000433309 in 73094148ms cpu (73094159ms real) (4035896
+    rewrites/second)
+result Summary: States>> 997 Solutions>> 0
+
+Tue Dec  2 03:51:52 PM CET 2025
