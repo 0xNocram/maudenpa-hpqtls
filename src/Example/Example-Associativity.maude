@@ -1,0 +1,106 @@
+--- Example of Associativity
+
+fmod PROTOCOL-EXAMPLE-SYMBOLS is
+    protecting DEFINITION-PROTOCOL-RULES .
+
+    sort Name .
+    
+    subsort Name    < Elem      .
+    subsort Name    < Public    .
+
+    op alice : -> Name .
+    
+
+    sort List Elem .
+    subsort List < Msg .
+    subsort Elem < List .
+
+    op _;_ : List List -> List [frozen assoc] .
+
+
+    sorts Nonce .
+
+    subsort Nonce < Elem .
+
+    op n : Name Fresh -> Nonce [frozen] . 
+endfm
+
+fmod PROTOCOL-EXAMPLE-ALGEBRAIC is
+    protecting PROTOCOL-EXAMPLE-SYMBOLS .
+endfm
+
+fmod PROTOCOL-SPECIFICATION is
+    protecting PROTOCOL-EXAMPLE-SYMBOLS .
+    protecting DEFINITION-PROTOCOL-RULES .
+    protecting DEFINITION-CONSTRAINTS-INPUT .
+
+    vars r1 r2 r3 r4 r5 r6 r7 r8 r9 : Fresh .
+    vars N1 N2 N3 N4 N5 N6 N7 N8 N9 : Nonce .
+
+    
+	eq STRANDS-DOLEVYAO =
+		:: nil ::   [nil | 
+                        -(x:List ; y:Elem ; z:List), 
+                        +(y:Elem), nil] &
+		:: nil ::   [nil | 
+                        -(x:Elem ; y:List), 
+                        +(x:Elem), nil] &
+        :: nil ::   [nil | 
+                        -(x:List ; y:Elem), 
+                        +(y:Elem), nil]
+	[nonexec] .
+
+
+	eq STRANDS-PROTOCOL =
+		:: r1, r2, r3, r4, r5, r6, r7, r8, r9 ::
+		[nil | 
+		+   (n(alice, r1) ; n(alice, r2) ; n(alice, r3) ; n(alice, r4) ; n(alice, r5) ; n(alice, r6) ; n(alice, r7) ; n(alice, r8) ; n(alice, r9))
+        , nil] &
+
+		:: nil ::
+		[nil |
+		- (N1 ; N2 ; N3 ; N4 ; N5 ; N6 ; N7 ; N8 ; N9)
+        , nil]
+	[nonexec] .
+
+
+    --- Solution found at depth 2
+    eq ATTACK-STATE(1) =
+        :: r1, r2, r3, r4, r5, r6, r7, r8, r9 ::
+        [nil, 
+        +   (n(alice, r1) ; n(alice, r2) ; n(alice, r3) ; n(alice, r4) ; n(alice, r5) ; n(alice, r6) ; n(alice, r7) ; n(alice, r8) ; n(alice, r9))
+        | nil]
+        || n(alice, r1) inI, empty
+        || nil
+        || nil
+        || nil
+    [nonexec] .
+
+
+    --- Solution found at depth 2
+    eq ATTACK-STATE(2) =
+        :: r1, r2, r3, r4, r5, r6, r7, r8, r9 ::
+        [nil, 
+        +   (n(alice, r1) ; n(alice, r2) ; n(alice, r3) ; n(alice, r4) ; n(alice, r5) ; n(alice, r6) ; n(alice, r7) ; n(alice, r8) ; n(alice, r9))
+        | nil]
+        || n(alice, r5) inI, empty
+        || nil
+        || nil
+        || nil
+    [nonexec] .
+
+
+    --- Solution found at depth 2
+    eq ATTACK-STATE(3) =
+        :: r1, r2, r3, r4, r5, r6, r7, r8, r9 ::
+        [nil, 
+        +   (n(alice, r1) ; n(alice, r2) ; n(alice, r3) ; n(alice, r4) ; n(alice, r5) ; n(alice, r6) ; n(alice, r7) ; n(alice, r8) ; n(alice, r9))
+        | nil]
+        || n(alice, r9) inI, empty
+        || nil
+        || nil
+        || nil
+    [nonexec] .
+endfm
+
+select MAUDE-NPA .

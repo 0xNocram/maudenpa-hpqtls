@@ -1,0 +1,86 @@
+Fri Dec 12 12:06:41 CET 2025
+
+		     \||||||||||||||||||/
+		   --- Welcome to Maude ---
+		     /||||||||||||||||||\
+	     Maude 3.5 built: Sep 25 2024 12:00:00
+	     Copyright 1997-2024 SRI International
+		   Fri Dec 12 12:06:41 2025
+Advisory: "maude-npa.maude", line 14352 (fmod BACK-NARROWING): all the
+    variables in the left-hand side of assignment condition fragment M:Msg :=
+    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
+    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M':Msg))))
+    are bound before the matching takes place.
+Advisory: "maude-npa.maude", line 14376 (fmod BACK-NARROWING): all the
+    variables in the left-hand side of assignment condition fragment M:Msg :=
+    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
+    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M':Msg))))
+    are bound before the matching takes place.
+Advisory: "maude-npa.maude", line 14392 (fmod BACK-NARROWING): all the
+    variables in the left-hand side of assignment condition fragment M:Msg :=
+    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
+    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M:Msg))))
+    are bound before the matching takes place.
+
+	    Maude-NPA Version: 3.1.4 (June 2nd 2020)
+	    with direct composition, irreducibility constraints and time
+	    (To be run with Maude 3.0 or above)
+	    Copyright (c) 2020, University of Illinois
+	    All rights reserved.
+
+ Commands:
+ red unification? .           returns the unification algorithm to be used
+ red new-strands? .           returns the actual protocol strands
+ red displayGrammars .        for generating grammars
+ red run(X,Y).                for Y backwards analysis steps for attack pattern
+    X
+ red debug(X,Y).              more information than run command
+ red digest(X,Y).             less information than run command
+ red summary(X,Y).            for summary of analysis steps
+ red ids(X,Y).                for set of state ids
+ red initials(X,Y).           for showing only initial steps
+==========================================
+reduce in MAUDE-NPA : summary(3, 0) .
+rewrites: 2010837 in 1510ms cpu (1516ms real) (1331680 rewrites/second)
+result Summary: States>> 1 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(3, 1) .
+rewrites: 3865275 in 920ms cpu (918ms real) (4201385 rewrites/second)
+result Summary: States>> 9 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(3, 2) .
+rewrites: 764055 in 1010ms cpu (1006ms real) (756490 rewrites/second)
+result Summary: States>> 1 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(3, 2) .
+rewrites: 264 in 0ms cpu (0ms real) (~ rewrites/second)
+result ShortIdSystem: < 1 . 1 . 2 > (
+:: nil ::
+[ nil | 
+   -(f(n(alice, #0:Fresh), n(alice, #1:Fresh), n(alice, #2:Fresh), n(alice,
+    #3:Fresh), n(alice, #4:Fresh), n(alice, #5:Fresh), n(alice, #6:Fresh), n(
+    alice, #7:Fresh), n(alice, #8:Fresh))), 
+   +(n(alice, #8:Fresh)), nil]  & 
+:: #1:Fresh, #2:Fresh, #3:Fresh, #4:Fresh, #5:Fresh, #6:Fresh, #7:Fresh,
+    #8:Fresh, #0:Fresh ::
+[ nil | 
+   +(f(n(alice, #0:Fresh), n(alice, #1:Fresh), n(alice, #2:Fresh), n(alice,
+    #3:Fresh), n(alice, #4:Fresh), n(alice, #5:Fresh), n(alice, #6:Fresh), n(
+    alice, #7:Fresh), n(alice, #8:Fresh))), nil] )
+| 
+n(alice, #8:Fresh) !inI,
+f(n(alice, #0:Fresh), n(alice, #1:Fresh), n(alice, #2:Fresh), n(alice,
+    #3:Fresh), n(alice, #4:Fresh), n(alice, #5:Fresh), n(alice, #6:Fresh), n(
+    alice, #7:Fresh), n(alice, #8:Fresh)) !inI
+| 
++(f(n(alice, #0:Fresh), n(alice, #1:Fresh), n(alice, #2:Fresh), n(alice,
+    #3:Fresh), n(alice, #4:Fresh), n(alice, #5:Fresh), n(alice, #6:Fresh), n(
+    alice, #7:Fresh), n(alice, #8:Fresh))), 
+-(f(n(alice, #0:Fresh), n(alice, #1:Fresh), n(alice, #2:Fresh), n(alice,
+    #3:Fresh), n(alice, #4:Fresh), n(alice, #5:Fresh), n(alice, #6:Fresh), n(
+    alice, #7:Fresh), n(alice, #8:Fresh))), 
++(n(alice, #8:Fresh))
+| 
+nil
+
+Fri Dec 12 12:06:45 CET 2025

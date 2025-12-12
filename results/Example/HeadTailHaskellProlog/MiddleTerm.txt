@@ -1,0 +1,169 @@
+Fri Dec 12 12:03:44 CET 2025
+
+		     \||||||||||||||||||/
+		   --- Welcome to Maude ---
+		     /||||||||||||||||||\
+	     Maude 3.5 built: Sep 25 2024 12:00:00
+	     Copyright 1997-2024 SRI International
+		   Fri Dec 12 12:03:44 2025
+Advisory: "maude-npa.maude", line 14352 (fmod BACK-NARROWING): all the
+    variables in the left-hand side of assignment condition fragment M:Msg :=
+    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
+    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M':Msg))))
+    are bound before the matching takes place.
+Advisory: "maude-npa.maude", line 14376 (fmod BACK-NARROWING): all the
+    variables in the left-hand side of assignment condition fragment M:Msg :=
+    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
+    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M':Msg))))
+    are bound before the matching takes place.
+Advisory: "maude-npa.maude", line 14392 (fmod BACK-NARROWING): all the
+    variables in the left-hand side of assignment condition fragment M:Msg :=
+    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
+    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M:Msg))))
+    are bound before the matching takes place.
+
+	    Maude-NPA Version: 3.1.4 (June 2nd 2020)
+	    with direct composition, irreducibility constraints and time
+	    (To be run with Maude 3.0 or above)
+	    Copyright (c) 2020, University of Illinois
+	    All rights reserved.
+
+ Commands:
+ red unification? .           returns the unification algorithm to be used
+ red new-strands? .           returns the actual protocol strands
+ red displayGrammars .        for generating grammars
+ red run(X,Y).                for Y backwards analysis steps for attack pattern
+    X
+ red debug(X,Y).              more information than run command
+ red digest(X,Y).             less information than run command
+ red summary(X,Y).            for summary of analysis steps
+ red ids(X,Y).                for set of state ids
+ red initials(X,Y).           for showing only initial steps
+==========================================
+reduce in MAUDE-NPA : summary(2, 0) .
+rewrites: 2952702 in 2140ms cpu (2133ms real) (1379767 rewrites/second)
+result Summary: States>> 1 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(2, 1) .
+rewrites: 553168 in 210ms cpu (212ms real) (2634133 rewrites/second)
+result Summary: States>> 2 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(2, 2) .
+rewrites: 857233 in 430ms cpu (428ms real) (1993565 rewrites/second)
+result Summary: States>> 2 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(2, 3) .
+rewrites: 1194305 in 560ms cpu (558ms real) (2132687 rewrites/second)
+result Summary: States>> 2 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(2, 4) .
+rewrites: 1501366 in 690ms cpu (691ms real) (2175892 rewrites/second)
+result Summary: States>> 2 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(2, 5) .
+rewrites: 1833516 in 810ms cpu (810ms real) (2263600 rewrites/second)
+result Summary: States>> 2 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(2, 6) .
+rewrites: 2443338 in 1120ms cpu (1121ms real) (2181551 rewrites/second)
+result Summary: States>> 3 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(2, 6) .
+rewrites: 406 in 0ms cpu (0ms real) (~ rewrites/second)
+result ShortIdSystem: < 1 . 2 . 2 . 2 . 2 . 2 . 2 > (
+:: nil ::
+[ nil | 
+   -(n(alice, #0:Fresh) ; n(alice, #1:Fresh) ; n(alice, #2:Fresh) ; n(alice,
+    #3:Fresh) ; n(alice, #4:Fresh)), 
+   +(n(alice, #0:Fresh)), nil]  & 
+:: nil ::
+[ nil | 
+   -(n(alice, #5:Fresh) ; n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice,
+    #8:Fresh) ; n(alice, #0:Fresh) ; n(alice, #1:Fresh) ; n(alice, #2:Fresh) ;
+    n(alice, #3:Fresh) ; n(alice, #4:Fresh)), 
+   +(n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh) ; n(alice,
+    #0:Fresh) ; n(alice, #1:Fresh) ; n(alice, #2:Fresh) ; n(alice, #3:Fresh) ;
+    n(alice, #4:Fresh)), nil]  & 
+:: nil ::
+[ nil | 
+   -(n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh) ; n(alice,
+    #0:Fresh) ; n(alice, #1:Fresh) ; n(alice, #2:Fresh) ; n(alice, #3:Fresh) ;
+    n(alice, #4:Fresh)), 
+   +(n(alice, #7:Fresh) ; n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; n(alice,
+    #1:Fresh) ; n(alice, #2:Fresh) ; n(alice, #3:Fresh) ; n(alice, #4:Fresh)),
+    nil]  & 
+:: nil ::
+[ nil | 
+   -(n(alice, #7:Fresh) ; n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; n(alice,
+    #1:Fresh) ; n(alice, #2:Fresh) ; n(alice, #3:Fresh) ; n(alice, #4:Fresh)), 
+   +(n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; n(alice, #1:Fresh) ; n(alice,
+    #2:Fresh) ; n(alice, #3:Fresh) ; n(alice, #4:Fresh)), nil]  & 
+:: nil ::
+[ nil | 
+   -(n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; n(alice, #1:Fresh) ; n(alice,
+    #2:Fresh) ; n(alice, #3:Fresh) ; n(alice, #4:Fresh)), 
+   +(n(alice, #0:Fresh) ; n(alice, #1:Fresh) ; n(alice, #2:Fresh) ; n(alice,
+    #3:Fresh) ; n(alice, #4:Fresh)), nil]  & 
+:: #1:Fresh, #2:Fresh, #0:Fresh, #3:Fresh, #4:Fresh, #5:Fresh, #6:Fresh,
+    #7:Fresh, #8:Fresh ::
+[ nil | 
+   +(n(alice, #5:Fresh) ; n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice,
+    #8:Fresh) ; n(alice, #0:Fresh) ; n(alice, #1:Fresh) ; n(alice, #2:Fresh) ;
+    n(alice, #3:Fresh) ; n(alice, #4:Fresh)), nil] )
+| 
+(n(alice, #0:Fresh) ; n(alice, #1:Fresh) ; n(alice, #2:Fresh) ; n(alice,
+    #3:Fresh) ; n(alice, #4:Fresh)) !inI,
+(n(alice, #5:Fresh) ; n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice,
+    #8:Fresh) ; n(alice, #0:Fresh) ; n(alice, #1:Fresh) ; n(alice, #2:Fresh) ;
+    n(alice, #3:Fresh) ; n(alice, #4:Fresh)) !inI,
+(n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh) ; n(alice,
+    #0:Fresh) ; n(alice, #1:Fresh) ; n(alice, #2:Fresh) ; n(alice, #3:Fresh) ;
+    n(alice, #4:Fresh)) !inI,
+(n(alice, #7:Fresh) ; n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; n(alice,
+    #1:Fresh) ; n(alice, #2:Fresh) ; n(alice, #3:Fresh) ; n(alice, #4:Fresh))
+    !inI,
+(n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; n(alice, #1:Fresh) ; n(alice,
+    #2:Fresh) ; n(alice, #3:Fresh) ; n(alice, #4:Fresh)) !inI,
+n(alice, #0:Fresh) !inI
+| 
++(n(alice, #5:Fresh) ; n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice,
+    #8:Fresh) ; n(alice, #0:Fresh) ; n(alice, #1:Fresh) ; n(alice, #2:Fresh) ;
+    n(alice, #3:Fresh) ; n(alice, #4:Fresh)), 
+-(n(alice, #5:Fresh) ; n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice,
+    #8:Fresh) ; n(alice, #0:Fresh) ; n(alice, #1:Fresh) ; n(alice, #2:Fresh) ;
+    n(alice, #3:Fresh) ; n(alice, #4:Fresh)), 
++(n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh) ; n(alice,
+    #0:Fresh) ; n(alice, #1:Fresh) ; n(alice, #2:Fresh) ; n(alice, #3:Fresh) ;
+    n(alice, #4:Fresh)), 
+-(n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh) ; n(alice,
+    #0:Fresh) ; n(alice, #1:Fresh) ; n(alice, #2:Fresh) ; n(alice, #3:Fresh) ;
+    n(alice, #4:Fresh)), 
++(n(alice, #7:Fresh) ; n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; n(alice,
+    #1:Fresh) ; n(alice, #2:Fresh) ; n(alice, #3:Fresh) ; n(alice, #4:Fresh)), 
+-(n(alice, #7:Fresh) ; n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; n(alice,
+    #1:Fresh) ; n(alice, #2:Fresh) ; n(alice, #3:Fresh) ; n(alice, #4:Fresh)), 
++(n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; n(alice, #1:Fresh) ; n(alice,
+    #2:Fresh) ; n(alice, #3:Fresh) ; n(alice, #4:Fresh)), 
+-(n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; n(alice, #1:Fresh) ; n(alice,
+    #2:Fresh) ; n(alice, #3:Fresh) ; n(alice, #4:Fresh)), 
++(n(alice, #0:Fresh) ; n(alice, #1:Fresh) ; n(alice, #2:Fresh) ; n(alice,
+    #3:Fresh) ; n(alice, #4:Fresh)), 
+-(n(alice, #0:Fresh) ; n(alice, #1:Fresh) ; n(alice, #2:Fresh) ; n(alice,
+    #3:Fresh) ; n(alice, #4:Fresh)), 
++(n(alice, #0:Fresh))
+| 
+nil
+==========================================
+reduce in MAUDE-NPA : summary(2, 7) .
+rewrites: 2530347 in 1200ms cpu (1194ms real) (2108622 rewrites/second)
+result Summary: States>> 3 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : summary(2, 8) .
+rewrites: 2884091 in 1260ms cpu (1264ms real) (2288961 rewrites/second)
+result Summary: States>> 3 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : summary(2, 9) .
+rewrites: 828977 in 450ms cpu (446ms real) (1842171 rewrites/second)
+result Summary: States>> 1 Solutions>> 1
+
+Fri Dec 12 12:03:53 CET 2025
