@@ -1,26 +1,11 @@
-Fri Dec 12 12:03:55 CET 2025
+Tue Dec 16 12:34:58 CET 2025
 
 		     \||||||||||||||||||/
 		   --- Welcome to Maude ---
 		     /||||||||||||||||||\
 	     Maude 3.5 built: Sep 25 2024 12:00:00
 	     Copyright 1997-2024 SRI International
-		   Fri Dec 12 12:03:55 2025
-Advisory: "maude-npa.maude", line 14352 (fmod BACK-NARROWING): all the
-    variables in the left-hand side of assignment condition fragment M:Msg :=
-    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
-    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M':Msg))))
-    are bound before the matching takes place.
-Advisory: "maude-npa.maude", line 14376 (fmod BACK-NARROWING): all the
-    variables in the left-hand side of assignment condition fragment M:Msg :=
-    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
-    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M':Msg))))
-    are bound before the matching takes place.
-Advisory: "maude-npa.maude", line 14392 (fmod BACK-NARROWING): all the
-    variables in the left-hand side of assignment condition fragment M:Msg :=
-    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
-    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M:Msg))))
-    are bound before the matching takes place.
+		   Tue Dec 16 12:34:58 2025
 
 	    Maude-NPA Version: 3.1.4 (June 2nd 2020)
 	    with direct composition, irreducibility constraints and time
@@ -41,155 +26,170 @@ Advisory: "maude-npa.maude", line 14392 (fmod BACK-NARROWING): all the
  red initials(X,Y).           for showing only initial steps
 ==========================================
 reduce in MAUDE-NPA : summary(3, 0) .
-rewrites: 2952702 in 2070ms cpu (2070ms real) (1426426 rewrites/second)
+rewrites: 1947050 in 1620ms cpu (1616ms real) (1201882 rewrites/second)
 result Summary: States>> 1 Solutions>> 0
 ==========================================
 reduce in MAUDE-NPA : summary(3, 1) .
-rewrites: 609488 in 290ms cpu (290ms real) (2101682 rewrites/second)
-result Summary: States>> 2 Solutions>> 0
+rewrites: 287722 in 110ms cpu (114ms real) (2615654 rewrites/second)
+result Summary: States>> 1 Solutions>> 0
 ==========================================
 reduce in MAUDE-NPA : summary(3, 2) .
-rewrites: 902289 in 410ms cpu (407ms real) (2200704 rewrites/second)
-result Summary: States>> 2 Solutions>> 0
+rewrites: 479395 in 240ms cpu (235ms real) (1997479 rewrites/second)
+result Summary: States>> 1 Solutions>> 0
 ==========================================
 reduce in MAUDE-NPA : summary(3, 3) .
-rewrites: 1239361 in 530ms cpu (525ms real) (2338416 rewrites/second)
-result Summary: States>> 2 Solutions>> 0
+rewrites: 660253 in 270ms cpu (272ms real) (2445381 rewrites/second)
+result Summary: States>> 1 Solutions>> 0
 ==========================================
 reduce in MAUDE-NPA : summary(3, 4) .
-rewrites: 1546422 in 700ms cpu (707ms real) (2209174 rewrites/second)
-result Summary: States>> 2 Solutions>> 0
+rewrites: 809671 in 330ms cpu (329ms real) (2453548 rewrites/second)
+result Summary: States>> 1 Solutions>> 0
 ==========================================
 reduce in MAUDE-NPA : summary(3, 5) .
-rewrites: 1878572 in 870ms cpu (863ms real) (2159278 rewrites/second)
-result Summary: States>> 2 Solutions>> 0
+rewrites: 962684 in 380ms cpu (383ms real) (2533378 rewrites/second)
+result Summary: States>> 1 Solutions>> 0
 ==========================================
 reduce in MAUDE-NPA : summary(3, 6) .
-rewrites: 2207409 in 930ms cpu (928ms real) (2373558 rewrites/second)
-result Summary: States>> 2 Solutions>> 0
+rewrites: 1119807 in 460ms cpu (454ms real) (2434363 rewrites/second)
+result Summary: States>> 1 Solutions>> 0
 ==========================================
 reduce in MAUDE-NPA : summary(3, 7) .
-rewrites: 2575358 in 1120ms cpu (1127ms real) (2299426 rewrites/second)
-result Summary: States>> 2 Solutions>> 0
+rewrites: 1281721 in 520ms cpu (528ms real) (2464848 rewrites/second)
+result Summary: States>> 1 Solutions>> 0
 ==========================================
 reduce in MAUDE-NPA : summary(3, 8) .
-rewrites: 2929102 in 1230ms cpu (1222ms real) (2381383 rewrites/second)
-result Summary: States>> 2 Solutions>> 0
+rewrites: 1449021 in 580ms cpu (577ms real) (2498312 rewrites/second)
+result Summary: States>> 1 Solutions>> 0
 ==========================================
 reduce in MAUDE-NPA : summary(3, 9) .
-rewrites: 1186122 in 610ms cpu (612ms real) (1944462 rewrites/second)
+rewrites: 1620398 in 640ms cpu (633ms real) (2531871 rewrites/second)
+result Summary: States>> 1 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(3, 10) .
+rewrites: 1121247 in 460ms cpu (460ms real) (2437493 rewrites/second)
 result Summary: States>> 1 Solutions>> 1
 ==========================================
-reduce in MAUDE-NPA : initials(3, 9) .
-rewrites: 530 in 0ms cpu (0ms real) (~ rewrites/second)
-result ShortIdSystem: < 1 . 1 . 2 . 2 . 2 . 2 . 2 . 2 . 2 . 2 > (
+reduce in MAUDE-NPA : initials(3, 10) .
+rewrites: 428 in 0ms cpu (0ms real) (~ rewrites/second)
+result ShortIdSystem: < 1 . 1 . 2 . 2 . 2 . 2 . 2 . 2 . 2 . 2 . 2 > (
 :: nil ::
 [ nil | 
    -(n(alice, #1:Fresh) ; n(alice, #2:Fresh) ; n(alice, #3:Fresh) ; n(alice,
     #4:Fresh) ; n(alice, #5:Fresh) ; n(alice, #6:Fresh) ; n(alice, #7:Fresh) ;
-    n(alice, #8:Fresh)), 
+    n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; end), 
    +(n(alice, #2:Fresh) ; n(alice, #3:Fresh) ; n(alice, #4:Fresh) ; n(alice,
-    #5:Fresh) ; n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh)),
-    nil]  & 
+    #5:Fresh) ; n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh) ;
+    n(alice, #0:Fresh) ; end), nil]  & 
 :: nil ::
 [ nil | 
    -(n(alice, #2:Fresh) ; n(alice, #3:Fresh) ; n(alice, #4:Fresh) ; n(alice,
-    #5:Fresh) ; n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh)), 
+    #5:Fresh) ; n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh) ;
+    n(alice, #0:Fresh) ; end), 
    +(n(alice, #3:Fresh) ; n(alice, #4:Fresh) ; n(alice, #5:Fresh) ; n(alice,
-    #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh)), nil]  & 
+    #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh) ; n(alice, #0:Fresh) ;
+    end), nil]  & 
 :: nil ::
 [ nil | 
-   -(n(alice, #0:Fresh) ; n(alice, #1:Fresh) ; n(alice, #2:Fresh) ; n(alice,
-    #3:Fresh) ; n(alice, #4:Fresh) ; n(alice, #5:Fresh) ; n(alice, #6:Fresh) ;
-    n(alice, #7:Fresh) ; n(alice, #8:Fresh)), 
-   +(n(alice, #1:Fresh) ; n(alice, #2:Fresh) ; n(alice, #3:Fresh) ; n(alice,
-    #4:Fresh) ; n(alice, #5:Fresh) ; n(alice, #6:Fresh) ; n(alice, #7:Fresh) ;
-    n(alice, #8:Fresh)), nil]  & 
+   -(n(alice, #0:Fresh) ; end), 
+   +(n(alice, #0:Fresh)), nil]  & 
 :: nil ::
 [ nil | 
    -(n(alice, #3:Fresh) ; n(alice, #4:Fresh) ; n(alice, #5:Fresh) ; n(alice,
-    #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh)), 
+    #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh) ; n(alice, #0:Fresh) ;
+    end), 
    +(n(alice, #4:Fresh) ; n(alice, #5:Fresh) ; n(alice, #6:Fresh) ; n(alice,
-    #7:Fresh) ; n(alice, #8:Fresh)), nil]  & 
+    #7:Fresh) ; n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; end), nil]  & 
 :: nil ::
 [ nil | 
    -(n(alice, #4:Fresh) ; n(alice, #5:Fresh) ; n(alice, #6:Fresh) ; n(alice,
-    #7:Fresh) ; n(alice, #8:Fresh)), 
+    #7:Fresh) ; n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; end), 
    +(n(alice, #5:Fresh) ; n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice,
-    #8:Fresh)), nil]  & 
+    #8:Fresh) ; n(alice, #0:Fresh) ; end), nil]  & 
 :: nil ::
 [ nil | 
    -(n(alice, #5:Fresh) ; n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice,
-    #8:Fresh)), 
-   +(n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh)), nil]  & 
+    #8:Fresh) ; n(alice, #0:Fresh) ; end), 
+   +(n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh) ; n(alice,
+    #0:Fresh) ; end), nil]  & 
 :: nil ::
 [ nil | 
-   -(n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh)), 
-   +(n(alice, #7:Fresh) ; n(alice, #8:Fresh)), nil]  & 
+   -(n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh) ; n(alice,
+    #0:Fresh) ; end), 
+   +(n(alice, #7:Fresh) ; n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; end), nil] 
+    & 
 :: nil ::
 [ nil | 
-   -(n(alice, #7:Fresh) ; n(alice, #8:Fresh)), 
-   +(n(alice, #8:Fresh)), nil]  & 
+   -(n(alice, #7:Fresh) ; n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; end), 
+   +(n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; end), nil]  & 
+:: nil ::
+[ nil | 
+   -(n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; end), 
+   +(n(alice, #0:Fresh) ; end), nil]  & 
 :: #1:Fresh, #2:Fresh, #0:Fresh, #3:Fresh, #4:Fresh, #5:Fresh, #6:Fresh,
     #7:Fresh, #8:Fresh ::
 [ nil | 
-   +(n(alice, #0:Fresh) ; n(alice, #1:Fresh) ; n(alice, #2:Fresh) ; n(alice,
-    #3:Fresh) ; n(alice, #4:Fresh) ; n(alice, #5:Fresh) ; n(alice, #6:Fresh) ;
-    n(alice, #7:Fresh) ; n(alice, #8:Fresh)), nil] )
+   +(n(alice, #1:Fresh) ; n(alice, #2:Fresh) ; n(alice, #3:Fresh) ; n(alice,
+    #4:Fresh) ; n(alice, #5:Fresh) ; n(alice, #6:Fresh) ; n(alice, #7:Fresh) ;
+    n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; end), nil] )
 | 
 (n(alice, #1:Fresh) ; n(alice, #2:Fresh) ; n(alice, #3:Fresh) ; n(alice,
     #4:Fresh) ; n(alice, #5:Fresh) ; n(alice, #6:Fresh) ; n(alice, #7:Fresh) ;
-    n(alice, #8:Fresh)) !inI,
+    n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; end) !inI,
 (n(alice, #2:Fresh) ; n(alice, #3:Fresh) ; n(alice, #4:Fresh) ; n(alice,
-    #5:Fresh) ; n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh))
-    !inI,
-(n(alice, #0:Fresh) ; n(alice, #1:Fresh) ; n(alice, #2:Fresh) ; n(alice,
-    #3:Fresh) ; n(alice, #4:Fresh) ; n(alice, #5:Fresh) ; n(alice, #6:Fresh) ;
-    n(alice, #7:Fresh) ; n(alice, #8:Fresh)) !inI,
+    #5:Fresh) ; n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh) ;
+    n(alice, #0:Fresh) ; end) !inI,
+(n(alice, #0:Fresh) ; end) !inI,
 (n(alice, #3:Fresh) ; n(alice, #4:Fresh) ; n(alice, #5:Fresh) ; n(alice,
-    #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh)) !inI,
+    #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh) ; n(alice, #0:Fresh) ;
+    end) !inI,
 (n(alice, #4:Fresh) ; n(alice, #5:Fresh) ; n(alice, #6:Fresh) ; n(alice,
-    #7:Fresh) ; n(alice, #8:Fresh)) !inI,
+    #7:Fresh) ; n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; end) !inI,
 (n(alice, #5:Fresh) ; n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice,
-    #8:Fresh)) !inI,
-(n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh)) !inI,
-(n(alice, #7:Fresh) ; n(alice, #8:Fresh)) !inI,
-n(alice, #8:Fresh) !inI
+    #8:Fresh) ; n(alice, #0:Fresh) ; end) !inI,
+(n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh) ; n(alice,
+    #0:Fresh) ; end) !inI,
+(n(alice, #7:Fresh) ; n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; end) !inI,
+(n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; end) !inI,
+n(alice, #0:Fresh) !inI
 | 
-+(n(alice, #0:Fresh) ; n(alice, #1:Fresh) ; n(alice, #2:Fresh) ; n(alice,
-    #3:Fresh) ; n(alice, #4:Fresh) ; n(alice, #5:Fresh) ; n(alice, #6:Fresh) ;
-    n(alice, #7:Fresh) ; n(alice, #8:Fresh)), 
--(n(alice, #0:Fresh) ; n(alice, #1:Fresh) ; n(alice, #2:Fresh) ; n(alice,
-    #3:Fresh) ; n(alice, #4:Fresh) ; n(alice, #5:Fresh) ; n(alice, #6:Fresh) ;
-    n(alice, #7:Fresh) ; n(alice, #8:Fresh)), 
 +(n(alice, #1:Fresh) ; n(alice, #2:Fresh) ; n(alice, #3:Fresh) ; n(alice,
     #4:Fresh) ; n(alice, #5:Fresh) ; n(alice, #6:Fresh) ; n(alice, #7:Fresh) ;
-    n(alice, #8:Fresh)), 
+    n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; end), 
 -(n(alice, #1:Fresh) ; n(alice, #2:Fresh) ; n(alice, #3:Fresh) ; n(alice,
     #4:Fresh) ; n(alice, #5:Fresh) ; n(alice, #6:Fresh) ; n(alice, #7:Fresh) ;
-    n(alice, #8:Fresh)), 
+    n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; end), 
 +(n(alice, #2:Fresh) ; n(alice, #3:Fresh) ; n(alice, #4:Fresh) ; n(alice,
-    #5:Fresh) ; n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh)), 
+    #5:Fresh) ; n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh) ;
+    n(alice, #0:Fresh) ; end), 
 -(n(alice, #2:Fresh) ; n(alice, #3:Fresh) ; n(alice, #4:Fresh) ; n(alice,
-    #5:Fresh) ; n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh)), 
+    #5:Fresh) ; n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh) ;
+    n(alice, #0:Fresh) ; end), 
 +(n(alice, #3:Fresh) ; n(alice, #4:Fresh) ; n(alice, #5:Fresh) ; n(alice,
-    #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh)), 
+    #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh) ; n(alice, #0:Fresh) ;
+    end), 
 -(n(alice, #3:Fresh) ; n(alice, #4:Fresh) ; n(alice, #5:Fresh) ; n(alice,
-    #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh)), 
+    #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh) ; n(alice, #0:Fresh) ;
+    end), 
 +(n(alice, #4:Fresh) ; n(alice, #5:Fresh) ; n(alice, #6:Fresh) ; n(alice,
-    #7:Fresh) ; n(alice, #8:Fresh)), 
+    #7:Fresh) ; n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; end), 
 -(n(alice, #4:Fresh) ; n(alice, #5:Fresh) ; n(alice, #6:Fresh) ; n(alice,
-    #7:Fresh) ; n(alice, #8:Fresh)), 
+    #7:Fresh) ; n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; end), 
 +(n(alice, #5:Fresh) ; n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice,
-    #8:Fresh)), 
+    #8:Fresh) ; n(alice, #0:Fresh) ; end), 
 -(n(alice, #5:Fresh) ; n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice,
-    #8:Fresh)), 
-+(n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh)), 
--(n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh)), 
-+(n(alice, #7:Fresh) ; n(alice, #8:Fresh)), 
--(n(alice, #7:Fresh) ; n(alice, #8:Fresh)), 
-+(n(alice, #8:Fresh))
+    #8:Fresh) ; n(alice, #0:Fresh) ; end), 
++(n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh) ; n(alice,
+    #0:Fresh) ; end), 
+-(n(alice, #6:Fresh) ; n(alice, #7:Fresh) ; n(alice, #8:Fresh) ; n(alice,
+    #0:Fresh) ; end), 
++(n(alice, #7:Fresh) ; n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; end), 
+-(n(alice, #7:Fresh) ; n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; end), 
++(n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; end), 
+-(n(alice, #8:Fresh) ; n(alice, #0:Fresh) ; end), 
++(n(alice, #0:Fresh) ; end), 
+-(n(alice, #0:Fresh) ; end), 
++(n(alice, #0:Fresh))
 | 
 nil
 
-Fri Dec 12 12:04:04 CET 2025
+Tue Dec 16 12:35:05 CET 2025

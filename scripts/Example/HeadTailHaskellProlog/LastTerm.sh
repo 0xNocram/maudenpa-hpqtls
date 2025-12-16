@@ -28,7 +28,9 @@ red summary(3,7) .
 red summary(3,8) .
 
 red summary(3,9) .
-red initials(3,9) .
+
+red summary(3,10) .
+red initials(3,10) .
 
 EOF
 date

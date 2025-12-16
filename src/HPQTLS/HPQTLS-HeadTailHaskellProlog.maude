@@ -51,9 +51,11 @@ fmod PROTOCOL-EXAMPLE-SYMBOLS is
 
     ops alice bob eve : -> Name .
 
+
     sort List Elem .
+    
     subsort List < Msg .
-    subsort Elem < List .
+    subsort Elem < Msg .
 
     op end : -> List .
     op _;_ : Elem List -> List [frozen] .
@@ -181,9 +183,6 @@ fmod PROTOCOL-SPECIFICATION is
 		--- 
 		--- [General Intruder Actions]
 		---
-		:: nil ::   [nil | 
-                        
-                        +(end), nil] &
         :: nil ::   [nil | 
                         -(x:Elem ; y:List), 
                         +(x:Elem), nil] &
@@ -299,11 +298,11 @@ fmod PROTOCOL-SPECIFICATION is
 	eq STRANDS-PROTOCOL =
 		:: r1, r2, r3 ::
 		[nil | 
-		+   (clienthello ; n(alice, r1)),
-        -   (serverhello ; SHRANDOM ; SHSESSION),
-        -   (servercertificate ; SCCERTIFICATE),
-        -   (serverkeyexchange ; exp(g, SKEECSK) ; pqpk(SKEPQSK) ; sig(BOB, exp(g, SKEECSK) ; pqpk(SKEPQSK) ; n(alice, r1) ; SHRANDOM)),
-        +   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(SKEPQSK), n(alice, r3))),
+		+   (clienthello ; n(alice, r1) ; end),
+        -   (serverhello ; SHRANDOM ; SHSESSION ; end),
+        -   (servercertificate ; SCCERTIFICATE ; end),
+        -   (serverkeyexchange ; exp(g, SKEECSK) ; pqpk(SKEPQSK) ; sig(BOB, exp(g, SKEECSK) ; pqpk(SKEPQSK) ; n(alice, r1) ; SHRANDOM ; end) ; end),
+        +   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(SKEPQSK), n(alice, r3)) ; end),
         +   (clientfinished ; 
                 prf(
                     ms(
@@ -316,9 +315,9 @@ fmod PROTOCOL-SPECIFICATION is
                     clienthello ; n(alice, r1) ;  
                     serverhello ; SHRANDOM ; SHSESSION ;
                     servercertificate ; SCCERTIFICATE ;
-                    serverkeyexchange ; exp(g, SKEECSK) ; pqpk(SKEPQSK) ; sig(BOB, exp(g, SKEECSK) ; pqpk(SKEPQSK) ; n(alice, r1) ; SHRANDOM) ;
-                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(SKEPQSK), n(alice, r3))
-                )
+                    serverkeyexchange ; exp(g, SKEECSK) ; pqpk(SKEPQSK) ; sig(BOB, exp(g, SKEECSK) ; pqpk(SKEPQSK) ; n(alice, r1) ; SHRANDOM ; end) ;
+                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(SKEPQSK), n(alice, r3)) ; end
+                ) ; end
             ),
         -   (serverfinished ; 
                 prf(
@@ -332,7 +331,7 @@ fmod PROTOCOL-SPECIFICATION is
                     clienthello ; n(alice, r1) ;  
                     serverhello ; SHRANDOM ; SHSESSION ;  
                     servercertificate ; SCCERTIFICATE ;
-                    serverkeyexchange ; exp(g, SKEECSK) ; pqpk(SKEPQSK) ; sig(BOB, exp(g, SKEECSK) ; pqpk(SKEPQSK) ; n(alice, r1) ; SHRANDOM) ;
+                    serverkeyexchange ; exp(g, SKEECSK) ; pqpk(SKEPQSK) ; sig(BOB, exp(g, SKEECSK) ; pqpk(SKEPQSK) ; n(alice, r1) ; SHRANDOM ; end) ;
                     clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(SKEPQSK), n(alice, r3)) ;
                     clientfinished ; 
                         prf(
@@ -346,20 +345,20 @@ fmod PROTOCOL-SPECIFICATION is
                             clienthello ; n(alice, r1) ;  
                             serverhello ; SHRANDOM ; SHSESSION ;  
                             servercertificate ; SCCERTIFICATE ;
-                            serverkeyexchange ; exp(g, SKEECSK) ; pqpk(SKEPQSK) ; sig(BOB, exp(g, SKEECSK) ; pqpk(SKEPQSK) ; n(alice, r1) ; SHRANDOM) ;
-                            clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(SKEPQSK), n(alice, r3))
-                        ) 
-                )
+                            serverkeyexchange ; exp(g, SKEECSK) ; pqpk(SKEPQSK) ; sig(BOB, exp(g, SKEECSK) ; pqpk(SKEPQSK) ; n(alice, r1) ; SHRANDOM ; end) ;
+                            clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(SKEPQSK), n(alice, r3)) ; end
+                        )  ; end
+                ) ; end
             )
         , nil] &
 
 		:: r1', r2', r3', r4' ::
 		[nil |
-		-   (clienthello ; CHRANDOM),
-        +   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2'))),
-        +   (servercertificate ; cer(bob)),
-        +   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; CHRANDOM ; n(bob, r1'))),
-        -   (clientkeyexchange ; exp(g, CKEECSK) ; encapct(pqpk(pqsk(n(bob, r4'))), CKEPQNONCE)),
+		-   (clienthello ; CHRANDOM ; end),
+        +   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ; end),
+        +   (servercertificate ; cer(bob) ; end),
+        +   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; CHRANDOM ; n(bob, r1') ; end) ; end),
+        -   (clientkeyexchange ; exp(g, CKEECSK) ; encapct(pqpk(pqsk(n(bob, r4'))), CKEPQNONCE) ; end),
         -   (clientfinished ;
                 prf(
                     ms(
@@ -372,9 +371,9 @@ fmod PROTOCOL-SPECIFICATION is
                     clienthello ; CHRANDOM ;
                     serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;
                     servercertificate ; cer(bob) ;
-                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; CHRANDOM ; n(bob, r1')) ;
-                    clientkeyexchange ; exp(g, CKEECSK) ; encapct(pqpk(pqsk(n(bob, r4'))), CKEPQNONCE)
-                )
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; CHRANDOM ; n(bob, r1') ; end) ;
+                    clientkeyexchange ; exp(g, CKEECSK) ; encapct(pqpk(pqsk(n(bob, r4'))), CKEPQNONCE) ; end
+                ) ; end
             ),
         +   (serverfinished ;
                 prf(
@@ -388,7 +387,7 @@ fmod PROTOCOL-SPECIFICATION is
                     clienthello ; CHRANDOM ;
                     serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;
                     servercertificate ; cer(bob) ;
-                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; CHRANDOM ; n(bob, r1')) ;
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; CHRANDOM ; n(bob, r1') ; end) ;
                     clientkeyexchange ; exp(g, CKEECSK) ; encapct(pqpk(pqsk(n(bob, r4'))), CKEPQNONCE) ;
                     clientfinished ;
                         prf(
@@ -402,10 +401,10 @@ fmod PROTOCOL-SPECIFICATION is
                             clienthello ; CHRANDOM ;
                             serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;
                             servercertificate ; cer(bob) ;
-                            serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; CHRANDOM ; n(bob, r1')) ;
-                            clientkeyexchange ; exp(g, CKEECSK) ; encapct(pqpk(pqsk(n(bob, r4'))), CKEPQNONCE)
-                        ) 
-                ) 
+                            serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; CHRANDOM ; n(bob, r1') ; end) ;
+                            clientkeyexchange ; exp(g, CKEECSK) ; encapct(pqpk(pqsk(n(bob, r4'))), CKEPQNONCE) ; end
+                        ) ; end
+                ) ; end
             )
         , nil]
 	[nonexec] .
@@ -415,11 +414,11 @@ fmod PROTOCOL-SPECIFICATION is
     eq ATTACK-STATE(100) =
         :: r1, r2, r3 ::
         [nil, 
-        +   (clienthello ; n(alice, r1)),
-        -   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2'))),
-        -   (servercertificate ; cer(bob)),
-        -   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1'))),
-        +   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+        +   (clienthello ; n(alice, r1) ; end),
+        -   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ; end),
+        -   (servercertificate ; cer(bob) ; end),
+        -   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ; end),
+        +   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ; end),
         +   (clientfinished ;
                 prf(
                     ms(
@@ -432,9 +431,9 @@ fmod PROTOCOL-SPECIFICATION is
                     clienthello ; n(alice, r1) ;  
                     serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;
                     servercertificate ; cer(bob) ;
-                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
-                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
-                )
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ;
+                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ; end
+                ) ; end
             ),
         -   (serverfinished ; 
                 prf(
@@ -448,7 +447,7 @@ fmod PROTOCOL-SPECIFICATION is
                     clienthello ; n(alice, r1) ;  
                     serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
                     servercertificate ; cer(bob) ;
-                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ;
                     clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ;
                     clientfinished ;
                         prf(
@@ -462,20 +461,20 @@ fmod PROTOCOL-SPECIFICATION is
                             clienthello ; n(alice, r1) ;  
                             serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
                             servercertificate ; cer(bob) ;
-                            serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
-                            clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
-                        ) 
-                )
+                            serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ;
+                            clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ; end
+                        )  ; end
+                ) ; end
             )
         | nil] &
 
         :: r1', r2', r3', r4' ::
         [nil, 
-        -   (clienthello ; n(alice, r1)),
-        +   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2'))),
-        +   (servercertificate ; cer(bob)),
-        +   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1'))),
-        -   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+        -   (clienthello ; n(alice, r1) ; end),
+        +   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ; end),
+        +   (servercertificate ; cer(bob) ; end),
+        +   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ; end),
+        -   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ; end),
         -   (clientfinished ;
                 prf(
                     ms(
@@ -488,9 +487,9 @@ fmod PROTOCOL-SPECIFICATION is
                     clienthello ; n(alice, r1) ;  
                     serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;
                     servercertificate ; cer(bob) ;
-                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
-                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
-                )
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ;
+                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ; end
+                ) ; end
             ),
         +   (serverfinished ; 
                 prf(
@@ -504,7 +503,7 @@ fmod PROTOCOL-SPECIFICATION is
                     clienthello ; n(alice, r1) ;  
                     serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
                     servercertificate ; cer(bob) ;
-                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ;
                     clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ;
                     clientfinished ;
                         prf(
@@ -518,10 +517,10 @@ fmod PROTOCOL-SPECIFICATION is
                             clienthello ; n(alice, r1) ;  
                             serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
                             servercertificate ; cer(bob) ;
-                            serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
-                            clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
-                        ) 
-                )
+                            serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ;
+                            clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ; end
+                        )  ; end
+                ) ; end
             )
         | nil]
         || empty
@@ -535,11 +534,11 @@ fmod PROTOCOL-SPECIFICATION is
     eq ATTACK-STATE(0) =
         :: r1, r2, r3 ::
         [nil, 
-        +   (clienthello ; n(alice, r1)),
-        -   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2'))),
-        -   (servercertificate ; cer(bob)),
-        -   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1'))),
-        +   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+        +   (clienthello ; n(alice, r1) ; end),
+        -   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ; end),
+        -   (servercertificate ; cer(bob) ; end),
+        -   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ; end),
+        +   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ; end),
         +   (clientfinished ;
                 prf(
                     ms(
@@ -552,9 +551,9 @@ fmod PROTOCOL-SPECIFICATION is
                     clienthello ; n(alice, r1) ;  
                     serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;
                     servercertificate ; cer(bob) ;
-                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
-                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
-                )
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ;
+                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ; end
+                ) ; end
             ),
         -   (serverfinished ; 
                 prf(
@@ -568,7 +567,7 @@ fmod PROTOCOL-SPECIFICATION is
                     clienthello ; n(alice, r1) ;  
                     serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
                     servercertificate ; cer(bob) ;
-                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ;
                     clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ;
                     clientfinished ;
                         prf(
@@ -582,10 +581,10 @@ fmod PROTOCOL-SPECIFICATION is
                             clienthello ; n(alice, r1) ;  
                             serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
                             servercertificate ; cer(bob) ;
-                            serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
-                            clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
-                        ) 
-                )
+                            serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ;
+                            clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ; end
+                        )  ; end
+                ) ; end
             )
         | nil]
         || empty
@@ -594,11 +593,11 @@ fmod PROTOCOL-SPECIFICATION is
         || never (
             :: r1', r2', r3', r4' ::
             [nil |
-            -   (clienthello ; n(alice, r1)),
-            +   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2'))),
-            +   (servercertificate ; cer(bob)),
-            +   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1'))),
-            -   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+            -   (clienthello ; n(alice, r1) ; end),
+            +   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ; end),
+            +   (servercertificate ; cer(bob) ; end),
+            +   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ; end),
+            -   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ; end),
             -   (clientfinished ;
                     prf(
                         ms(
@@ -611,9 +610,9 @@ fmod PROTOCOL-SPECIFICATION is
                         clienthello ; n(alice, r1) ;  
                         serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;
                         servercertificate ; cer(bob) ;
-                        serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
-                        clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
-                    )
+                        serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ;
+                        clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ; end
+                    ) ; end
                 ),
             +   (serverfinished ; 
                     prf(
@@ -627,7 +626,7 @@ fmod PROTOCOL-SPECIFICATION is
                         clienthello ; n(alice, r1) ;  
                         serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
                         servercertificate ; cer(bob) ;
-                        serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                        serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ;
                         clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ;
                         clientfinished ;
                             prf(
@@ -641,24 +640,24 @@ fmod PROTOCOL-SPECIFICATION is
                                 clienthello ; n(alice, r1) ;  
                                 serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
                                 servercertificate ; cer(bob) ;
-                                serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
-                                clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
-                            ) 
-                    )
+                                serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ;
+                                clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ; end
+                            )  ; end
+                    ) ; end
                 )
             , nil] & S:StrandSet || I:IntruderKnowledge
-        ) [nonexec] .
-    
+    ) [nonexec] .
+
 
     --- ecss
     eq ATTACK-STATE(1) =
         :: r1, r2, r3 ::
         [nil, 
-        +   (clienthello ; n(alice, r1)),
-        -   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2'))),
-        -   (servercertificate ; cer(bob)),
-        -   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1'))),
-        +   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+        +   (clienthello ; n(alice, r1) ; end),
+        -   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ; end),
+        -   (servercertificate ; cer(bob) ; end),
+        -   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ; end),
+        +   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ; end),
         +   (clientfinished ;
                 prf(
                     ms(
@@ -671,9 +670,9 @@ fmod PROTOCOL-SPECIFICATION is
                     clienthello ; n(alice, r1) ;  
                     serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;
                     servercertificate ; cer(bob) ;
-                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
-                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
-                )
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ;
+                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ; end
+                ) ; end
             ),
         -   (serverfinished ; 
                 prf(
@@ -687,7 +686,7 @@ fmod PROTOCOL-SPECIFICATION is
                     clienthello ; n(alice, r1) ;  
                     serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
                     servercertificate ; cer(bob) ;
-                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ;
                     clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ;
                     clientfinished ;
                         prf(
@@ -701,20 +700,20 @@ fmod PROTOCOL-SPECIFICATION is
                             clienthello ; n(alice, r1) ;  
                             serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
                             servercertificate ; cer(bob) ;
-                            serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
-                            clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
-                        ) 
-                )
+                            serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ;
+                            clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ; end
+                        )  ; end
+                ) ; end
             )
         | nil] &
 
         :: r1', r2', r3', r4' ::
         [nil, 
-        -   (clienthello ; n(alice, r1)),
-        +   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2'))),
-        +   (servercertificate ; cer(bob)),
-        +   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1'))),
-        -   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+        -   (clienthello ; n(alice, r1) ; end),
+        +   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ; end),
+        +   (servercertificate ; cer(bob) ; end),
+        +   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ; end),
+        -   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ; end),
         -   (clientfinished ;
                 prf(
                     ms(
@@ -727,9 +726,9 @@ fmod PROTOCOL-SPECIFICATION is
                     clienthello ; n(alice, r1) ;  
                     serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;
                     servercertificate ; cer(bob) ;
-                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
-                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
-                )
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ;
+                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ; end
+                ) ; end
             ),
         +   (serverfinished ; 
                 prf(
@@ -743,7 +742,7 @@ fmod PROTOCOL-SPECIFICATION is
                     clienthello ; n(alice, r1) ;  
                     serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
                     servercertificate ; cer(bob) ;
-                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ;
                     clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ;
                     clientfinished ;
                         prf(
@@ -757,10 +756,10 @@ fmod PROTOCOL-SPECIFICATION is
                             clienthello ; n(alice, r1) ;  
                             serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
                             servercertificate ; cer(bob) ;
-                            serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
-                            clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
-                        ) 
-                )
+                            serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ;
+                            clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ; end
+                        )  ; end
+                ) ; end
             )
         | nil]
         || exp(exp(g, n(bob, r3')), n(alice, r2)) inI, empty
@@ -774,11 +773,11 @@ fmod PROTOCOL-SPECIFICATION is
     eq ATTACK-STATE(2) =
         :: r1, r2, r3 ::
         [nil, 
-        +   (clienthello ; n(alice, r1)),
-        -   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2'))),
-        -   (servercertificate ; cer(bob)),
-        -   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1'))),
-        +   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+        +   (clienthello ; n(alice, r1) ; end),
+        -   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ; end),
+        -   (servercertificate ; cer(bob) ; end),
+        -   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ; end),
+        +   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ; end),
         +   (clientfinished ;
                 prf(
                     ms(
@@ -791,9 +790,9 @@ fmod PROTOCOL-SPECIFICATION is
                     clienthello ; n(alice, r1) ;  
                     serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;
                     servercertificate ; cer(bob) ;
-                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
-                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
-                )
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ;
+                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ; end
+                ) ; end
             ),
         -   (serverfinished ; 
                 prf(
@@ -807,7 +806,7 @@ fmod PROTOCOL-SPECIFICATION is
                     clienthello ; n(alice, r1) ;  
                     serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
                     servercertificate ; cer(bob) ;
-                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ;
                     clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ;
                     clientfinished ;
                         prf(
@@ -821,20 +820,20 @@ fmod PROTOCOL-SPECIFICATION is
                             clienthello ; n(alice, r1) ;  
                             serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
                             servercertificate ; cer(bob) ;
-                            serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
-                            clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
-                        ) 
-                )
+                            serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ;
+                            clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ; end
+                        )  ; end
+                ) ; end
             )
         | nil] &
 
         :: r1', r2', r3', r4' ::
         [nil, 
-        -   (clienthello ; n(alice, r1)),
-        +   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2'))),
-        +   (servercertificate ; cer(bob)),
-        +   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1'))),
-        -   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))),
+        -   (clienthello ; n(alice, r1) ; end),
+        +   (serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ; end),
+        +   (servercertificate ; cer(bob) ; end),
+        +   (serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ; end),
+        -   (clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ; end),
         -   (clientfinished ;
                 prf(
                     ms(
@@ -847,9 +846,9 @@ fmod PROTOCOL-SPECIFICATION is
                     clienthello ; n(alice, r1) ;  
                     serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;
                     servercertificate ; cer(bob) ;
-                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
-                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
-                )
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ;
+                    clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ; end
+                ) ; end
             ),
         +   (serverfinished ; 
                 prf(
@@ -863,7 +862,7 @@ fmod PROTOCOL-SPECIFICATION is
                     clienthello ; n(alice, r1) ;  
                     serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
                     servercertificate ; cer(bob) ;
-                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
+                    serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ;
                     clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ;
                     clientfinished ;
                         prf(
@@ -877,10 +876,10 @@ fmod PROTOCOL-SPECIFICATION is
                             clienthello ; n(alice, r1) ;  
                             serverhello ; n(bob, r1') ; ses(bob, n(bob, r2')) ;  
                             servercertificate ; cer(bob) ;
-                            serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1')) ;
-                            clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3))
-                        ) 
-                )
+                            serverkeyexchange ; exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; sig(bob, exp(g, n(bob, r3')) ; pqpk(pqsk(n(bob, r4'))) ; n(alice, r1) ; n(bob, r1') ; end) ;
+                            clientkeyexchange ; exp(g, n(alice, r2)) ; encapct(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) ; end
+                        )  ; end
+                ) ; end
             )
         | nil]
         || encapss(pqpk(pqsk(n(bob, r4'))), n(alice, r3)) inI, empty

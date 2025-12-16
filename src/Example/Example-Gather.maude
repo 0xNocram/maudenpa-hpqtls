@@ -8,7 +8,7 @@ fmod PROTOCOL-EXAMPLE-SYMBOLS is
     subsort Name    < Msg      .
     subsort Name    < Public    .
 
-    op alice : -> Name .
+    ops alice eve : -> Name .
     op _;_ : Msg Msg -> Msg [frozen gather (e E)] .
 
 
@@ -38,7 +38,14 @@ fmod PROTOCOL-SPECIFICATION is
                         +(x:Msg), nil] &
 		:: nil ::   [nil | 
                         -(x:Msg ; y:Msg), 
-                        +(y:Msg), nil]
+                        +(y:Msg), nil] &
+        :: nil ::   [nil | 
+                        -(x:Msg), -(y:Msg), 
+                        +(x:Msg ; y:Msg), nil] &
+        
+        :: x:Fresh :: [nil |
+        
+                       +(n(eve, x:Fresh)), nil]
 	[nonexec] .
 
 

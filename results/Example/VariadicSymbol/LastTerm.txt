@@ -1,26 +1,11 @@
-Fri Dec 12 12:06:41 CET 2025
+Tue Dec 16 12:39:57 CET 2025
 
 		     \||||||||||||||||||/
 		   --- Welcome to Maude ---
 		     /||||||||||||||||||\
 	     Maude 3.5 built: Sep 25 2024 12:00:00
 	     Copyright 1997-2024 SRI International
-		   Fri Dec 12 12:06:41 2025
-Advisory: "maude-npa.maude", line 14352 (fmod BACK-NARROWING): all the
-    variables in the left-hand side of assignment condition fragment M:Msg :=
-    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
-    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M':Msg))))
-    are bound before the matching takes place.
-Advisory: "maude-npa.maude", line 14376 (fmod BACK-NARROWING): all the
-    variables in the left-hand side of assignment condition fragment M:Msg :=
-    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
-    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M':Msg))))
-    are bound before the matching takes place.
-Advisory: "maude-npa.maude", line 14392 (fmod BACK-NARROWING): all the
-    variables in the left-hand side of assignment condition fragment M:Msg :=
-    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
-    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M:Msg))))
-    are bound before the matching takes place.
+		   Tue Dec 16 12:39:57 2025
 
 	    Maude-NPA Version: 3.1.4 (June 2nd 2020)
 	    with direct composition, irreducibility constraints and time
@@ -41,15 +26,15 @@ Advisory: "maude-npa.maude", line 14392 (fmod BACK-NARROWING): all the
  red initials(X,Y).           for showing only initial steps
 ==========================================
 reduce in MAUDE-NPA : summary(3, 0) .
-rewrites: 2010837 in 1510ms cpu (1516ms real) (1331680 rewrites/second)
+rewrites: 3977225 in 2590ms cpu (2603ms real) (1535608 rewrites/second)
 result Summary: States>> 1 Solutions>> 0
 ==========================================
 reduce in MAUDE-NPA : summary(3, 1) .
-rewrites: 3865275 in 920ms cpu (918ms real) (4201385 rewrites/second)
+rewrites: 3764563 in 1280ms cpu (1281ms real) (2941064 rewrites/second)
 result Summary: States>> 9 Solutions>> 0
 ==========================================
 reduce in MAUDE-NPA : summary(3, 2) .
-rewrites: 764055 in 1010ms cpu (1006ms real) (756490 rewrites/second)
+rewrites: 1495888 in 1560ms cpu (1559ms real) (958902 rewrites/second)
 result Summary: States>> 1 Solutions>> 1
 ==========================================
 reduce in MAUDE-NPA : initials(3, 2) .
@@ -83,4 +68,4 @@ f(n(alice, #0:Fresh), n(alice, #1:Fresh), n(alice, #2:Fresh), n(alice,
 | 
 nil
 
-Fri Dec 12 12:06:45 CET 2025
+Tue Dec 16 12:40:03 CET 2025

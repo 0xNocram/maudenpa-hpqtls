@@ -30,5 +30,7 @@ red summary(2,8) .
 
 red summary(2,9) .
 
+red summary(2,10) .
+
 EOF
 date

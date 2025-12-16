@@ -8,12 +8,13 @@ fmod PROTOCOL-EXAMPLE-SYMBOLS is
     subsort Name    < Elem      .
     subsort Name    < Public    .
 
-    op alice : -> Name .
+    ops alice eve : -> Name .
     
 
     sort List Elem .
+    
     subsort List < Msg .
-    subsort Elem < List .
+    subsort Elem < Msg .
 
     op end : -> List .
     op _;_ : Elem List -> List [frozen] .
@@ -40,27 +41,31 @@ fmod PROTOCOL-SPECIFICATION is
 
     
 	eq STRANDS-DOLEVYAO =
-		:: nil ::   [nil | 
-                        
-                        +(end), nil] &
         :: nil ::   [nil | 
                         -(x:Elem ; y:List), 
                         +(x:Elem), nil] &
 		:: nil ::   [nil | 
                         -(x:Elem ; y:List), 
-                        +(y:List), nil]
+                        +(y:List), nil] &
+        :: nil ::   [nil | 
+                        -(x:Elem), -(y:List), 
+                        +(x:Elem ; y:List), nil] &
+                        
+        :: x:Fresh :: [nil |
+        
+                       +(n(eve, x:Fresh)), nil]
 	[nonexec] .
 
 
 	eq STRANDS-PROTOCOL =
 		:: r1, r2, r3, r4, r5, r6, r7, r8, r9 ::
 		[nil | 
-		+   (n(alice, r1) ; n(alice, r2) ; n(alice, r3) ; n(alice, r4) ; n(alice, r5) ; n(alice, r6) ; n(alice, r7) ; n(alice, r8) ; n(alice, r9))
+		+   (n(alice, r1) ; n(alice, r2) ; n(alice, r3) ; n(alice, r4) ; n(alice, r5) ; n(alice, r6) ; n(alice, r7) ; n(alice, r8) ; n(alice, r9) ; end)
         , nil] &
 
 		:: nil ::
 		[nil |
-		- (N1 ; N2 ; N3 ; N4 ; N5 ; N6 ; N7 ; N8 ; N9)
+		- (N1 ; N2 ; N3 ; N4 ; N5 ; N6 ; N7 ; N8 ; N9 ; end)
         , nil]
 	[nonexec] .
 
@@ -69,7 +74,7 @@ fmod PROTOCOL-SPECIFICATION is
     eq ATTACK-STATE(1) =
         :: r1, r2, r3, r4, r5, r6, r7, r8, r9 ::
         [nil, 
-        +   (n(alice, r1) ; n(alice, r2) ; n(alice, r3) ; n(alice, r4) ; n(alice, r5) ; n(alice, r6) ; n(alice, r7) ; n(alice, r8) ; n(alice, r9))
+        +   (n(alice, r1) ; n(alice, r2) ; n(alice, r3) ; n(alice, r4) ; n(alice, r5) ; n(alice, r6) ; n(alice, r7) ; n(alice, r8) ; n(alice, r9) ; end)
         | nil]
         || n(alice, r1) inI, empty
         || nil
@@ -82,7 +87,7 @@ fmod PROTOCOL-SPECIFICATION is
     eq ATTACK-STATE(2) =
         :: r1, r2, r3, r4, r5, r6, r7, r8, r9 ::
         [nil, 
-        +   (n(alice, r1) ; n(alice, r2) ; n(alice, r3) ; n(alice, r4) ; n(alice, r5) ; n(alice, r6) ; n(alice, r7) ; n(alice, r8) ; n(alice, r9))
+        +   (n(alice, r1) ; n(alice, r2) ; n(alice, r3) ; n(alice, r4) ; n(alice, r5) ; n(alice, r6) ; n(alice, r7) ; n(alice, r8) ; n(alice, r9) ; end)
         | nil]
         || n(alice, r5) inI, empty
         || nil
@@ -95,7 +100,7 @@ fmod PROTOCOL-SPECIFICATION is
     eq ATTACK-STATE(3) =
         :: r1, r2, r3, r4, r5, r6, r7, r8, r9 ::
         [nil, 
-        +   (n(alice, r1) ; n(alice, r2) ; n(alice, r3) ; n(alice, r4) ; n(alice, r5) ; n(alice, r6) ; n(alice, r7) ; n(alice, r8) ; n(alice, r9))
+        +   (n(alice, r1) ; n(alice, r2) ; n(alice, r3) ; n(alice, r4) ; n(alice, r5) ; n(alice, r6) ; n(alice, r7) ; n(alice, r8) ; n(alice, r9) ; end)
         | nil]
         || n(alice, r9) inI, empty
         || nil

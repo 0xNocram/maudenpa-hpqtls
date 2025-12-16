@@ -8,7 +8,7 @@ fmod PROTOCOL-EXAMPLE-SYMBOLS is
     subsort Name    < Elem      .
     subsort Name    < Public    .
 
-    op alice : -> Name .
+    ops alice eve : -> Name .
     
 
     sort List Elem .
@@ -47,7 +47,14 @@ fmod PROTOCOL-SPECIFICATION is
                         +(x:Elem), nil] &
         :: nil ::   [nil | 
                         -(x:List ; y:Elem), 
-                        +(y:Elem), nil]
+                        +(y:Elem), nil] &
+        :: nil ::   [nil | 
+                        -(x:Elem), -(y:List), 
+                        +(x:Elem ; y:List), nil] &
+
+        :: x:Fresh :: [nil |
+        
+                       +(n(eve, x:Fresh)), nil]
 	[nonexec] .
 
 
