@@ -57,10 +57,10 @@ The four refinements model different ways of handling concatenation and decompos
 
 This refinement is inspired by the concepts of *head* and *tail* from functional (Haskell) and logic (Prolog) programming. It allows the intruder to recursively extract every possible subsequence from a concatenated string of *n* elements.
 
-For example, given a term `a ; b ; c` (with *n*=3), the intruder can obtain:
+For example, given a term `a ; b ; c ; ø` (with *n* = 3 + 1), the intruder can obtain:
 - single elements: `a`, `b`, `c`
-- contiguous chunks: `a ; b`, `b ; c`
-- the full sequence: `a ; b ; c`
+- contiguous chunks: `c ; ø`, `b ; c ; ø`
+- the full sequence: `a ; b ; c ; ø`
 
 This provides the intruder with maximum decomposition power, modeling a strong adversary capable of splitting concatenations at any position.
 
