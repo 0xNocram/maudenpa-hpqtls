@@ -1,0 +1,66 @@
+theory Gather begin
+
+
+rule client_send_nonces:
+    [Fr(~r1), Fr(~r2), Fr(~r3), Fr(~r4), Fr(~r5), Fr(~r6), Fr(~r7), Fr(~r8), Fr(~r9), Fr(~r10),
+     Fr(~r11), Fr(~r12), Fr(~r13), Fr(~r14), Fr(~r15), Fr(~r16), Fr(~r17), Fr(~r18), Fr(~r19), Fr(~r20),
+     Fr(~r21), Fr(~r22), Fr(~r23), Fr(~r24), Fr(~r25), Fr(~r26), Fr(~r27), Fr(~r28), Fr(~r29), Fr(~r30)]
+
+    --[Nonces(~r1, ~r2, ~r3, ~r4, ~r5, ~r6, ~r7, ~r8, ~r9, ~r10,
+              ~r11, ~r12, ~r13, ~r14, ~r15, ~r16, ~r17, ~r18, ~r19, ~r20,
+              ~r21, ~r22, ~r23, ~r24, ~r25, ~r26, ~r27, ~r28, ~r29, ~r30)]->
+
+    [ Out(<~r1, ~r2, ~r3, ~r4, ~r5, ~r6, ~r7, ~r8, ~r9, ~r10,
+           ~r11, ~r12, ~r13, ~r14, ~r15, ~r16, ~r17, ~r18, ~r19, ~r20,
+           ~r21, ~r22, ~r23, ~r24, ~r25, ~r26, ~r27, ~r28, ~r29, ~r30>)]
+
+rule server_receives_nonces:
+    [In(nonces)]
+
+    --[]->
+
+    [ ]
+
+
+lemma get_1st_nonce:
+    exists-trace
+    "
+    Ex r1 r2 r3 r4 r5 r6 r7 r8 r9 r10
+       r11 r12 r13 r14 r15 r16 r17 r18 r19 r20
+       r21 r22 r23 r24 r25 r26 r27 r28 r29 r30
+       #i #j .
+
+    Nonces(r1, r2, r3, r4, r5, r6, r7, r8, r9, r10,
+           r11, r12, r13, r14, r15, r16, r17, r18, r19, r20,
+           r21, r22, r23, r24, r25, r26, r27, r28, r29, r30) @ i &
+    K(r1) @ j
+    "
+
+lemma get_15th_nonce:
+    exists-trace
+    "
+    Ex r1 r2 r3 r4 r5 r6 r7 r8 r9 r10
+       r11 r12 r13 r14 r15 r16 r17 r18 r19 r20
+       r21 r22 r23 r24 r25 r26 r27 r28 r29 r30
+       #i #j .
+
+    Nonces(r1, r2, r3, r4, r5, r6, r7, r8, r9, r10,
+           r11, r12, r13, r14, r15, r16, r17, r18, r19, r20,
+           r21, r22, r23, r24, r25, r26, r27, r28, r29, r30) @ i &
+    K(r15) @ j
+    "
+
+lemma get_30th_nonce:
+    exists-trace
+    "
+    Ex r1 r2 r3 r4 r5 r6 r7 r8 r9 r10
+       r11 r12 r13 r14 r15 r16 r17 r18 r19 r20
+       r21 r22 r23 r24 r25 r26 r27 r28 r29 r30
+       #i #j .
+
+    Nonces(r1, r2, r3, r4, r5, r6, r7, r8, r9, r10,
+           r11, r12, r13, r14, r15, r16, r17, r18, r19, r20,
+           r21, r22, r23, r24, r25, r26, r27, r28, r29, r30) @ i &
+    K(r30) @ j
+    "
+end

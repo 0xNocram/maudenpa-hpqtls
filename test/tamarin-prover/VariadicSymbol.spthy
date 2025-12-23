@@ -1,0 +1,112 @@
+theory VariadicSymbol begin
+
+functions: f/30
+
+functions: extract1/1, extract2/1, extract3/1, extract4/1, extract5/1, 
+           extract6/1, extract7/1, extract8/1, extract9/1, extract10/1, 
+           
+           extract11/1, extract12/1, extract13/1, extract14/1, extract15/1, 
+           extract16/1, extract17/1, extract18/1, extract19/1, extract20/1, 
+           
+           extract21/1, extract22/1, extract23/1, extract24/1, extract25/1, 
+           extract26/1, extract27/1, extract28/1, extract29/1, extract30/1
+           
+equations:
+    extract1(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = x,
+    extract2(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = y,
+    extract3(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = z,
+    extract4(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = u,
+    extract5(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = v,
+    extract6(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = w,
+    extract7(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = r,
+    extract8(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = s,
+    extract9(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = t,
+    extract10(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = o,
+
+    extract11(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = xx,
+    extract12(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = yy,
+    extract13(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = zz,
+    extract14(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = uu,
+    extract15(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = vv,
+    extract16(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = ww,
+    extract17(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = rr,
+    extract18(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = ss,
+    extract19(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = tt,
+    extract20(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = oo,
+
+    extract21(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = xxx,
+    extract22(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = yyy,
+    extract23(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = zzz,
+    extract24(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = uuu,
+    extract25(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = vvv,
+    extract26(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = www,
+    extract27(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = rrr,
+    extract28(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = sss,
+    extract29(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = ttt,
+    extract30(f(x, y, z, u, v, w, r, s, t, o, xx, yy, zz, uu, vv, ww, rr, ss, tt, oo, xxx, yyy, zzz, uuu, vvv, www, rrr, sss, ttt, ooo)) = ooo,
+
+
+
+rule client_send_nonces:
+    [Fr(~r1), Fr(~r2), Fr(~r3), Fr(~r4), Fr(~r5), Fr(~r6), Fr(~r7), Fr(~r8), Fr(~r9), Fr(~r10),
+     Fr(~r11), Fr(~r12), Fr(~r13), Fr(~r14), Fr(~r15), Fr(~r16), Fr(~r17), Fr(~r18), Fr(~r19), Fr(~r20),
+     Fr(~r21), Fr(~r22), Fr(~r23), Fr(~r24), Fr(~r25), Fr(~r26), Fr(~r27), Fr(~r28), Fr(~r29), Fr(~r30)] 
+
+    --[Nonces(~r1, ~r2, ~r3, ~r4, ~r5, ~r6, ~r7, ~r8, ~r9, ~r10, 
+              ~r11, ~r12, ~r13, ~r14, ~r15, ~r16, ~r17, ~r18, ~r19, ~r20, 
+              ~r21, ~r22, ~r23, ~r24, ~r25, ~r26, ~r27, ~r28, ~r29, ~r30)]->
+
+    [Out(f(~r1, ~r2, ~r3, ~r4, ~r5, ~r6, ~r7, ~r8, ~r9, ~r10, 
+           ~r11, ~r12, ~r13, ~r14, ~r15, ~r16, ~r17, ~r18, ~r19, ~r20, 
+           ~r21, ~r22, ~r23, ~r24, ~r25, ~r26, ~r27, ~r28, ~r29, ~r30))]
+
+rule server_receives_nonces:
+    [In(nonces)]
+
+    --[]->
+
+    []
+
+
+lemma get_1st_nonce:
+    exists-trace
+    "
+    Ex r1 r2 r3 r4 r5 r6 r7 r8 r9 r10
+       r11 r12 r13 r14 r15 r16 r17 r18 r19 r20
+       r21 r22 r23 r24 r25 r26 r27 r28 r29 r30
+       #i #j .
+
+    Nonces(r1, r2, r3, r4, r5, r6, r7, r8, r9, r10,
+           r11, r12, r13, r14, r15, r16, r17, r18, r19, r20,
+           r21, r22, r23, r24, r25, r26, r27, r28, r29, r30) @ i &
+    K(r1) @ j
+    "
+
+lemma get_15th_nonce:
+    exists-trace
+    "
+    Ex r1 r2 r3 r4 r5 r6 r7 r8 r9 r10
+       r11 r12 r13 r14 r15 r16 r17 r18 r19 r20
+       r21 r22 r23 r24 r25 r26 r27 r28 r29 r30
+       #i #j .
+       
+    Nonces(r1, r2, r3, r4, r5, r6, r7, r8, r9, r10,
+           r11, r12, r13, r14, r15, r16, r17, r18, r19, r20,
+           r21, r22, r23, r24, r25, r26, r27, r28, r29, r30) @ i &
+    K(r15) @ j
+    "
+
+lemma get_30th_nonce:
+    exists-trace
+    "
+    Ex r1 r2 r3 r4 r5 r6 r7 r8 r9 r10
+       r11 r12 r13 r14 r15 r16 r17 r18 r19 r20
+       r21 r22 r23 r24 r25 r26 r27 r28 r29 r30
+       #i #j .
+       
+    Nonces(r1, r2, r3, r4, r5, r6, r7, r8, r9, r10,
+           r11, r12, r13, r14, r15, r16, r17, r18, r19, r20,
+           r21, r22, r23, r24, r25, r26, r27, r28, r29, r30) @ i &
+    K(r30) @ j
+    "
+end

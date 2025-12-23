@@ -1,0 +1,37 @@
+free c: channel.
+
+type nonce.
+
+free n1, n2, n3, n4, n5, n6, n7, n8, n9, n10,
+     n11, n12, n13, n14, n15, n16, n17, n18, n19, n20,
+     n21, n22, n23, n24, n25, n26, n27, n28, n29, n30: nonce [private]. 
+
+
+fun opair(nonce, nonce): nonce [data].
+
+reduc forall x:nonce, y:nonce;
+    ofst(opair(x,y)) = x.
+
+reduc forall x:nonce, y:nonce;
+    osnd(opair(x,y)) = y.
+
+
+query attacker(n1).
+query attacker(n15).
+query attacker(n30).
+
+
+let Client =
+    out(c, 
+        opair(n1, opair(n2, opair(n3, opair(n4, opair(n5, 
+        opair(n6, opair(n7, opair(n8, opair(n9, opair(n10,
+        opair(n11, opair(n12, opair(n13, opair(n14, opair(n15,
+        opair(n16, opair(n17, opair(n18, opair(n19, opair(n20,
+        opair(n21, opair(n22, opair(n23, opair(n24, opair(n25,
+        opair(n26, opair(n27, opair(n28, opair(n29, n30)))))))))))))))))))))))))))))).
+
+let Server =
+    in(c, m:bitstring).
+
+process
+    (!Client) | (!Server)

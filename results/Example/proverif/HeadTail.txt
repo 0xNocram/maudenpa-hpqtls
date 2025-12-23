@@ -1,0 +1,276 @@
+Tue Dec 23 12:41:34 CET 2025
+
+Process 0 (that is, the initial process):
+(
+    {1}!
+    {2}out(c, opair(n1,opair(n2,opair(n3,opair(n4,opair(n5,opair(n6,opair(n7,opair(n8,opair(n9,opair(n10,opair(n11,opair(n12,opair(n13,opair(n14,opair(n15,opair(n16,opair(n17,opair(n18,opair(n19,opair(n20,opair(n21,opair(n22,opair(n23,opair(n24,opair(n25,opair(n26,opair(n27,opair(n28,opair(n29,n30))))))))))))))))))))))))))))))
+) | (
+    {3}!
+    {4}in(c, m: bitstring)
+)
+
+-- Query not attacker(n1[]) in process 0.
+Translating the process into Horn clauses...
+Completing...
+Starting query not attacker(n1[])
+goal reachable: attacker(n1[])
+
+Derivation:
+
+1. The message opair(n1[],opair(n2[],opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))))))) may be sent to the attacker at output {2}.
+attacker(opair(n1[],opair(n2[],opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))))))))).
+
+2. By 1, the attacker may know opair(n1[],opair(n2[],opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))))))).
+Using the function ofst the attacker may obtain n1[].
+attacker(n1[]).
+
+3. By 2, attacker(n1[]).
+The goal is reached, represented in the following fact:
+attacker(n1[]).
+
+
+A more detailed output of the traces is available with
+  set traceDisplay = long.
+
+out(c, ~M) with ~M = opair(n1,opair(n2,opair(n3,opair(n4,opair(n5,opair(n6,opair(n7,opair(n8,opair(n9,opair(n10,opair(n11,opair(n12,opair(n13,opair(n14,opair(n15,opair(n16,opair(n17,opair(n18,opair(n19,opair(n20,opair(n21,opair(n22,opair(n23,opair(n24,opair(n25,opair(n26,opair(n27,opair(n28,opair(n29,n30))))))))))))))))))))))))))))) at {2} in copy a
+
+The attacker has the message ofst(~M) = n1.
+A trace has been found.
+RESULT not attacker(n1[]) is false.
+-- Query not attacker(n15[]) in process 0.
+Translating the process into Horn clauses...
+Completing...
+Starting query not attacker(n15[])
+goal reachable: attacker(n15[])
+
+Derivation:
+
+1. The message opair(n1[],opair(n2[],opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))))))) may be sent to the attacker at output {2}.
+attacker(opair(n1[],opair(n2[],opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))))))))).
+
+2. By 1, the attacker may know opair(n1[],opair(n2[],opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))))))).
+Using the function osnd the attacker may obtain opair(n2[],opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))))))).
+attacker(opair(n2[],opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))))))).
+
+3. By 2, the attacker may know opair(n2[],opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))))))).
+Using the function osnd the attacker may obtain opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))))).
+attacker(opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))))))).
+
+4. By 3, the attacker may know opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))))).
+Using the function osnd the attacker may obtain opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))))).
+attacker(opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))))).
+
+5. By 4, the attacker may know opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))))).
+Using the function osnd the attacker may obtain opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))).
+attacker(opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))))).
+
+6. By 5, the attacker may know opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))).
+Using the function osnd the attacker may obtain opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))).
+attacker(opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))).
+
+7. By 6, the attacker may know opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))).
+Using the function osnd the attacker may obtain opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))).
+attacker(opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))).
+
+8. By 7, the attacker may know opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))).
+Using the function osnd the attacker may obtain opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))).
+attacker(opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))).
+
+9. By 8, the attacker may know opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))).
+Using the function osnd the attacker may obtain opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))).
+attacker(opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))).
+
+10. By 9, the attacker may know opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))).
+Using the function osnd the attacker may obtain opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))).
+attacker(opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))).
+
+11. By 10, the attacker may know opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))).
+Using the function osnd the attacker may obtain opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))).
+attacker(opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))).
+
+12. By 11, the attacker may know opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))).
+Using the function osnd the attacker may obtain opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))).
+attacker(opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))).
+
+13. By 12, the attacker may know opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))).
+Using the function osnd the attacker may obtain opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))).
+attacker(opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))).
+
+14. By 13, the attacker may know opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))).
+Using the function osnd the attacker may obtain opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))).
+attacker(opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))).
+
+15. By 14, the attacker may know opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))).
+Using the function osnd the attacker may obtain opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))).
+attacker(opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))).
+
+16. By 15, the attacker may know opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))).
+Using the function ofst the attacker may obtain n15[].
+attacker(n15[]).
+
+17. By 16, attacker(n15[]).
+The goal is reached, represented in the following fact:
+attacker(n15[]).
+
+
+A more detailed output of the traces is available with
+  set traceDisplay = long.
+
+out(c, ~M) with ~M = opair(n1,opair(n2,opair(n3,opair(n4,opair(n5,opair(n6,opair(n7,opair(n8,opair(n9,opair(n10,opair(n11,opair(n12,opair(n13,opair(n14,opair(n15,opair(n16,opair(n17,opair(n18,opair(n19,opair(n20,opair(n21,opair(n22,opair(n23,opair(n24,opair(n25,opair(n26,opair(n27,opair(n28,opair(n29,n30))))))))))))))))))))))))))))) at {2} in copy a
+
+The attacker has the message ofst(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(~M))))))))))))))) = n15.
+A trace has been found.
+RESULT not attacker(n15[]) is false.
+-- Query not attacker(n30[]) in process 0.
+Translating the process into Horn clauses...
+Completing...
+Starting query not attacker(n30[])
+goal reachable: attacker(n30[])
+
+Derivation:
+
+1. The message opair(n1[],opair(n2[],opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))))))) may be sent to the attacker at output {2}.
+attacker(opair(n1[],opair(n2[],opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))))))))).
+
+2. By 1, the attacker may know opair(n1[],opair(n2[],opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))))))).
+Using the function osnd the attacker may obtain opair(n2[],opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))))))).
+attacker(opair(n2[],opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))))))).
+
+3. By 2, the attacker may know opair(n2[],opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))))))).
+Using the function osnd the attacker may obtain opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))))).
+attacker(opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))))))).
+
+4. By 3, the attacker may know opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))))).
+Using the function osnd the attacker may obtain opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))))).
+attacker(opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))))).
+
+5. By 4, the attacker may know opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))))).
+Using the function osnd the attacker may obtain opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))).
+attacker(opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))))).
+
+6. By 5, the attacker may know opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))).
+Using the function osnd the attacker may obtain opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))).
+attacker(opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))).
+
+7. By 6, the attacker may know opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))).
+Using the function osnd the attacker may obtain opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))).
+attacker(opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))).
+
+8. By 7, the attacker may know opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))).
+Using the function osnd the attacker may obtain opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))).
+attacker(opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))).
+
+9. By 8, the attacker may know opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))).
+Using the function osnd the attacker may obtain opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))).
+attacker(opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))).
+
+10. By 9, the attacker may know opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))).
+Using the function osnd the attacker may obtain opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))).
+attacker(opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))).
+
+11. By 10, the attacker may know opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))).
+Using the function osnd the attacker may obtain opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))).
+attacker(opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))).
+
+12. By 11, the attacker may know opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))).
+Using the function osnd the attacker may obtain opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))).
+attacker(opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))).
+
+13. By 12, the attacker may know opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))).
+Using the function osnd the attacker may obtain opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))).
+attacker(opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))).
+
+14. By 13, the attacker may know opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))).
+Using the function osnd the attacker may obtain opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))).
+attacker(opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))).
+
+15. By 14, the attacker may know opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))).
+Using the function osnd the attacker may obtain opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))).
+attacker(opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))).
+
+16. By 15, the attacker may know opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))).
+Using the function osnd the attacker may obtain opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))).
+attacker(opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))).
+
+17. By 16, the attacker may know opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))).
+Using the function osnd the attacker may obtain opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))).
+attacker(opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))).
+
+18. By 17, the attacker may know opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))).
+Using the function osnd the attacker may obtain opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))).
+attacker(opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))).
+
+19. By 18, the attacker may know opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))).
+Using the function osnd the attacker may obtain opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))).
+attacker(opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))).
+
+20. By 19, the attacker may know opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))).
+Using the function osnd the attacker may obtain opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))).
+attacker(opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))).
+
+21. By 20, the attacker may know opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))).
+Using the function osnd the attacker may obtain opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))).
+attacker(opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))).
+
+22. By 21, the attacker may know opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))).
+Using the function osnd the attacker may obtain opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))).
+attacker(opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))).
+
+23. By 22, the attacker may know opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))).
+Using the function osnd the attacker may obtain opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))).
+attacker(opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))).
+
+24. By 23, the attacker may know opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))).
+Using the function osnd the attacker may obtain opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))).
+attacker(opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))).
+
+25. By 24, the attacker may know opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))).
+Using the function osnd the attacker may obtain opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))).
+attacker(opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))).
+
+26. By 25, the attacker may know opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))).
+Using the function osnd the attacker may obtain opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))).
+attacker(opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))).
+
+27. By 26, the attacker may know opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))).
+Using the function osnd the attacker may obtain opair(n27[],opair(n28[],opair(n29[],n30[]))).
+attacker(opair(n27[],opair(n28[],opair(n29[],n30[])))).
+
+28. By 27, the attacker may know opair(n27[],opair(n28[],opair(n29[],n30[]))).
+Using the function osnd the attacker may obtain opair(n28[],opair(n29[],n30[])).
+attacker(opair(n28[],opair(n29[],n30[]))).
+
+29. By 28, the attacker may know opair(n28[],opair(n29[],n30[])).
+Using the function osnd the attacker may obtain opair(n29[],n30[]).
+attacker(opair(n29[],n30[])).
+
+30. By 29, the attacker may know opair(n29[],n30[]).
+Using the function osnd the attacker may obtain n30[].
+attacker(n30[]).
+
+31. By 30, attacker(n30[]).
+The goal is reached, represented in the following fact:
+attacker(n30[]).
+
+
+A more detailed output of the traces is available with
+  set traceDisplay = long.
+
+out(c, ~M) with ~M = opair(n1,opair(n2,opair(n3,opair(n4,opair(n5,opair(n6,opair(n7,opair(n8,opair(n9,opair(n10,opair(n11,opair(n12,opair(n13,opair(n14,opair(n15,opair(n16,opair(n17,opair(n18,opair(n19,opair(n20,opair(n21,opair(n22,opair(n23,opair(n24,opair(n25,opair(n26,opair(n27,opair(n28,opair(n29,n30))))))))))))))))))))))))))))) at {2} in copy a
+
+The attacker has the message osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(osnd(~M))))))))))))))))))))))))))))) = n30.
+A trace has been found.
+RESULT not attacker(n30[]) is false.
+
+--------------------------------------------------------------
+Verification summary:
+
+Query not attacker(n1[]) is false.
+
+Query not attacker(n15[]) is false.
+
+Query not attacker(n30[]) is false.
+
+--------------------------------------------------------------
+
+Elapsed time: 0.025 seconds

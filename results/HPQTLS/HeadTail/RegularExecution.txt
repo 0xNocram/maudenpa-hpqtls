@@ -1,0 +1,279 @@
+Tue Dec 16 01:09:10 PM CET 2025
+
+		     \||||||||||||||||||/
+		   --- Welcome to Maude ---
+		     /||||||||||||||||||\
+	    Maude 3.5.1 built: Jul 16 2025 12:00:00
+	     Copyright 1997-2025 SRI International
+		   Tue Dec 16 13:09:10 2025
+Advisory: "maude-npa.maude", line 14352 (fmod BACK-NARROWING): all the
+    variables in the left-hand side of assignment condition fragment M:Msg :=
+    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
+    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M':Msg))))
+    are bound before the matching takes place.
+Advisory: "maude-npa.maude", line 14376 (fmod BACK-NARROWING): all the
+    variables in the left-hand side of assignment condition fragment M:Msg :=
+    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
+    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M':Msg))))
+    are bound before the matching takes place.
+Advisory: "maude-npa.maude", line 14392 (fmod BACK-NARROWING): all the
+    variables in the left-hand side of assignment condition fragment M:Msg :=
+    downMsgSet(getTerm(metaReduce(removeVariantLabel(clearNonExecEqs(eraseRls(
+    onlyEqsNoBuiltInUnify(flipRls(STRAND-EXAMPLE-RULES))))), upTerm(M:Msg))))
+    are bound before the matching takes place.
+
+	    Maude-NPA Version: 3.1.4 (June 2nd 2020)
+	    with direct composition, irreducibility constraints and time
+	    (To be run with Maude 3.0 or above)
+	    Copyright (c) 2020, University of Illinois
+	    All rights reserved.
+
+ Commands:
+ red unification? .           returns the unification algorithm to be used
+ red new-strands? .           returns the actual protocol strands
+ red displayGrammars .        for generating grammars
+ red run(X,Y).                for Y backwards analysis steps for attack pattern
+    X
+ red debug(X,Y).              more information than run command
+ red digest(X,Y).             less information than run command
+ red summary(X,Y).            for summary of analysis steps
+ red ids(X,Y).                for set of state ids
+ red initials(X,Y).           for showing only initial steps
+==========================================
+reduce in MAUDE-NPA : summary(100, 0) .
+rewrites: 37798235 in 15088ms cpu (15088ms real) (2505185 rewrites/second)
+result Summary: States>> 1 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(100, 1) .
+rewrites: 9243299 in 2092ms cpu (2090ms real) (4418402 rewrites/second)
+result Summary: States>> 3 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(100, 2) .
+rewrites: 19604794 in 3436ms cpu (3437ms real) (5705702 rewrites/second)
+result Summary: States>> 5 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(100, 3) .
+rewrites: 61587061 in 11832ms cpu (11831ms real) (5205126 rewrites/second)
+result Summary: States>> 12 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(100, 4) .
+rewrites: 275202012 in 47736ms cpu (47755ms real) (5765083 rewrites/second)
+result Summary: States>> 33 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(100, 5) .
+rewrites: 1835845994 in 311752ms cpu (311753ms real) (5888802 rewrites/second)
+result Summary: States>> 101 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(100, 6) .
+rewrites: 18549180439 in 3529392ms cpu (3529415ms real) (5255630
+    rewrites/second)
+result Summary: States>> 323 Solutions>> 0
+==========================================
+reduce in MAUDE-NPA : summary(100, 7) .
+rewrites: 226232208606 in 45803936ms cpu (45804100ms real) (4939143
+    rewrites/second)
+result Summary: States>> 1030 Solutions>> 1
+==========================================
+reduce in MAUDE-NPA : initials(100, 7) .
+rewrites: 37366 in 12ms cpu (13ms real) (3113833 rewrites/second)
+result ShortIdSystem: < 1 . 2 . 1 . 1 . 2 . 2 . 2 . 1 > (
+:: #1:Fresh, #2:Fresh, #0:Fresh ::
+[ nil | 
+   +(clienthello ; n(alice, #0:Fresh) ; end), 
+   -(serverhello ; n(bob, #3:Fresh) ; ses(bob, n(bob, #4:Fresh)) ; end), 
+   -(servercertificate ; cer(bob) ; end), 
+   -(serverkeyexchange ; exp(g, n(bob, #5:Fresh)) ; pqpk(pqsk(n(bob,
+    #6:Fresh))) ; sig(bob, exp(g, n(bob, #5:Fresh)) ; pqpk(pqsk(n(bob,
+    #6:Fresh))) ; n(alice, #0:Fresh) ; n(bob, #3:Fresh) ; end) ; end), 
+   +(clientkeyexchange ; exp(g, n(alice, #1:Fresh)) ; encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)) ; end), 
+   +(clientfinished ; prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob,
+    #5:Fresh)), encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(
+    alice, #0:Fresh), n(bob, #3:Fresh), exp(g, n(alice, #1:Fresh)), encapct(
+    pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clienthello ; n(alice,
+    #0:Fresh) ; serverhello ; n(bob, #3:Fresh) ; ses(bob, n(bob, #4:Fresh)) ;
+    servercertificate ; cer(bob) ; serverkeyexchange ; exp(g, n(bob, #5:Fresh))
+    ; pqpk(pqsk(n(bob, #6:Fresh))) ; sig(bob, exp(g, n(bob, #5:Fresh)) ; pqpk(
+    pqsk(n(bob, #6:Fresh))) ; n(alice, #0:Fresh) ; n(bob, #3:Fresh) ; end) ;
+    clientkeyexchange ; exp(g, n(alice, #1:Fresh)) ; encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)) ; end) ; end), 
+   -(serverfinished ; prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob,
+    #5:Fresh)), encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(
+    alice, #0:Fresh), n(bob, #3:Fresh), exp(g, n(alice, #1:Fresh)), encapct(
+    pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clienthello ; n(alice,
+    #0:Fresh) ; serverhello ; n(bob, #3:Fresh) ; ses(bob, n(bob, #4:Fresh)) ;
+    servercertificate ; cer(bob) ; serverkeyexchange ; exp(g, n(bob, #5:Fresh))
+    ; pqpk(pqsk(n(bob, #6:Fresh))) ; sig(bob, exp(g, n(bob, #5:Fresh)) ; pqpk(
+    pqsk(n(bob, #6:Fresh))) ; n(alice, #0:Fresh) ; n(bob, #3:Fresh) ; end) ;
+    clientkeyexchange ; exp(g, n(alice, #1:Fresh)) ; encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)) ; clientfinished ; prf(ms(prems(exp(g, n(
+    alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob, #6:Fresh))),
+    n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh), exp(g, n(alice,
+    #1:Fresh)), encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))),
+    clienthello ; n(alice, #0:Fresh) ; serverhello ; n(bob, #3:Fresh) ; ses(
+    bob, n(bob, #4:Fresh)) ; servercertificate ; cer(bob) ; serverkeyexchange ;
+    exp(g, n(bob, #5:Fresh)) ; pqpk(pqsk(n(bob, #6:Fresh))) ; sig(bob, exp(g,
+    n(bob, #5:Fresh)) ; pqpk(pqsk(n(bob, #6:Fresh))) ; n(alice, #0:Fresh) ; n(
+    bob, #3:Fresh) ; end) ; clientkeyexchange ; exp(g, n(alice, #1:Fresh)) ;
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)) ; end) ; end) ;
+    end), nil]  & 
+:: #3:Fresh, #4:Fresh, #5:Fresh, #6:Fresh ::
+[ nil | 
+   -(clienthello ; n(alice, #0:Fresh) ; end), 
+   +(serverhello ; n(bob, #3:Fresh) ; ses(bob, n(bob, #4:Fresh)) ; end), 
+   +(servercertificate ; cer(bob) ; end), 
+   +(serverkeyexchange ; exp(g, n(bob, #5:Fresh)) ; pqpk(pqsk(n(bob,
+    #6:Fresh))) ; sig(bob, exp(g, n(bob, #5:Fresh)) ; pqpk(pqsk(n(bob,
+    #6:Fresh))) ; n(alice, #0:Fresh) ; n(bob, #3:Fresh) ; end) ; end), 
+   -(clientkeyexchange ; exp(g, n(alice, #1:Fresh)) ; encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)) ; end), 
+   -(clientfinished ; prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob,
+    #5:Fresh)), encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(
+    alice, #0:Fresh), n(bob, #3:Fresh), exp(g, n(alice, #1:Fresh)), encapct(
+    pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clienthello ; n(alice,
+    #0:Fresh) ; serverhello ; n(bob, #3:Fresh) ; ses(bob, n(bob, #4:Fresh)) ;
+    servercertificate ; cer(bob) ; serverkeyexchange ; exp(g, n(bob, #5:Fresh))
+    ; pqpk(pqsk(n(bob, #6:Fresh))) ; sig(bob, exp(g, n(bob, #5:Fresh)) ; pqpk(
+    pqsk(n(bob, #6:Fresh))) ; n(alice, #0:Fresh) ; n(bob, #3:Fresh) ; end) ;
+    clientkeyexchange ; exp(g, n(alice, #1:Fresh)) ; encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)) ; end) ; end), 
+   +(serverfinished ; prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob,
+    #5:Fresh)), encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(
+    alice, #0:Fresh), n(bob, #3:Fresh), exp(g, n(alice, #1:Fresh)), encapct(
+    pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), clienthello ; n(alice,
+    #0:Fresh) ; serverhello ; n(bob, #3:Fresh) ; ses(bob, n(bob, #4:Fresh)) ;
+    servercertificate ; cer(bob) ; serverkeyexchange ; exp(g, n(bob, #5:Fresh))
+    ; pqpk(pqsk(n(bob, #6:Fresh))) ; sig(bob, exp(g, n(bob, #5:Fresh)) ; pqpk(
+    pqsk(n(bob, #6:Fresh))) ; n(alice, #0:Fresh) ; n(bob, #3:Fresh) ; end) ;
+    clientkeyexchange ; exp(g, n(alice, #1:Fresh)) ; encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)) ; clientfinished ; prf(ms(prems(exp(g, n(
+    alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob, #6:Fresh))),
+    n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh), exp(g, n(alice,
+    #1:Fresh)), encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))),
+    clienthello ; n(alice, #0:Fresh) ; serverhello ; n(bob, #3:Fresh) ; ses(
+    bob, n(bob, #4:Fresh)) ; servercertificate ; cer(bob) ; serverkeyexchange ;
+    exp(g, n(bob, #5:Fresh)) ; pqpk(pqsk(n(bob, #6:Fresh))) ; sig(bob, exp(g,
+    n(bob, #5:Fresh)) ; pqpk(pqsk(n(bob, #6:Fresh))) ; n(alice, #0:Fresh) ; n(
+    bob, #3:Fresh) ; end) ; clientkeyexchange ; exp(g, n(alice, #1:Fresh)) ;
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)) ; end) ; end) ;
+    end), nil] )
+| 
+(clienthello ; n(alice, #0:Fresh) ; end) !inI,
+(serverhello ; n(bob, #3:Fresh) ; ses(bob, n(bob, #4:Fresh)) ; end) !inI,
+(servercertificate ; cer(bob) ; end) !inI,
+(serverkeyexchange ; exp(g, n(bob, #5:Fresh)) ; pqpk(pqsk(n(bob, #6:Fresh))) ;
+    sig(bob, exp(g, n(bob, #5:Fresh)) ; pqpk(pqsk(n(bob, #6:Fresh))) ; n(alice,
+    #0:Fresh) ; n(bob, #3:Fresh) ; end) ; end) !inI,
+(clientkeyexchange ; exp(g, n(alice, #1:Fresh)) ; encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)) ; end) !inI,
+(clientfinished ; prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #2:Fresh))), clienthello ; n(alice, #0:Fresh)
+    ; serverhello ; n(bob, #3:Fresh) ; ses(bob, n(bob, #4:Fresh)) ;
+    servercertificate ; cer(bob) ; serverkeyexchange ; exp(g, n(bob, #5:Fresh))
+    ; pqpk(pqsk(n(bob, #6:Fresh))) ; sig(bob, exp(g, n(bob, #5:Fresh)) ; pqpk(
+    pqsk(n(bob, #6:Fresh))) ; n(alice, #0:Fresh) ; n(bob, #3:Fresh) ; end) ;
+    clientkeyexchange ; exp(g, n(alice, #1:Fresh)) ; encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)) ; end) ; end) !inI,
+(serverfinished ; prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #2:Fresh))), clienthello ; n(alice, #0:Fresh)
+    ; serverhello ; n(bob, #3:Fresh) ; ses(bob, n(bob, #4:Fresh)) ;
+    servercertificate ; cer(bob) ; serverkeyexchange ; exp(g, n(bob, #5:Fresh))
+    ; pqpk(pqsk(n(bob, #6:Fresh))) ; sig(bob, exp(g, n(bob, #5:Fresh)) ; pqpk(
+    pqsk(n(bob, #6:Fresh))) ; n(alice, #0:Fresh) ; n(bob, #3:Fresh) ; end) ;
+    clientkeyexchange ; exp(g, n(alice, #1:Fresh)) ; encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)) ; clientfinished ; prf(ms(prems(exp(g, n(
+    alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob, #6:Fresh))),
+    n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh), exp(g, n(alice,
+    #1:Fresh)), encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))),
+    clienthello ; n(alice, #0:Fresh) ; serverhello ; n(bob, #3:Fresh) ; ses(
+    bob, n(bob, #4:Fresh)) ; servercertificate ; cer(bob) ; serverkeyexchange ;
+    exp(g, n(bob, #5:Fresh)) ; pqpk(pqsk(n(bob, #6:Fresh))) ; sig(bob, exp(g,
+    n(bob, #5:Fresh)) ; pqpk(pqsk(n(bob, #6:Fresh))) ; n(alice, #0:Fresh) ; n(
+    bob, #3:Fresh) ; end) ; clientkeyexchange ; exp(g, n(alice, #1:Fresh)) ;
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)) ; end) ; end) ;
+    end) !inI
+| 
++(clienthello ; n(alice, #0:Fresh) ; end), 
+-(clienthello ; n(alice, #0:Fresh) ; end), 
++(serverhello ; n(bob, #3:Fresh) ; ses(bob, n(bob, #4:Fresh)) ; end), 
++(servercertificate ; cer(bob) ; end), 
++(serverkeyexchange ; exp(g, n(bob, #5:Fresh)) ; pqpk(pqsk(n(bob, #6:Fresh))) ;
+    sig(bob, exp(g, n(bob, #5:Fresh)) ; pqpk(pqsk(n(bob, #6:Fresh))) ; n(alice,
+    #0:Fresh) ; n(bob, #3:Fresh) ; end) ; end), 
+-(serverhello ; n(bob, #3:Fresh) ; ses(bob, n(bob, #4:Fresh)) ; end), 
+-(servercertificate ; cer(bob) ; end), 
+-(serverkeyexchange ; exp(g, n(bob, #5:Fresh)) ; pqpk(pqsk(n(bob, #6:Fresh))) ;
+    sig(bob, exp(g, n(bob, #5:Fresh)) ; pqpk(pqsk(n(bob, #6:Fresh))) ; n(alice,
+    #0:Fresh) ; n(bob, #3:Fresh) ; end) ; end), 
++(clientkeyexchange ; exp(g, n(alice, #1:Fresh)) ; encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)) ; end), 
++(clientfinished ; prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #2:Fresh))), clienthello ; n(alice, #0:Fresh)
+    ; serverhello ; n(bob, #3:Fresh) ; ses(bob, n(bob, #4:Fresh)) ;
+    servercertificate ; cer(bob) ; serverkeyexchange ; exp(g, n(bob, #5:Fresh))
+    ; pqpk(pqsk(n(bob, #6:Fresh))) ; sig(bob, exp(g, n(bob, #5:Fresh)) ; pqpk(
+    pqsk(n(bob, #6:Fresh))) ; n(alice, #0:Fresh) ; n(bob, #3:Fresh) ; end) ;
+    clientkeyexchange ; exp(g, n(alice, #1:Fresh)) ; encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)) ; end) ; end), 
+-(clientkeyexchange ; exp(g, n(alice, #1:Fresh)) ; encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)) ; end), 
+-(clientfinished ; prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #2:Fresh))), clienthello ; n(alice, #0:Fresh)
+    ; serverhello ; n(bob, #3:Fresh) ; ses(bob, n(bob, #4:Fresh)) ;
+    servercertificate ; cer(bob) ; serverkeyexchange ; exp(g, n(bob, #5:Fresh))
+    ; pqpk(pqsk(n(bob, #6:Fresh))) ; sig(bob, exp(g, n(bob, #5:Fresh)) ; pqpk(
+    pqsk(n(bob, #6:Fresh))) ; n(alice, #0:Fresh) ; n(bob, #3:Fresh) ; end) ;
+    clientkeyexchange ; exp(g, n(alice, #1:Fresh)) ; encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)) ; end) ; end), 
++(serverfinished ; prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #2:Fresh))), clienthello ; n(alice, #0:Fresh)
+    ; serverhello ; n(bob, #3:Fresh) ; ses(bob, n(bob, #4:Fresh)) ;
+    servercertificate ; cer(bob) ; serverkeyexchange ; exp(g, n(bob, #5:Fresh))
+    ; pqpk(pqsk(n(bob, #6:Fresh))) ; sig(bob, exp(g, n(bob, #5:Fresh)) ; pqpk(
+    pqsk(n(bob, #6:Fresh))) ; n(alice, #0:Fresh) ; n(bob, #3:Fresh) ; end) ;
+    clientkeyexchange ; exp(g, n(alice, #1:Fresh)) ; encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)) ; clientfinished ; prf(ms(prems(exp(g, n(
+    alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob, #6:Fresh))),
+    n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh), exp(g, n(alice,
+    #1:Fresh)), encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))),
+    clienthello ; n(alice, #0:Fresh) ; serverhello ; n(bob, #3:Fresh) ; ses(
+    bob, n(bob, #4:Fresh)) ; servercertificate ; cer(bob) ; serverkeyexchange ;
+    exp(g, n(bob, #5:Fresh)) ; pqpk(pqsk(n(bob, #6:Fresh))) ; sig(bob, exp(g,
+    n(bob, #5:Fresh)) ; pqpk(pqsk(n(bob, #6:Fresh))) ; n(alice, #0:Fresh) ; n(
+    bob, #3:Fresh) ; end) ; clientkeyexchange ; exp(g, n(alice, #1:Fresh)) ;
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)) ; end) ; end) ;
+    end), 
+-(serverfinished ; prf(ms(prems(exp(g, n(alice, #1:Fresh) * n(bob, #5:Fresh)),
+    encapss(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))), n(alice,
+    #0:Fresh), n(bob, #3:Fresh), exp(g, n(alice, #1:Fresh)), encapct(pqpk(pqsk(
+    n(bob, #6:Fresh))), n(alice, #2:Fresh))), clienthello ; n(alice, #0:Fresh)
+    ; serverhello ; n(bob, #3:Fresh) ; ses(bob, n(bob, #4:Fresh)) ;
+    servercertificate ; cer(bob) ; serverkeyexchange ; exp(g, n(bob, #5:Fresh))
+    ; pqpk(pqsk(n(bob, #6:Fresh))) ; sig(bob, exp(g, n(bob, #5:Fresh)) ; pqpk(
+    pqsk(n(bob, #6:Fresh))) ; n(alice, #0:Fresh) ; n(bob, #3:Fresh) ; end) ;
+    clientkeyexchange ; exp(g, n(alice, #1:Fresh)) ; encapct(pqpk(pqsk(n(bob,
+    #6:Fresh))), n(alice, #2:Fresh)) ; clientfinished ; prf(ms(prems(exp(g, n(
+    alice, #1:Fresh) * n(bob, #5:Fresh)), encapss(pqpk(pqsk(n(bob, #6:Fresh))),
+    n(alice, #2:Fresh))), n(alice, #0:Fresh), n(bob, #3:Fresh), exp(g, n(alice,
+    #1:Fresh)), encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh))),
+    clienthello ; n(alice, #0:Fresh) ; serverhello ; n(bob, #3:Fresh) ; ses(
+    bob, n(bob, #4:Fresh)) ; servercertificate ; cer(bob) ; serverkeyexchange ;
+    exp(g, n(bob, #5:Fresh)) ; pqpk(pqsk(n(bob, #6:Fresh))) ; sig(bob, exp(g,
+    n(bob, #5:Fresh)) ; pqpk(pqsk(n(bob, #6:Fresh))) ; n(alice, #0:Fresh) ; n(
+    bob, #3:Fresh) ; end) ; clientkeyexchange ; exp(g, n(alice, #1:Fresh)) ;
+    encapct(pqpk(pqsk(n(bob, #6:Fresh))), n(alice, #2:Fresh)) ; end) ; end) ;
+    end)
+| 
+nil
+
+Wed Dec 17 11:31:12 AM CET 2025
