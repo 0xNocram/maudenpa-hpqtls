@@ -17,14 +17,15 @@ The verification is performed using **Maude-NPA**, using four different cryptogr
   - [Gather](#gather)
   - [Associativity](#associativity)
   - [VariadicSymbol](#variadicsymbol)
+- [Appendix](#appendix)
 
 ## Repository Structure
 
 | Folder | Description |
 |-------------------------|-----------------------------------------------------------------------------|
-| [`src/`](./src/README.md) | Contains the main Hybrid Post-Quantum TLS 1.2 protocol specifications in Maude, one for each of the four refinements. |
-| [`test`](../test/README.md) | Includes basic example models demonstrating each cryptographic refinement, verified in Maude-NPA, Tamarin Prover , and ProVerif. |
-| [`results`](../results/README.md) | Stores all verification output results from running the models in `src/` and `test/`. |
+| `src/` | Contains the main Hybrid Post-Quantum TLS 1.2 protocol specifications in Maude, one for each of the four refinements. |
+| `test/` | Includes basic example models demonstrating each cryptographic refinement, verified in Maude-NPA, Tamarin Prover , and ProVerif. |
+| `results/` | Stores all verification output results from running the models in `src/` and `test/`. |
 | `scripts/` | Contains shell scripts to automate the execution and verification of the models. |
 | `maude/` | Supporting Maude modules required for running Maude-NPA. |
 | `maude-npa.maude` | The specific version of the Maude-NPA tool used for the analyses |
@@ -92,3 +93,8 @@ This again limits intruder knowledge compared to Head/Tail or Gather, potentiall
 
 **Key observation**: Both Associativity and VariadicSymbol sacrifice the ability to obtain multi-atom subsequences, thereby reducing intruder knowledge. This can be advantageous depending on the security property being verified and the desired balance between realism and tractability.
 
+# Appendix
+
+The prior work [1] could not achieve a finite search space. This has been successfully accomplished in the current repository using the VariadicSymbol approach, which restricts decomposition to individual elements and enables bounded, terminating verification while still providing meaningful security insights. Both Associativity and VariadicSymbol sacrifice the ability to obtain multi-atom subsequences, thereby reducing intruder knowledge. This can be advantageous depending on the security property being verified and the desired balance between realism and tractability.
+
+[1] Tran DD, Do CM, Escobar S, Ogata K. (2023). Hybrid post-quantum Transport Layer Security formal analysis in Maude-NPA and its parallel version. *PeerJ Computer Science* 9:e1556 https://doi.org/10.7717/peerj-cs.1556
