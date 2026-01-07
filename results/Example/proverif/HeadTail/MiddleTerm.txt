@@ -1,0 +1,104 @@
+Wed Jan  7 18:23:47 CET 2026
+
+Process 0 (that is, the initial process):
+(
+    {1}!
+    {2}out(c, opair(n1,opair(n2,opair(n3,opair(n4,opair(n5,opair(n6,opair(n7,opair(n8,opair(n9,opair(n10,opair(n11,opair(n12,opair(n13,opair(n14,opair(n15,opair(n16,opair(n17,opair(n18,opair(n19,opair(n20,opair(n21,opair(n22,opair(n23,opair(n24,opair(n25,opair(n26,opair(n27,opair(n28,opair(n29,n30))))))))))))))))))))))))))))))
+) | (
+    {3}!
+    {4}in(c, m: bitstring)
+)
+
+-- Query not attacker(n15[]) in process 0.
+Translating the process into Horn clauses...
+Completing...
+Starting query not attacker(n15[])
+goal reachable: attacker(n15[])
+
+Derivation:
+
+1. The message opair(n1[],opair(n2[],opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))))))) may be sent to the attacker at output {2}.
+attacker(opair(n1[],opair(n2[],opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))))))))).
+
+2. By 1, the attacker may know opair(n1[],opair(n2[],opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))))))).
+Using the function 2-proj-opair the attacker may obtain opair(n2[],opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))))))).
+attacker(opair(n2[],opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))))))).
+
+3. By 2, the attacker may know opair(n2[],opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))))))).
+Using the function 2-proj-opair the attacker may obtain opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))))).
+attacker(opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))))))).
+
+4. By 3, the attacker may know opair(n3[],opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))))).
+Using the function 2-proj-opair the attacker may obtain opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))))).
+attacker(opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))))).
+
+5. By 4, the attacker may know opair(n4[],opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))))).
+Using the function 2-proj-opair the attacker may obtain opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))).
+attacker(opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))))).
+
+6. By 5, the attacker may know opair(n5[],opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))).
+Using the function 2-proj-opair the attacker may obtain opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))).
+attacker(opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))))).
+
+7. By 6, the attacker may know opair(n6[],opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))).
+Using the function 2-proj-opair the attacker may obtain opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))).
+attacker(opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))))).
+
+8. By 7, the attacker may know opair(n7[],opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))).
+Using the function 2-proj-opair the attacker may obtain opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))).
+attacker(opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))))).
+
+9. By 8, the attacker may know opair(n8[],opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))).
+Using the function 2-proj-opair the attacker may obtain opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))).
+attacker(opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))))).
+
+10. By 9, the attacker may know opair(n9[],opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))).
+Using the function 2-proj-opair the attacker may obtain opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))).
+attacker(opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))))).
+
+11. By 10, the attacker may know opair(n10[],opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))).
+Using the function 2-proj-opair the attacker may obtain opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))).
+attacker(opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))))).
+
+12. By 11, the attacker may know opair(n11[],opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))).
+Using the function 2-proj-opair the attacker may obtain opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))).
+attacker(opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))))).
+
+13. By 12, the attacker may know opair(n12[],opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))).
+Using the function 2-proj-opair the attacker may obtain opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))).
+attacker(opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))))).
+
+14. By 13, the attacker may know opair(n13[],opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))).
+Using the function 2-proj-opair the attacker may obtain opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))).
+attacker(opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))))).
+
+15. By 14, the attacker may know opair(n14[],opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))).
+Using the function 2-proj-opair the attacker may obtain opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))).
+attacker(opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[])))))))))))))))).
+
+16. By 15, the attacker may know opair(n15[],opair(n16[],opair(n17[],opair(n18[],opair(n19[],opair(n20[],opair(n21[],opair(n22[],opair(n23[],opair(n24[],opair(n25[],opair(n26[],opair(n27[],opair(n28[],opair(n29[],n30[]))))))))))))))).
+Using the function 1-proj-opair the attacker may obtain n15[].
+attacker(n15[]).
+
+17. By 16, attacker(n15[]).
+The goal is reached, represented in the following fact:
+attacker(n15[]).
+
+
+A more detailed output of the traces is available with
+  set traceDisplay = long.
+
+out(c, opair(~M,opair(~M_1,opair(~M_2,opair(~M_3,opair(~M_4,opair(~M_5,opair(~M_6,opair(~M_7,opair(~M_8,opair(~M_9,opair(~M_10,opair(~M_11,opair(~M_12,opair(~M_13,opair(~M_14,opair(~M_15,opair(~M_16,opair(~M_17,opair(~M_18,opair(~M_19,opair(~M_20,opair(~M_21,opair(~M_22,opair(~M_23,opair(~M_24,opair(~M_25,opair(~M_26,opair(~M_27,opair(~M_28,~M_29)))))))))))))))))))))))))))))) with ~M = n1, ~M_1 = n2, ~M_2 = n3, ~M_3 = n4, ~M_4 = n5, ~M_5 = n6, ~M_6 = n7, ~M_7 = n8, ~M_8 = n9, ~M_9 = n10, ~M_10 = n11, ~M_11 = n12, ~M_12 = n13, ~M_13 = n14, ~M_14 = n15, ~M_15 = n16, ~M_16 = n17, ~M_17 = n18, ~M_18 = n19, ~M_19 = n20, ~M_20 = n21, ~M_21 = n22, ~M_22 = n23, ~M_23 = n24, ~M_24 = n25, ~M_25 = n26, ~M_26 = n27, ~M_27 = n28, ~M_28 = n29, ~M_29 = n30 at {2} in copy a
+
+The attacker has the message ~M_14 = n15.
+A trace has been found.
+RESULT not attacker(n15[]) is false.
+
+--------------------------------------------------------------
+Verification summary:
+
+Query not attacker(n15[]) is false.
+
+--------------------------------------------------------------
+
+Elapsed time: 0.011 seconds

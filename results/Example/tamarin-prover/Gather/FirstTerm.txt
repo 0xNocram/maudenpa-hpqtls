@@ -1,0 +1,91 @@
+Wed Jan  7 18:08:30 CET 2026
+
+theory Gather begin
+
+// Function signature and definition of the equational theory E
+
+functions: fst/1, pair/2, snd/1
+equations: fst(<x.1, x.2>) = x.1, snd(<x.1, x.2>) = x.2
+
+
+
+
+
+rule (modulo E) client_send_nonces:
+   [
+   Fr( ~r1 ), Fr( ~r2 ), Fr( ~r3 ), Fr( ~r4 ), Fr( ~r5 ), Fr( ~r6 ),
+   Fr( ~r7 ), Fr( ~r8 ), Fr( ~r9 ), Fr( ~r10 ), Fr( ~r11 ), Fr( ~r12 ),
+   Fr( ~r13 ), Fr( ~r14 ), Fr( ~r15 ), Fr( ~r16 ), Fr( ~r17 ), Fr( ~r18 ),
+   Fr( ~r19 ), Fr( ~r20 ), Fr( ~r21 ), Fr( ~r22 ), Fr( ~r23 ), Fr( ~r24 ),
+   Fr( ~r25 ), Fr( ~r26 ), Fr( ~r27 ), Fr( ~r28 ), Fr( ~r29 ), Fr( ~r30 )
+   ]
+  --[
+  Nonces( ~r1, ~r2, ~r3, ~r4, ~r5, ~r6, ~r7, ~r8, ~r9, ~r10, ~r11, ~r12,
+          ~r13, ~r14, ~r15, ~r16, ~r17, ~r18, ~r19, ~r20, ~r21, ~r22, ~r23, ~r24,
+          ~r25, ~r26, ~r27, ~r28, ~r29, ~r30
+  )
+  ]->
+   [
+   Out( <~r1, ~r2, ~r3, ~r4, ~r5, ~r6, ~r7, ~r8, ~r9, ~r10, ~r11, ~r12, 
+         ~r13, ~r14, ~r15, ~r16, ~r17, ~r18, ~r19, ~r20, ~r21, ~r22, ~r23, ~r24, 
+         ~r25, ~r26, ~r27, ~r28, ~r29, ~r30>
+   )
+   ]
+
+  /* has exactly the trivial AC variant */
+
+rule (modulo E) server_receives_nonces:
+   [ In( nonces ) ] --> [ ]
+
+  /* has exactly the trivial AC variant */
+
+lemma get_1st_nonce:
+  exists-trace
+  "∃ r1 r2 r3 r4 r5 r6 r7 r8 r9 r10 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20
+     r21 r22 r23 r24 r25 r26 r27 r28 r29 r30 #i #j.
+    (Nonces( r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14,
+             r15, r16, r17, r18, r19, r20, r21, r22, r23, r24, r25, r26, r27, r28,
+             r29, r30
+     ) @ #i) ∧
+    (K( r1 ) @ #j)"
+/*
+guarded formula characterizing all satisfying traces:
+"∃ r1 r2 r3 r4 r5 r6 r7 r8 r9 r10 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20
+   r21 r22 r23 r24 r25 r26 r27 r28 r29 r30 #i #j.
+  (Nonces( r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14,
+           r15, r16, r17, r18, r19, r20, r21, r22, r23, r24, r25, r26, r27, r28,
+           r29, r30
+   ) @ #i) ∧
+  (K( r1 ) @ #j)"
+*/
+simplify
+solve( !KU( ~r1 ) @ #vk )
+  case client_send_nonces
+  SOLVED // trace found
+qed
+
+
+/* All wellformedness checks were successful. */
+
+/*
+Generated from:
+Tamarin version 1.10.0
+Maude version 3.5
+Git revision: cb62c305f8c8b8c1e664152aa33c95b7b8d5ef32, branch: master
+Compiled at: 2024-10-30 11:11:02.432289291 UTC
+*/
+
+end
+
+==============================================================================
+summary of summaries:
+
+analyzed: /home/asanmar/maudenpa-hpqtls/scripts/Example/tamarin-prover/../../../test/tamarin-prover/Gather.spthy
+
+  processing time: 73.03s
+  
+  get_1st_nonce (exists-trace): verified (3 steps)
+
+==============================================================================
+
+Wed Jan  7 18:09:43 CET 2026

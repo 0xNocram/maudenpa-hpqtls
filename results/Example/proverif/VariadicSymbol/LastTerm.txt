@@ -1,0 +1,48 @@
+Wed Jan  7 18:25:02 CET 2026
+
+Process 0 (that is, the initial process):
+(
+    {1}!
+    {2}out(c, f(n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,n11,n12,n13,n14,n15,n16,n17,n18,n19,n20,n21,n22,n23,n24,n25,n26,n27,n28,n29,n30))
+) | (
+    {3}!
+    {4}in(c, m: bitstring)
+)
+
+-- Query not attacker(n30[]) in process 0.
+Translating the process into Horn clauses...
+Completing...
+Starting query not attacker(n30[])
+goal reachable: attacker(n30[])
+
+Derivation:
+
+1. The message f(n1[],n2[],n3[],n4[],n5[],n6[],n7[],n8[],n9[],n10[],n11[],n12[],n13[],n14[],n15[],n16[],n17[],n18[],n19[],n20[],n21[],n22[],n23[],n24[],n25[],n26[],n27[],n28[],n29[],n30[]) may be sent to the attacker at output {2}.
+attacker(f(n1[],n2[],n3[],n4[],n5[],n6[],n7[],n8[],n9[],n10[],n11[],n12[],n13[],n14[],n15[],n16[],n17[],n18[],n19[],n20[],n21[],n22[],n23[],n24[],n25[],n26[],n27[],n28[],n29[],n30[])).
+
+2. By 1, the attacker may know f(n1[],n2[],n3[],n4[],n5[],n6[],n7[],n8[],n9[],n10[],n11[],n12[],n13[],n14[],n15[],n16[],n17[],n18[],n19[],n20[],n21[],n22[],n23[],n24[],n25[],n26[],n27[],n28[],n29[],n30[]).
+Using the function 30-proj-f the attacker may obtain n30[].
+attacker(n30[]).
+
+3. By 2, attacker(n30[]).
+The goal is reached, represented in the following fact:
+attacker(n30[]).
+
+
+A more detailed output of the traces is available with
+  set traceDisplay = long.
+
+out(c, f(~M,~M_1,~M_2,~M_3,~M_4,~M_5,~M_6,~M_7,~M_8,~M_9,~M_10,~M_11,~M_12,~M_13,~M_14,~M_15,~M_16,~M_17,~M_18,~M_19,~M_20,~M_21,~M_22,~M_23,~M_24,~M_25,~M_26,~M_27,~M_28,~M_29)) with ~M = n1, ~M_1 = n2, ~M_2 = n3, ~M_3 = n4, ~M_4 = n5, ~M_5 = n6, ~M_6 = n7, ~M_7 = n8, ~M_8 = n9, ~M_9 = n10, ~M_10 = n11, ~M_11 = n12, ~M_12 = n13, ~M_13 = n14, ~M_14 = n15, ~M_15 = n16, ~M_16 = n17, ~M_17 = n18, ~M_18 = n19, ~M_19 = n20, ~M_20 = n21, ~M_21 = n22, ~M_22 = n23, ~M_23 = n24, ~M_24 = n25, ~M_25 = n26, ~M_26 = n27, ~M_27 = n28, ~M_28 = n29, ~M_29 = n30 at {2} in copy a
+
+The attacker has the message ~M_29 = n30.
+A trace has been found.
+RESULT not attacker(n30[]) is false.
+
+--------------------------------------------------------------
+Verification summary:
+
+Query not attacker(n30[]) is false.
+
+--------------------------------------------------------------
+
+Elapsed time: 0.016 seconds

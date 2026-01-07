@@ -1,0 +1,130 @@
+Wed Jan  7 18:13:28 CET 2026
+
+maude tool: 'maude'
+ checking version: 3.5. OK.
+ checking installation: OK.
+[Theory HeadTail] Theory loaded
+[Theory HeadTail] Theory translated
+[Theory HeadTail] Theory closed
+[Saturating Sources] Step 1 (Max 5)
+[Saturating Sources] Done
+theory HeadTail begin
+
+// Function signature and definition of the equational theory E
+
+functions: fst/1, ofst/1, opair/2, osnd/1, pair/2, snd/1
+equations:
+    fst(<x.1, x.2>) = x.1,
+    ofst(opair(x, y)) = x,
+    osnd(opair(x, y)) = y,
+    snd(<x.1, x.2>) = x.2
+
+
+
+
+
+rule (modulo E) client_send_nonces:
+   [
+   Fr( ~r1 ), Fr( ~r2 ), Fr( ~r3 ), Fr( ~r4 ), Fr( ~r5 ), Fr( ~r6 ),
+   Fr( ~r7 ), Fr( ~r8 ), Fr( ~r9 ), Fr( ~r10 ), Fr( ~r11 ), Fr( ~r12 ),
+   Fr( ~r13 ), Fr( ~r14 ), Fr( ~r15 ), Fr( ~r16 ), Fr( ~r17 ), Fr( ~r18 ),
+   Fr( ~r19 ), Fr( ~r20 ), Fr( ~r21 ), Fr( ~r22 ), Fr( ~r23 ), Fr( ~r24 ),
+   Fr( ~r25 ), Fr( ~r26 ), Fr( ~r27 ), Fr( ~r28 ), Fr( ~r29 ), Fr( ~r30 )
+   ]
+  --[
+  Nonces( ~r1, ~r2, ~r3, ~r4, ~r5, ~r6, ~r7, ~r8, ~r9, ~r10, ~r11, ~r12,
+          ~r13, ~r14, ~r15, ~r16, ~r17, ~r18, ~r19, ~r20, ~r21, ~r22, ~r23, ~r24,
+          ~r25, ~r26, ~r27, ~r28, ~r29, ~r30
+  )
+  ]->
+   [
+   Out( opair(~r1,
+              opair(~r2,
+                    opair(~r3,
+                          opair(~r4,
+                                opair(~r5,
+                                      opair(~r6,
+                                            opair(~r7,
+                                                  opair(~r8,
+                                                        opair(~r9,
+                                                              opair(~r10,
+                                                                    opair(~r11,
+                                                                          opair(~r12,
+                                                                                opair(~r13,
+                                                                                      opair(~r14,
+                                                                                            opair(~r15,
+                                                                                                  opair(~r16,
+                                                                                                        opair(~r17,
+                                                                                                              opair(~r18,
+                                                                                                                    opair(~r19,
+                                                                                                                          opair(~r20,
+                                                                                                                                opair(~r21,
+                                                                                                                                      opair(~r22,
+                                                                                                                                            opair(~r23,
+                                                                                                                                                  opair(~r24,
+                                                                                                                                                        opair(~r25,
+                                                                                                                                                              opair(~r26,
+                                                                                                                                                                    opair(~r27,
+                                                                                                                                                                          opair(~r28,
+                                                                                                                                                                                opair(~r29,
+                                                                                                                                                                                      ~r30)))))))))))))))))))))))))))))
+   )
+   ]
+
+  /* has exactly the trivial AC variant */
+
+rule (modulo E) server_receives_nonces:
+   [ In( nonces ) ] --> [ ]
+
+  /* has exactly the trivial AC variant */
+
+lemma get_30th_nonce:
+  exists-trace
+  "∃ r1 r2 r3 r4 r5 r6 r7 r8 r9 r10 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20
+     r21 r22 r23 r24 r25 r26 r27 r28 r29 r30 #i #j.
+    (Nonces( r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14,
+             r15, r16, r17, r18, r19, r20, r21, r22, r23, r24, r25, r26, r27, r28,
+             r29, r30
+     ) @ #i) ∧
+    (K( r30 ) @ #j)"
+/*
+guarded formula characterizing all satisfying traces:
+"∃ r1 r2 r3 r4 r5 r6 r7 r8 r9 r10 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20
+   r21 r22 r23 r24 r25 r26 r27 r28 r29 r30 #i #j.
+  (Nonces( r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14,
+           r15, r16, r17, r18, r19, r20, r21, r22, r23, r24, r25, r26, r27, r28,
+           r29, r30
+   ) @ #i) ∧
+  (K( r30 ) @ #j)"
+*/
+simplify
+solve( !KU( ~r30 ) @ #vk )
+  case client_send_nonces
+  SOLVED // trace found
+qed
+
+
+/* All wellformedness checks were successful. */
+
+/*
+Generated from:
+Tamarin version 1.10.0
+Maude version 3.5
+Git revision: cb62c305f8c8b8c1e664152aa33c95b7b8d5ef32, branch: master
+Compiled at: 2024-10-30 11:11:02.432289291 UTC
+*/
+
+end
+
+==============================================================================
+summary of summaries:
+
+analyzed: /home/asanmar/maudenpa-hpqtls/scripts/Example/tamarin-prover/../../../test/tamarin-prover/HeadTail.spthy
+
+  processing time: 89.61s
+  
+  get_30th_nonce (exists-trace): verified (3 steps)
+
+==============================================================================
+
+Wed Jan  7 18:14:58 CET 2026
