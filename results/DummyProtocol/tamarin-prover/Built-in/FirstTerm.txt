@@ -1,4 +1,4 @@
-Wed Jan  7 18:03:20 CET 2026
+Wed Jan  7 18:08:30 CET 2026
 
 theory Builtin begin
 
@@ -39,7 +39,7 @@ rule (modulo E) server_receives_nonces:
 
   /* has exactly the trivial AC variant */
 
-lemma get_30th_nonce:
+lemma get_1st_nonce:
   exists-trace
   "∃ r1 r2 r3 r4 r5 r6 r7 r8 r9 r10 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20
      r21 r22 r23 r24 r25 r26 r27 r28 r29 r30 #i #j.
@@ -47,7 +47,7 @@ lemma get_30th_nonce:
              r15, r16, r17, r18, r19, r20, r21, r22, r23, r24, r25, r26, r27, r28,
              r29, r30
      ) @ #i) ∧
-    (K( r30 ) @ #j)"
+    (K( r1 ) @ #j)"
 /*
 guarded formula characterizing all satisfying traces:
 "∃ r1 r2 r3 r4 r5 r6 r7 r8 r9 r10 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20
@@ -56,10 +56,10 @@ guarded formula characterizing all satisfying traces:
            r15, r16, r17, r18, r19, r20, r21, r22, r23, r24, r25, r26, r27, r28,
            r29, r30
    ) @ #i) ∧
-  (K( r30 ) @ #j)"
+  (K( r1 ) @ #j)"
 */
 simplify
-solve( !KU( ~r30 ) @ #vk )
+solve( !KU( ~r1 ) @ #vk )
   case client_send_nonces
   SOLVED // trace found
 qed
@@ -80,11 +80,12 @@ end
 ==============================================================================
 summary of summaries:
 
-analyzed: /home/asanmar/maudenpa-hpqtls/scripts/Example/tamarin-prover/../../../test/tamarin-prover/Built-in.spthy
+analyzed: /home/asanmar/maudenpa-hpqtls/scripts/DummyProtocol/tamarin-prover/../../../test/tamarin-prover/Built-in.spthy
 
-  processing time: 75.08s
+  processing time: 73.03s
   
-  get_30th_nonce (exists-trace): verified (3 steps)
+  get_1st_nonce (exists-trace): verified (3 steps)
 
 ==============================================================================
-Wed Jan  7 18:04:35 CET 2026
+
+Wed Jan  7 18:09:43 CET 2026

@@ -111,7 +111,7 @@ end
 ==============================================================================
 summary of summaries:
 
-analyzed: /home/asanmar/maudenpa-hpqtls/scripts/Example/tamarin-prover/../../../test/tamarin-prover/HeadTail.spthy
+analyzed: /home/asanmar/maudenpa-hpqtls/scripts/DummyProtocol/tamarin-prover/../../../test/tamarin-prover/HeadTail.spthy
 
   processing time: 79.82s
   

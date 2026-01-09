@@ -1,164 +1,166 @@
 free c: channel.
 
 type nonce.
+type hash.
 
 free n1, n2, n3, n4, n5, n6, n7, n8, n9, n10,
      n11, n12, n13, n14, n15, n16, n17, n18, n19, n20,
      n21, n22, n23, n24, n25, n26, n27, n28, n29, n30: nonce [private]. 
-     
+
+fun h(nonce) : hash.
 
 fun f(
-  nonce, nonce, nonce, nonce, nonce, nonce, nonce, nonce, nonce, nonce,
+  nonce, hash, nonce, nonce, nonce, nonce, nonce, nonce, nonce, nonce,
   nonce, nonce, nonce, nonce, nonce, nonce, nonce, nonce, nonce, nonce,
   nonce, nonce, nonce, nonce, nonce, nonce, nonce, nonce, nonce, nonce
 ): bitstring [data].
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get1(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x1.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get2(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x2.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get3(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x3.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get4(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x4.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get5(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x5.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get6(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x6.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get7(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x7.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get8(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x8.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get9(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x9.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get10(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x10.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get11(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x11.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get12(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x12.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get13(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x13.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get14(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x14.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get15(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x15.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get16(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x16.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get17(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x17.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get18(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x18.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get19(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x19.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get20(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x20.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get21(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x21.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get22(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x22.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get23(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x23.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get24(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x24.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get25(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x25.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get26(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x26.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get27(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x27.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get28(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x28.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get29(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x29.
 
-reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
+reduc forall x1:nonce, x2:hash, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonce, x8:nonce, x9:nonce, x10:nonce,
              x11:nonce, x12:nonce, x13:nonce, x14:nonce, x15:nonce, x16:nonce, x17:nonce, x18:nonce, x19:nonce, x20:nonce,
              x21:nonce, x22:nonce, x23:nonce, x24:nonce, x25:nonce, x26:nonce, x27:nonce, x28:nonce, x29:nonce, x30:nonce;
     get30(f(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20,x21,x22,x23,x24,x25,x26,x27,x28,x29,x30)) = x30.
@@ -167,10 +169,11 @@ reduc forall x1:nonce, x2:nonce, x3:nonce, x4:nonce, x5:nonce, x6:nonce, x7:nonc
 query attacker(n1).
 query attacker(n15).
 query attacker(n30).
+query attacker(n2).
 
 
 let Client =
-    out(c, f(n1,n2,n3,n4,n5,n6,n7,n8,n9,n10,
+    out(c, f(n1,h(n2),n3,n4,n5,n6,n7,n8,n9,n10,
              n11,n12,n13,n14,n15,n16,n17,n18,n19,n20,
              n21,n22,n23,n24,n25,n26,n27,n28,n29,n30)).
 

@@ -4,21 +4,30 @@ fmod PROTOCOL-EXAMPLE-SYMBOLS is
     protecting DEFINITION-PROTOCOL-RULES .
 
     sort Name .
-    
+
     subsort Name    < Msg      .
     subsort Name    < Public    .
 
     ops alice eve : -> Name .
 
 
-    sorts Nonce .
+    sort Hash .
+
+    subsort Hash < Msg .
+
+    op h : Msg -> Hash [frozen] .
+
+
+    sort Nonce .
 
     subsort Nonce < Msg .
 
     op n : Name Fresh -> Nonce [frozen] . 
 
 
-    op f : Nonce Nonce Nonce Nonce Nonce Nonce Nonce Nonce Nonce -> Msg [frozen] .
+    op f : Nonce Hash Nonce Nonce Nonce Nonce Nonce Nonce Nonce -> Msg [frozen] .
+
+
 endfm
 
 fmod PROTOCOL-EXAMPLE-ALGEBRAIC is
@@ -32,55 +41,60 @@ fmod PROTOCOL-SPECIFICATION is
 
     vars r1 r2 r3 r4 r5 r6 r7 r8 r9 : Fresh .
     vars N1 N2 N3 N4 N5 N6 N7 N8 N9 : Nonce .
+    var  HN2                        : Hash .
 
     
 	eq STRANDS-DOLEVYAO =
 		:: nil ::   [nil | 
-                        -(f(x:Nonce, y:Nonce, z:Nonce, u:Nonce, v:Nonce, w:Nonce, r:Nonce, s:Nonce, t:Nonce)), 
+                        -(f(x:Nonce, y:Hash, z:Nonce, u:Nonce, v:Nonce, w:Nonce, r:Nonce, s:Nonce, t:Nonce)), 
                         +(x:Nonce), nil] &
 		:: nil ::   [nil | 
-                        -(f(x:Nonce, y:Nonce, z:Nonce, u:Nonce, v:Nonce, w:Nonce, r:Nonce, s:Nonce, t:Nonce)), 
-                        +(y:Nonce), nil] &
+                        -(f(x:Nonce, y:Hash, z:Nonce, u:Nonce, v:Nonce, w:Nonce, r:Nonce, s:Nonce, t:Nonce)), 
+                        +(y:Hash), nil] &
         :: nil ::   [nil | 
-                        -(f(x:Nonce, y:Nonce, z:Nonce, u:Nonce, v:Nonce, w:Nonce, r:Nonce, s:Nonce, t:Nonce)), 
+                        -(f(x:Nonce, y:Hash, z:Nonce, u:Nonce, v:Nonce, w:Nonce, r:Nonce, s:Nonce, t:Nonce)), 
                         +(z:Nonce), nil] &
 		:: nil ::   [nil | 
-                        -(f(x:Nonce, y:Nonce, z:Nonce, u:Nonce, v:Nonce, w:Nonce, r:Nonce, s:Nonce, t:Nonce)), 
+                        -(f(x:Nonce, y:Hash, z:Nonce, u:Nonce, v:Nonce, w:Nonce, r:Nonce, s:Nonce, t:Nonce)), 
                         +(u:Nonce), nil] &
 		:: nil ::   [nil | 
-                        -(f(x:Nonce, y:Nonce, z:Nonce, u:Nonce, v:Nonce, w:Nonce, r:Nonce, s:Nonce, t:Nonce)), 
+                        -(f(x:Nonce, y:Hash, z:Nonce, u:Nonce, v:Nonce, w:Nonce, r:Nonce, s:Nonce, t:Nonce)), 
                         +(v:Nonce), nil] &
 		:: nil ::   [nil | 
-                        -(f(x:Nonce, y:Nonce, z:Nonce, u:Nonce, v:Nonce, w:Nonce, r:Nonce, s:Nonce, t:Nonce)), 
+                        -(f(x:Nonce, y:Hash, z:Nonce, u:Nonce, v:Nonce, w:Nonce, r:Nonce, s:Nonce, t:Nonce)), 
                         +(w:Nonce), nil] &
 		:: nil ::   [nil | 
-                        -(f(x:Nonce, y:Nonce, z:Nonce, u:Nonce, v:Nonce, w:Nonce, r:Nonce, s:Nonce, t:Nonce)), 
+                        -(f(x:Nonce, y:Hash, z:Nonce, u:Nonce, v:Nonce, w:Nonce, r:Nonce, s:Nonce, t:Nonce)), 
                         +(r:Nonce), nil] &
 		:: nil ::   [nil | 
-                        -(f(x:Nonce, y:Nonce, z:Nonce, u:Nonce, v:Nonce, w:Nonce, r:Nonce, s:Nonce, t:Nonce)), 
+                        -(f(x:Nonce, y:Hash, z:Nonce, u:Nonce, v:Nonce, w:Nonce, r:Nonce, s:Nonce, t:Nonce)), 
                         +(s:Nonce), nil] &
 		:: nil ::   [nil | 
-                        -(f(x:Nonce, y:Nonce, z:Nonce, u:Nonce, v:Nonce, w:Nonce, r:Nonce, s:Nonce, t:Nonce)), 
+                        -(f(x:Nonce, y:Hash, z:Nonce, u:Nonce, v:Nonce, w:Nonce, r:Nonce, s:Nonce, t:Nonce)), 
                         +(t:Nonce), nil] &
         :: nil ::   [nil | 
-                        -(x:Nonce), -(y:Nonce), -(z:Nonce), -(u:Nonce), -(v:Nonce), -(w:Nonce), -(r:Nonce), -(s:Nonce), -(t:Nonce), 
-                        +(f(x:Nonce, y:Nonce, z:Nonce, u:Nonce, v:Nonce, w:Nonce, r:Nonce, s:Nonce, t:Nonce)), nil] &
+                        -(x:Nonce), -(y:Hash), -(z:Nonce), -(u:Nonce), -(v:Nonce), -(w:Nonce), -(r:Nonce), -(s:Nonce), -(t:Nonce), 
+                        +(f(x:Nonce, y:Hash, z:Nonce, u:Nonce, v:Nonce, w:Nonce, r:Nonce, s:Nonce, t:Nonce)), nil] &
                         
         :: x:Fresh :: [nil |
         
-                       +(n(eve, x:Fresh)), nil]
+                       +(n(eve, x:Fresh)), nil] &
+
+        :: nil :: [nil |
+                       -(x:Msg),
+                       +(h(x:Msg)), nil]           
 	[nonexec] .
 
 
 	eq STRANDS-PROTOCOL =
 		:: r1, r2, r3, r4, r5, r6, r7, r8, r9 ::
 		[nil | 
-		+   (f(n(alice, r1), n(alice, r2), n(alice, r3), n(alice, r4), n(alice, r5), n(alice, r6), n(alice, r7), n(alice, r8), n(alice, r9)))
+		+   (f(n(alice, r1), h(n(alice, r2)), n(alice, r3), n(alice, r4), n(alice, r5), n(alice, r6), n(alice, r7), n(alice, r8), n(alice, r9)))
         , nil] &
 
 		:: nil ::
 		[nil |
-		- (f(N1, N2, N3, N4, N5, N6, N7, N8, N9))
+		- (f(N1, HN2, N3, N4, N5, N6, N7, N8, N9))
         , nil]
 	[nonexec] .
 
@@ -89,7 +103,7 @@ fmod PROTOCOL-SPECIFICATION is
     eq ATTACK-STATE(1) =
         :: r1, r2, r3, r4, r5, r6, r7, r8, r9 ::
         [nil, 
-        +   (f(n(alice, r1), n(alice, r2), n(alice, r3), n(alice, r4), n(alice, r5), n(alice, r6), n(alice, r7), n(alice, r8), n(alice, r9)))
+        +   (f(n(alice, r1), h(n(alice, r2)), n(alice, r3), n(alice, r4), n(alice, r5), n(alice, r6), n(alice, r7), n(alice, r8), n(alice, r9)))
         | nil]
         || n(alice, r1) inI, empty
         || nil
@@ -102,7 +116,7 @@ fmod PROTOCOL-SPECIFICATION is
     eq ATTACK-STATE(2) =
         :: r1, r2, r3, r4, r5, r6, r7, r8, r9 ::
         [nil, 
-        +   (f(n(alice, r1), n(alice, r2), n(alice, r3), n(alice, r4), n(alice, r5), n(alice, r6), n(alice, r7), n(alice, r8), n(alice, r9)))
+        +   (f(n(alice, r1), h(n(alice, r2)), n(alice, r3), n(alice, r4), n(alice, r5), n(alice, r6), n(alice, r7), n(alice, r8), n(alice, r9)))
         | nil]
         || n(alice, r5) inI, empty
         || nil
@@ -115,9 +129,22 @@ fmod PROTOCOL-SPECIFICATION is
     eq ATTACK-STATE(3) =
         :: r1, r2, r3, r4, r5, r6, r7, r8, r9 ::
         [nil, 
-        +   (f(n(alice, r1), n(alice, r2), n(alice, r3), n(alice, r4), n(alice, r5), n(alice, r6), n(alice, r7), n(alice, r8), n(alice, r9)))
+        +   (f(n(alice, r1), h(n(alice, r2)), n(alice, r3), n(alice, r4), n(alice, r5), n(alice, r6), n(alice, r7), n(alice, r8), n(alice, r9)))
         | nil]
         || n(alice, r9) inI, empty
+        || nil
+        || nil
+        || nil
+    [nonexec] .
+
+
+    --- Solution found at depth 2
+    eq ATTACK-STATE(4) =
+        :: r1, r2, r3, r4, r5, r6, r7, r8, r9 ::
+        [nil, 
+        +   (f(n(alice, r1), h(n(alice, r2)), n(alice, r3), n(alice, r4), n(alice, r5), n(alice, r6), n(alice, r7), n(alice, r8), n(alice, r9)))
+        | nil]
+        || n(alice, r2) inI, empty
         || nil
         || nil
         || nil

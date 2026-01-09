@@ -186,7 +186,7 @@ end
 ==============================================================================
 summary of summaries:
 
-analyzed: /home/asanmar/maudenpa-hpqtls/scripts/Example/tamarin-prover/../../../test/tamarin-prover/VariadicSymbol.spthy
+analyzed: /home/asanmar/maudenpa-hpqtls/scripts/DummyProtocol/tamarin-prover/../../../test/tamarin-prover/VariadicSymbol.spthy
 
   processing time: 7.96s
   
