@@ -1,6 +1,5 @@
 theory HeadTail begin
 
-builtins: hashing
 
 functions: opair/2, ofst/1, osnd/1
 
@@ -18,7 +17,7 @@ rule client_send_nonces:
               ~r11, ~r12, ~r13, ~r14, ~r15, ~r16, ~r17, ~r18, ~r19, ~r20,
               ~r21, ~r22, ~r23, ~r24, ~r25, ~r26, ~r27, ~r28, ~r29, ~r30)]->
 
-    [Out(opair(~r1, opair(h(~r2), opair(~r3, opair(~r4, opair(~r5, opair(~r6, opair(~r7, opair(~r8, opair(~r9, opair(~r10,
+    [Out(opair(~r1, opair(~r2, opair(~r3, opair(~r4, opair(~r5, opair(~r6, opair(~r7, opair(~r8, opair(~r9, opair(~r10,
           opair(~r11, opair(~r12, opair(~r13, opair(~r14, opair(~r15, opair(~r16, opair(~r17, opair(~r18, opair(~r19, opair(~r20,
           opair(~r21, opair(~r22, opair(~r23, opair(~r24, opair(~r25, opair(~r26, opair(~r27, opair(~r28, opair(~r29, ~r30))))))))))))))))))))))))))))))]
 
@@ -70,19 +69,5 @@ lemma get_30th_nonce:
            r11, r12, r13, r14, r15, r16, r17, r18, r19, r20,
            r21, r22, r23, r24, r25, r26, r27, r28, r29, r30) @ i &
     K(r30) @ j
-    "
-
-lemma get_2nd_nonce:
-    exists-trace
-    "
-    Ex r1 r2 r3 r4 r5 r6 r7 r8 r9 r10
-       r11 r12 r13 r14 r15 r16 r17 r18 r19 r20
-       r21 r22 r23 r24 r25 r26 r27 r28 r29 r30
-       #i #j .
-       
-    Nonces(r1, r2, r3, r4, r5, r6, r7, r8, r9, r10,
-           r11, r12, r13, r14, r15, r16, r17, r18, r19, r20,
-           r21, r22, r23, r24, r25, r26, r27, r28, r29, r30) @ i &
-    K(r2) @ j
     "
 end
