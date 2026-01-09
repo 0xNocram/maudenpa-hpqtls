@@ -8,7 +8,7 @@ START_NS=$(date +%N)
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-proverif "${SCRIPT_DIR}/../../../test/proverif/Gather.pv" <<EOF
+proverif "${SCRIPT_DIR}/../../../test/proverif/Built-in.pv" <<EOF
 date
 EOF
 

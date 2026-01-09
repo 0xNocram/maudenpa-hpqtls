@@ -1,4 +1,4 @@
-theory Gather begin
+theory Builtin begin
 
 
 rule client_send_nonces:

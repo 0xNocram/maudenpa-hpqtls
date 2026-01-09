@@ -1,6 +1,6 @@
 Wed Jan  7 18:01:30 CET 2026
 
-theory Gather begin
+theory Builtin begin
 
 // Function signature and definition of the equational theory E
 
@@ -80,7 +80,7 @@ end
 ==============================================================================
 summary of summaries:
 
-analyzed: /home/asanmar/maudenpa-hpqtls/scripts/Example/tamarin-prover/../../../test/tamarin-prover/Gather.spthy
+analyzed: /home/asanmar/maudenpa-hpqtls/scripts/Example/tamarin-prover/../../../test/tamarin-prover/Built-in.spthy
 
   processing time: 80.09s
   
